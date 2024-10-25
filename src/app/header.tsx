@@ -79,6 +79,8 @@ const Header: FC = () => {
           const res = await fetch('/api/members');
           const token = await res.text();
           setUser(jwtDecode(token));
+          console.log(token)
+          console.log(jwtDecode(token))
 
           toast.success(`Welcome back!`, {
             position: "top-right",
