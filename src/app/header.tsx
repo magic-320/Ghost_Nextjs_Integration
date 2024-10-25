@@ -72,15 +72,14 @@ const Header: FC = () => {
   useEffect(() => {
 
     if (hasRun.current) return;
-    hasRun.current = true;
+    hasRun.current = true;     
 
-    (async () => {
+    const getToken = async() => {
       try {
           const res = await fetch('/api/members');
           const token = await res.text();
           setUser(jwtDecode(token));
-          console.log(token)
-          console.log(jwtDecode(token))
+          localStorage.setItem('edosaJwtToken', token);
 
           toast.success(`Welcome back!`, {
             position: "top-right",
@@ -97,8 +96,15 @@ const Header: FC = () => {
       } catch (err) {
           console.log(err);
       }
-    })();
+    }
 
+    const jwtToken = localStorage.getItem('edosaJwtToken');
+    if (jwtToken) {
+      setUser(jwtDecode(jwtToken));
+    } else {
+      getToken();
+    }
+    
   }, [])
 
   return (
