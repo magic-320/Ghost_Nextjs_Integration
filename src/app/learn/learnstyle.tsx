@@ -1,6 +1,8 @@
 'use client';
 import React, { FC, useState } from "react";
 import LearnCard from "../components/cards/LearnCard";
+import axios from "axios";
+
 const learnItems = [
   {
     title: "Free",
@@ -48,7 +50,36 @@ const learnItems = [
     border: "border-2 border-gray-300"
   },
 ];
+
+interface learnItemsStyle {
+  title: string,
+  header: string,
+  text: string,
+  items: any,
+  buttonName: string,
+  backColor: string,
+  border: string
+}
+
+
 const LearnStyle: FC = () => {
+
+  // const [learnItems, setLearnItems] = useState<learnItemsStyle>();
+
+  React.useEffect(() => {
+      const getTiers = async() => {
+          try {
+             const res = await fetch('/api/content/tiers');
+             const response = await res.json();
+             console.log(response)
+
+          } catch (err) {
+            console.log(err);
+          }
+      }
+
+      getTiers();
+  }, [])
 
   return (
     <div className="mt-4 sm:mt-14 sm:px-10 flex justify-center items-center flex-col">

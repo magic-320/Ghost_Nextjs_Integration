@@ -5,7 +5,7 @@ import STAR from "@/public/assets/svg/star.svg";
 import DOTS from "@/public/assets/svg/threedot.svg";
 const ReviewComponent: NextPage = () => {
   return (
-    <div className='flex flex-col sm:flex-row sm:row-span-2 relative sm:ml-14 mt-10 sm:mt-24 rounded-2xl  bg-[#F3F8FE] min-h-[448px]'>
+    <div className='flex flex-col sm:flex-row sm:row-span-2 relative mt-5 sm:mt-10 rounded-2xl  bg-[#F3F8FE] min-h-[448px]'>
       <div className="flex flex-col ml-6 sm:ml-16 mt-16">
         <div className="flex flex-row gap-2">
           <Image src={STAR} alt="star"></Image>

@@ -16,6 +16,14 @@ const config: Config = {
         foreground: "var(--foreground)",
         "def-color": "#F3F8FE",
         "text-color": "#475467",
+        "l-main-color": "#5c76ff",
+        "l-demo-color": "#f3f8fe",
+        "r-main-color": "#f15f31",
+        "r-demo-color": "#FFF7F4",
+        "m-main-color": "#95da79",
+        "m-demo-color": "#f2faec",
+        "w-main-color": "#7f56d9",
+        "w-demo-color": "#F7F6FF"
       }
     },
     fontFamily: {

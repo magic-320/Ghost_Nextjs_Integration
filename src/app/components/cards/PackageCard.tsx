@@ -55,7 +55,7 @@ const PackageCard: FC<PackageCardProps> = ({
                             {
                                 badge && (
                                     <div
-                                        className="absolute top-5 right-16 flex w-[88px] h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#5c76ff]"
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#5c76ff]"
                                         aria-label="Badge"
                                     >
                                         <div className="relative w-2 h-3" aria-hidden="true">
@@ -83,7 +83,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        ${price}
+                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
                                     </div>
                                     <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
                                         {content}
@@ -128,7 +128,7 @@ const PackageCard: FC<PackageCardProps> = ({
                             {
                                 badge && (
                                     <div
-                                        className="absolute top-5 right-16 flex w-[88px] h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#f15f31]"
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#f15f31]"
                                         aria-label="Badge"
                                     >
                                         <div className="relative w-2 h-3" aria-hidden="true">
@@ -156,7 +156,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        ${price}
+                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
                                     </div>
                                     <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
                                         {content}
@@ -200,7 +200,7 @@ const PackageCard: FC<PackageCardProps> = ({
                             {
                                 badge && (
                                     <div
-                                        className="absolute top-5 right-16 flex w-[88px] h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#95da79]"
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#95da79]"
                                         aria-label="Badge"
                                     >
                                         <div className="relative w-2 h-3" aria-hidden="true">
@@ -228,7 +228,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        ${price}
+                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
                                     </div>
                                     <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
                                         {content}
@@ -272,7 +272,7 @@ const PackageCard: FC<PackageCardProps> = ({
                             {
                                 badge && (
                                     <div
-                                        className="absolute top-5 right-16 flex w-[88px] h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#7f56d9]"
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#7f56d9]"
                                         aria-label="Badge"
                                     >
                                         <div className="relative w-2 h-3" aria-hidden="true">
@@ -300,7 +300,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        ${price}
+                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
                                     </div>
                                     <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
                                         {content}

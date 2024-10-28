@@ -19,7 +19,7 @@ const links: Array<{ text: string, link: string, textColor: string, bgColor: str
   {
     text: "Learn",
     link: "/learn",
-    textColor: "#5C76FF",
+    textColor: "#5c76ff",
     bgColor: "#F3F8FE"
   },
   {
@@ -43,18 +43,15 @@ const links: Array<{ text: string, link: string, textColor: string, bgColor: str
 ];
 
 interface userStyle {
-    aud: string,
-    exp: number,
-    iat: number,
-    iss: string,
-    kid: string,
-    sub: string
+    jwtToken: any,
+    member: any
 }
+
 
 const Header: FC = () => {
   const currentUrl = usePathname();
   const headerPanelRef = useRef<HTMLDivElement>(null);
-  const [user, setUser] = useState<userStyle>();
+  const [user, setUser] = useState<userStyle | null>();
   const hasRun = useRef(false);
 
   useEffect(() => {
@@ -77,9 +74,17 @@ const Header: FC = () => {
     const getToken = async() => {
       try {
           const res = await fetch('/api/members');
-          const token = await res.text();
-          setUser(jwtDecode(token));
-          localStorage.setItem('edosaJwtToken', token);
+          const response = await res.json();
+
+          const jwtToken = response.jwtToken;
+          const member = response.member;
+
+          setUser({
+              jwtToken: jwtDecode(jwtToken),
+              member: member
+          });
+          localStorage.setItem('edosaJwtToken', jwtToken);
+          localStorage.setItem('edosaMember', JSON.stringify(member));
 
           toast.success(`Welcome back!`, {
             position: "top-right",
@@ -98,14 +103,19 @@ const Header: FC = () => {
       }
     }
 
-    const jwtToken = localStorage.getItem('edosaJwtToken');
-    if (jwtToken) {
-      setUser(jwtDecode(jwtToken));
+    if (localStorage.getItem('edosaJwtToken') && localStorage.getItem('edosaMember')) {
+        const jwtToken = localStorage.getItem('edosaJwtToken');
+        const member = localStorage.getItem('edosaMember');
+        setUser({
+            jwtToken: jwtToken && jwtDecode(jwtToken),
+            member: member && JSON.parse(member)
+        });
     } else {
-      getToken();
+        getToken();
     }
-    
+
   }, [])
+
 
   return (
     <>
@@ -148,7 +158,7 @@ const Header: FC = () => {
               !user ? (
                 <Link href='/signin'><DefaultButton className='text-xs sm:text-[20px]'>Sign Up</DefaultButton></Link>
               ) : (
-                <Link href='/'><DefaultButton className='text-xs sm:text-[20px]'>{user.sub.split('@')[0]}</DefaultButton></Link>
+                <Link href='/Dashboard'><DefaultButton className='text-xs sm:text-[20px]'>{user.member.name}</DefaultButton></Link>
               )
             }  
         
@@ -161,3 +171,7 @@ const Header: FC = () => {
 };
 
 export default Header;
+function clearCookie(cookieName: string) {
+  throw new Error('Function not implemented.');
+}
+

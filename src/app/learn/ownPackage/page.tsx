@@ -1,19 +1,15 @@
 import type { NextPage } from 'next';
 import Header from '../../header';
 import Footer from '../../footer';
-import BuildOwnPackage from './BuildOwnPackage';
-import ViewPackage from './ViewPackage';
-import ChoosePackage from './ChoosePackage';
+import YourPackage from './YourPackage';
 import ReviewComponent from '../../components/reviewcomponent';
 
-const AllPackages: NextPage = () => {
+const OwnPackage: NextPage = () => {
     return (
         <div className='mx-5 pb-5'>
             <div className='max-w-[1440px] mx-auto'>
                 <Header />
-                <BuildOwnPackage />
-                <ViewPackage />
-                <ChoosePackage />
+                <YourPackage />
                 <ReviewComponent />
                 <Footer />
             </div>
@@ -21,4 +17,4 @@ const AllPackages: NextPage = () => {
     )
 }
 
-export default AllPackages;
+export default OwnPackage;
