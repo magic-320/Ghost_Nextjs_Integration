@@ -63,23 +63,6 @@ interface learnItemsStyle {
 
 const LearnStyle: FC = () => {
 
-  // const [learnItems, setLearnItems] = useState<learnItemsStyle>();
-
-  React.useEffect(() => {
-      const getPosts = async() => {
-          try {
-             const res = await fetch('/api/content/posts');
-             const response = await res.json();
-             console.log(response)
-
-          } catch (err) {
-            console.log(err);
-          }
-      }
-
-      getPosts();
-  }, [])
-
   return (
     <div className="mt-4 sm:mt-14 sm:px-10 flex justify-center items-center flex-col">
       <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F3F8FE] px-3 sm:px-5 py-1">

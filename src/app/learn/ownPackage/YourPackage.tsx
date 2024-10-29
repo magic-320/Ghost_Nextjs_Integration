@@ -16,7 +16,7 @@ const IndividualPackageList = [
         enable: true,
         mainColor: '#5d5fef',
         price: "10.00",
-        title: 'AI Chatbot',
+        title: 'Access to all Basic Features',
         content: 'Includes up to 10 users, 20GB individual data and access to all features.',
         isChecked: false
     },
@@ -24,7 +24,7 @@ const IndividualPackageList = [
         enable: true,
         mainColor: '#5d5fef',
         price: "10.00",
-        title: 'AI Chatbot',
+        title: '3-week to Executive Handbook',
         content: 'Includes up to 10 users, 20GB individual data and access to all features.',
         isChecked: false
     },
@@ -32,7 +32,15 @@ const IndividualPackageList = [
         enable: true,
         mainColor: '#5d5fef',
         price: "10.00",
-        title: 'AI Chatbot',
+        title: 'Bonus 1-on-1 Coaching Session',
+        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
+        isChecked: false
+    },
+    {
+        enable: true,
+        mainColor: '#5d5fef',
+        price: "10.00",
+        title: 'Access to Curated Resource Library',
         content: 'Includes up to 10 users, 20GB individual data and access to all features.',
         isChecked: false
     }

@@ -10,16 +10,16 @@ const Learn: FC = () => {
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
             <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
-                <h1 className='text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
+                <h1 className='text-[20px] md:text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
                     Services &gt; Learn &gt; 5-day Email Course
                 </h1>
 
-                <div className="grid grid-cols-2 gap-4 mx-5">
-                    <div className='w-full h-full bg-l-demo-color rounded-[22px]'>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mx-5">
+                    <div className='w-full h-[515px] bg-l-demo-color rounded-[22px]'>
                         
                     </div>
                     <div className='px-3'>
-                        <div className="text-4xl leading-11 font-bold text-text-color my-5">
+                        <div className="text-[25px] md:text-[36px] leading-11 font-bold text-text-color my-5">
                             5-day Email Course
                         </div>
 
@@ -88,7 +88,7 @@ const Learn: FC = () => {
                             </div>
                         </div>
 
-                        <div className='mt-12 flex gap-3 text-center justify-center w-full'>
+                        <div className='mt-12 gap-3 text-center flex justify-center w-full'>
                             <Link href="#" className="w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]">
                                 <button>In Progress</button>
                             </Link>

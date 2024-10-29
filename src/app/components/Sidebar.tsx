@@ -30,6 +30,15 @@ const Sidebar: FC = () => {
             case "/Dashboard/meet":
                 setActive('meet');
                 break;
+            case "/Dashboard/newsletter":
+                setActive('newsletter');
+                break;
+            case "/Dashboard/assessment":
+                setActive('assessment');
+                break;
+            case "/Dashboard/settings":
+                setActive('settings');
+                break;
             default:
                 break;
         }
@@ -95,12 +104,14 @@ const Sidebar: FC = () => {
                         My Chatbot
                     </div>
                 </Link>
-                <div 
-                    className={`mt-4 hover:cursor-pointer ${active == 'newsletter' && 'font-bold'}`}
-                    onClick={() => setActive('newsletter')}
-                >
-                    My Newsletter
-                </div>
+                <Link href="/Dashboard/newsletter">
+                    <div 
+                        className={`mt-4 hover:cursor-pointer ${active == 'newsletter' && 'font-bold'}`}
+                        onClick={() => setActive('newsletter')}
+                    >
+                        My Newsletter
+                    </div>
+                </Link>
                 <Link href="/Dashboard/assessment">
                     <div 
                         className={`mt-4 hover:cursor-pointer ${active == 'assessment' && 'font-bold'}`}
@@ -110,12 +121,14 @@ const Sidebar: FC = () => {
                     </div>
                 </Link>
 
-                <div 
-                    className={`mt-4 hover:cursor-pointer ${active == 'settings' && 'font-bold'}`}
-                    onClick={() => setActive('settings')}
-                >
-                    Settings
-                </div>
+                <Link href="/Dashboard/settings">
+                    <div 
+                        className={`mt-4 hover:cursor-pointer ${active == 'settings' && 'font-bold'}`}
+                        onClick={() => setActive('settings')}
+                    >
+                        Settings
+                    </div>
+                </Link>
             </div>
         </div>
     )
