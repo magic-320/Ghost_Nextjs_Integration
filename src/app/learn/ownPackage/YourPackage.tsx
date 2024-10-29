@@ -89,9 +89,10 @@ const YourPackage: FC = () => {
                 </h1>
                 <div className='gap-2'>
                     {
-                        IndividualPackageList.map((el: any) => (
+                        IndividualPackageList.map((el: any, index) => (
                             <div className='my-2'>
                                 <IndividualPackage 
+                                    key={index}
                                     enable={el.enable} 
                                     mainColor={el.mainColor} 
                                     price={el.price} 
@@ -108,9 +109,10 @@ const YourPackage: FC = () => {
                     Add more
                 </h1>
                 {
-                    AddMoreList.map((el: any) => (
+                    AddMoreList.map((el: any, index) => (
                         <div className='my-2'>
                             <IndividualPackage 
+                                key={index}
                                 enable={el.enable} 
                                 mainColor={el.mainColor} 
                                 price={el.price} 

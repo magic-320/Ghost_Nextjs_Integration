@@ -1,7 +1,6 @@
 'use client';
 import React, { FC, useState } from "react";
 import LearnCard from "../components/cards/LearnCard";
-import axios from "axios";
 
 const learnItems = [
   {
@@ -67,9 +66,9 @@ const LearnStyle: FC = () => {
   // const [learnItems, setLearnItems] = useState<learnItemsStyle>();
 
   React.useEffect(() => {
-      const getTiers = async() => {
+      const getPosts = async() => {
           try {
-             const res = await fetch('/api/content/tiers');
+             const res = await fetch('/api/content/posts');
              const response = await res.json();
              console.log(response)
 
@@ -78,7 +77,7 @@ const LearnStyle: FC = () => {
           }
       }
 
-      getTiers();
+      getPosts();
   }, [])
 
   return (

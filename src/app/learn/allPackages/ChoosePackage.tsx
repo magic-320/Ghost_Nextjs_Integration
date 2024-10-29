@@ -55,6 +55,7 @@ const ViewPackage: FC = () => {
                     packages.map((el, index) => {
                         return (
                             <PackageCard 
+                                key={index}
                                 type={el.type} 
                                 title={el.title} 
                                 badge={el.badge} 

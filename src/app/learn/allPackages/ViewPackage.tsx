@@ -92,6 +92,7 @@ const ViewPackage: FC = () => {
                         return (
                             activeItem == 'View All' ? (
                                 <PackageCard 
+                                    key={index}
                                     type={el.type} 
                                     title={el.title} 
                                     badge={el.badge} 
@@ -104,6 +105,7 @@ const ViewPackage: FC = () => {
                             ) : (
                                 el.type == activeItem?.toLowerCase() && (
                                     <PackageCard 
+                                        key={index}
                                         type={el.type} 
                                         title={el.title} 
                                         badge={el.badge} 

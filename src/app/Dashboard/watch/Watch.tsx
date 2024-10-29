@@ -9,8 +9,8 @@ import WatchArrow from '@/public/assets/images/drivenSvgs/arrow3.svg';
 const Watch: FC = () => {
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-full bg-[#FFF]'>
-                <h1 className='text-[24px] font-bold font-inter font-[##344054] rounded-[22px] px-7 py-5 text-text-color'>
+            <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
+                <h1 className='text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
                     Services &gt; Watch &gt; Curated Resource Library
                 </h1>
 
