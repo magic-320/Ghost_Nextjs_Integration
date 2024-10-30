@@ -1,67 +1,47 @@
 'use client';
 import React, { FC, useState } from "react";
+import axios from "axios";
 import LearnCard from "../components/cards/LearnCard";
 
-const learnItems = [
-  {
-    title: "Free",
-    header: "Start your Journey",
-    text: "Ideal for beginners eager to learn the basics.",
-    items: [
-      "5-Day Email AI Value Course",
-      "AI Chatbot Help",
-      "Access to Interactive Workbook",
-      "Book Discounts",
-      "Free Newsletter Access"
-    ],
-    buttonName: "Sign up",
-    backColor: "white",
-    border: "border-2 border-gray-300"
-  },
-  {
-    title: "£697",
-    header: "Advance your Skills",
-    text: "Ideal for Leaders enhancing their strategic decision-making with data.",
-    items: [
-      "Access to all Basic Features",
-      "3-week Cohort Training Course",
-      "Access to Executive Handbook",
-      "Bonus 1-on-1 Coaching Session",
-      "Access to Curated Resource Library"
-    ],
-    buttonName: "Get Started",
-    backColor: "#F3F8FE",
-    border: "border-solid"
-  },
-  {
-    title: "£1,950",
-    header: "Achieve Mastery",
-    text: "Ideal for Top Executives seeking comprehensive and personalized support.",
-    items: [
-      "Access to all Advanced Features",
-      "4 Personalized Coaching Sessions",
-      "12 Reflective Coaching Sessions",
-      "3-week Cohort Training Course",
-      "Access to Premium Newsletter"
-    ],
-    buttonName: "Get Started",
-    backColor: "white",
-    border: "border-2 border-gray-300"
-  },
-];
-
-interface learnItemsStyle {
-  title: string,
-  header: string,
-  text: string,
-  items: any,
-  buttonName: string,
-  backColor: string,
-  border: string
+type TiersResponse = {
+  tiers: any
 }
 
 
 const LearnStyle: FC = () => {
+
+  const [learnItems, setLearnItems] = useState<any>([]);
+
+  React.useEffect(() => {
+      const getTiers = async() => {
+          try {
+              const res = await axios.post<TiersResponse>('/api/content/tiers', {
+                  payload: '&limit=all&include=monthly_price,benefits'
+              });
+              let demoLearnItems: { title: string; header: any; text: any; items: any; buttonName: string; backColor: string; border: string; }[] = [];
+              res.data.tiers
+                .filter((item: { visibility: string; }) => item.visibility == 'public')
+                .map((el: any, index: number) => {
+                    const data = {
+                      title: el.monthly_price ? '$'+el.monthly_price : "Free",
+                      header: el.name,
+                      text: el.description,
+                      items: el.benefits,
+                      buttonName: el.trial_days == 0 ? "Get Started" : `Start with ${el.trial_days}-day free trial`,
+                      backColor: index%2 == 0 ? "white" : "#F3F8FE",
+                      border: index%2 == 0 ? "border-2 border-gray-300" : "border-solid",
+
+                    }
+                    demoLearnItems.push(data)
+                });
+              setLearnItems(demoLearnItems);
+          } catch (err) {
+              console.log(err);
+          }
+      }
+
+      getTiers();
+  }, [])
 
   return (
     <div className="mt-4 sm:mt-14 sm:px-10 flex justify-center items-center flex-col">
@@ -81,7 +61,7 @@ const LearnStyle: FC = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-10 mt-6">
         {
-          learnItems.map((item, index) => (
+          learnItems.map((item: { title: string; header: string; text: string; items: string[]; buttonName: string; backColor: string; border: string; }, index: React.Key | null | undefined) => (
             <LearnCard
               key={index}
               title={item.title}

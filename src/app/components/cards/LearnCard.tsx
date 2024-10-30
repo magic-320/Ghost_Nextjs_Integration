@@ -34,7 +34,7 @@ const LearnCard: FC<LearnCardProps> = ({
             <div className="text-sm leading-8 text-text-color px-8">
                 {text}
             </div>
-            <div>
+            <div className="px-5" style={{height: '-webkit-fill-available'}}>
                 {items.map((item, index) => (
                     <div key={index} className="flex flex-row">
                         <Image src={CHECK} width={24} height={24} alt="checked" />
