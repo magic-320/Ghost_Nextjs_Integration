@@ -1,12 +1,35 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
+import axios from 'axios';
 import DefaultButton from '../../components/buttons/DefaultButton';
 import WatchArrow from '@/public/assets/images/drivenSvgs/arrow3.svg';
 
+type PostsResponse = {
+    posts: any;
+};
+
 const Watch: FC = () => {
+
+    const [data, setData] = useState<any>([]);
+
+    React.useEffect(() => {
+        const getPosts = async() => {
+            try {
+                const res = await axios.post<PostsResponse>('/api/content/posts', {
+                    payload: "&limit=all&filter=tag:[hash-VideoNewsletterEdition001,hash-VideoNewsletterEdition002]"
+                });
+                setData(res.data);
+            } catch (err) {
+              console.log(err);
+            }
+        }
+  
+        getPosts();
+    }, [])
+
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
             <div className='w-full h-full bg-[#FFF] rounded-[22px]'>

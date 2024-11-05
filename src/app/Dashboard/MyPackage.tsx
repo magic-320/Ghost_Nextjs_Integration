@@ -75,7 +75,7 @@ const MyPackage: FC <MyPackageProps> = ({
                 <div className='rounded-[22px] bg-[#FFF] rounded-[22px] p-7'>
                     <h1 className='text-[23px] font-bold font-inter'>Latest</h1>
                     <div className="flex items-start space-x-2">
-                        <span className="w-[10px] h-[7px] rounded-full bg-purple-500 mt-[10px]"></span>
+                        <span className="h-[7px] rounded-full bg-purple-500 mt-[10px] aspect-square"></span>
                         <p className="text-gray-800 font-inter text-[18px]">
                             You can now join Edosa’s Maven course about Demystifying & Accelerating AI Value
                         </p>

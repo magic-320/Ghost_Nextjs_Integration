@@ -39,7 +39,7 @@ const Books: FC = () => {
           data.map((el: any, index: number) => (
               index%2 == 0 ? (
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10 sm:mx-16 mt-6 sm:mt-24">
+                <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10 sm:mx-16 mt-6 sm:mt-24">
                   <div>
                     <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F3F8FE] px-5 sm:px-5 py-1 text-center max-w-52">
                       Book
@@ -55,7 +55,7 @@ const Books: FC = () => {
 
               ) : (
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10 mt-6 sm:mt-24">
+                <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10 mt-6 sm:mt-24">
                   <div className='p-[0em] sm:p-[3em]'>
                     <img src={el.feature_image} alt="learn image" className="sm:pt-0 pt-4 w-full rounded-2xl" />
                   </div>

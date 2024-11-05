@@ -50,7 +50,7 @@ const Newsletter: FC = () => {
                             </div>
                             <div className='px-3'>
                                 <div className="text-[25px] md:text-[36px] leading-11 font-bold text-text-color">
-                                    Latest Newletter
+                                    Latest Newsletter
                                 </div>
                                 <div className='h-auto'>
 
