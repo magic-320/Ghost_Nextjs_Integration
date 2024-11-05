@@ -1,35 +1,80 @@
-import React, { FC } from "react";
+'use client';
+import React, { FC, useState } from "react";
+import axios from "axios";
 import UpdatedCard from "../components/cards/UpdatedCard";
 
-const drivenItems = [
-    {
-        typeName: "Learn",
-        typeColor: "#5D5FEF",
-        header: "New Course Alert",
-        content: 'Discover the \"Demystifying & Accelerating AI Value\" course, a 3-week intensive program on Maven.com, guiding you through the fundamentals of AI and its real-world applications.',
-        cardColor: "#F3F8FE",
-        imgUrl: "/assets/images/stayUpdated/card1.svg",
-    },
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-    {
-        typeName: "Watch",
-        typeColor: "#9E77ED",
-        header: "Latest Video",
-        content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations and how to integrate it effectively for long-term impact.',
-        cardColor: "#F7F6FF",
-        imgUrl: "/assets/images/stayUpdated/card3.png",
-    },
 
-];
+type PostsResponse = {
+    posts: any;
+};
+
+interface drivenItemsStyle {
+    typeName: string,
+    typeColor: string,
+    header: string,
+    content: string,
+    cardColor: string,
+    imgUrl: string,
+}
 
 const StayUpdated: FC = () => {
+
+    const [drivenItems, setDrivenItems] = useState<drivenItemsStyle[]>([]);
+
+    React.useEffect(() => {
+        const getPosts = async() => {
+            try {
+                const course = await axios.post<PostsResponse>('/api/content/posts', {
+                    payload: "&limit=all&filter=tag:hash-NewsletterEdition000"
+                });
+
+                const article = await axios.post<PostsResponse>('/api/content/posts', {
+                    payload: "&limit=all&filter=tag:freearticles"
+                });
+
+                const video = await axios.post<PostsResponse>('/api/content/posts', {
+                    payload: "&limit=all&filter=tag:hash-VideoNewsletterEdition001"
+                });
+
+                const learnObj = {
+                    typeName: "Learn",
+                    typeColor: "#5D5FEF",
+                    header: "New Course Alert",
+                    content: 'Discover the \"Demystifying & Accelerating AI Value\" course, a 3-week intensive program on Maven.com, guiding you through the fundamentals of AI and its real-world applications.',
+                    cardColor: "#F3F8FE",
+                    imgUrl: course.data.posts[0]?.feature_image,
+                }
+
+                const readObj = {
+                    typeName: "Read",
+                    typeColor: "#FF4405",
+                    header: "Latest Article",
+                    content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
+                    cardColor: "#FFF7F4",
+                    imgUrl: article.data.posts[0]?.feature_image,
+                }
+
+                const watchObj = {
+                    typeName: "Watch",
+                    typeColor: "#9E77ED",
+                    header: "Latest Video",
+                    content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations and how to integrate it effectively for long-term impact.',
+                    cardColor: "#F7F6FF",
+                    imgUrl: video.data.posts[0]?.feature_image,
+                }
+
+                let arr = [];
+                arr.push(learnObj, readObj, watchObj);
+                setDrivenItems(arr);
+
+            } catch (err) {
+              console.log(err);
+            }
+        }
+  
+        getPosts();
+    }, [])
+
     return (
         <div className="mt-4 sm:mt-14 px-4 sm:px-10">
             <div>

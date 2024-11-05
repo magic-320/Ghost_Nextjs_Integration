@@ -1,8 +1,23 @@
 import React, { FC } from "react";
 import Image from "next/image";
+import axios from "axios";
 import CHECK from "@/public/assets/svg/check.svg";
 import DefaultButton from "../buttons/DefaultButton";
+import setupGhostApi from "../../utils/api";
+
+
+const API_URL = process.env.NEXT_PUBLIC_GHOST_API_URL;
+const ADMIN_API_KEY = process.env.NEXT_PUBLIC_GHOST_ADMIN_API_KEY;
+const CONTENT_API_KEY = process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY;
+const PUBLIC_DOMAIN = process.env.NEXT_PUBLIC_DOMAIN;
+
+const ghostAPI = setupGhostApi({
+    apiUrl: API_URL,
+    apiKey: ADMIN_API_KEY
+})
+
 interface LearnCardProps {
+    tierid: string,
     title: string;
     header: string;
     text: string;
@@ -13,6 +28,7 @@ interface LearnCardProps {
 }
 // const  tItems,setCurrentItems = useState<VisitorData[]>([]);
 const LearnCard: FC<LearnCardProps> = ({
+    tierid,
     title,
     header,
     text,
@@ -21,6 +37,30 @@ const LearnCard: FC<LearnCardProps> = ({
     backColor,
     border
 }: LearnCardProps) => {
+    
+
+    async function payFunc() {
+
+        const response = await ghostAPI.member.checkoutPlan({
+            plan: '',
+            tierId: tierid,
+            cadence: 'month',
+            cancelUrl: `${PUBLIC_DOMAIN}/learn/?stripe=cancel`,
+            successUrl: `${PUBLIC_DOMAIN}/learn/?stripe=success`,
+            email: '',
+            customerEmail: '',
+            name: '',
+            offerId: '',
+            newsletters: '',
+            metadata: {
+                requestSrc: 'portal',
+                urlHistory: []
+            }
+        } as any);
+        console.log(response);
+
+    }
+
     return (
         <div style={{ backgroundColor: backColor }}
             className={`sm:min-h-[350px] card flex flex-col justify-center items-center shadow-md gap-1 sm:gap-3 rounded-xl relative py-5 ${border} `}
@@ -42,7 +82,9 @@ const LearnCard: FC<LearnCardProps> = ({
                     </div>
                 ))}
             </div>
-            <DefaultButton className="w-5/6 py-2">{buttonName}</DefaultButton>
+            <span onClick={payFunc} className="w-5/6 py-2">
+                <DefaultButton>{buttonName}</DefaultButton>
+            </span>
         </div>
     );
 }

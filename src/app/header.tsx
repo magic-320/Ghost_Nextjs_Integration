@@ -73,7 +73,7 @@ const Header: FC = () => {
 
     const getToken = async() => {
       try {
-          const res = await fetch('/api/members');
+          const res = await fetch('/api/getUserInfo/members');
           const response = await res.json();
 
           const jwtToken = response.jwtToken;
@@ -156,7 +156,7 @@ const Header: FC = () => {
 
             {
               !user ? (
-                <Link href='/signin'><DefaultButton className='text-xs sm:text-[20px]'>Sign Up</DefaultButton></Link>
+                <Link href='/signin'><DefaultButton className='text-xs sm:text-[20px]'>Sign In</DefaultButton></Link>
               ) : (
                 <Link href='/Dashboard'><DefaultButton className='text-xs sm:text-[20px]'>{user.member.name}</DefaultButton></Link>
               )
