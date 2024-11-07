@@ -25,8 +25,10 @@ const StayUpdated: FC = () => {
         const getPosts = async() => {
             try {
                 const course = await axios.post<PostsResponse>('/api/content/posts', {
-                    payload: "&limit=all&filter=tag:hash-NewsletterEdition000"
+                    payload: "&limit=all&filter=featured:true"
                 });
+
+                console.log(course.data)
 
                 const article = await axios.post<PostsResponse>('/api/content/posts', {
                     payload: "&limit=all&filter=tag:freearticles"
@@ -51,7 +53,7 @@ const StayUpdated: FC = () => {
                     header: "Latest Article",
                     content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
                     cardColor: "#FFF7F4",
-                    imgUrl: article.data.posts[0]?.feature_image,
+                    imgUrl: course.data.posts[1]?.feature_image,
                 }
 
                 const watchObj = {
@@ -60,7 +62,7 @@ const StayUpdated: FC = () => {
                     header: "Latest Video",
                     content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations and how to integrate it effectively for long-term impact.',
                     cardColor: "#F7F6FF",
-                    imgUrl: video.data.posts[0]?.feature_image,
+                    imgUrl: course.data.posts[2]?.feature_image,
                 }
 
                 let arr = [];

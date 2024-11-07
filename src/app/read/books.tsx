@@ -1,6 +1,7 @@
 'use client';
 import React, { FC, useState } from 'react';
 import Image from "next/image";
+import Link from 'next/link';
 import axios from 'axios';
 import BOOK1 from "@/public/assets/images/books/book1.png";
 import BOOK2 from "@/public/assets/images/books/book2.png";
@@ -47,6 +48,7 @@ const Books: FC = () => {
                     <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                       {el.title}
                     </div>
+                    <p className='text-text-color mt-5 text-[15px] sm:text-[20px]'>{el.custom_excerpt}</p>
                   </div>
                   <div className='p-[0em] sm:p-[3em]'>
                     <img src={el.feature_image} alt="learn image" className="sm:pt-0 pt-4 w-full rounded-2xl" />
@@ -66,6 +68,7 @@ const Books: FC = () => {
                     <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                       {el.title}
                     </div>
+                    <p className='text-text-color mt-5 text-[15px] sm:text-[20px]'>{el.custom_excerpt}</p>
                   </div>
                 </div>
 
