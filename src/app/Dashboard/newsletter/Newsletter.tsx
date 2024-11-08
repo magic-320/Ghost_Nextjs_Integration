@@ -1,5 +1,6 @@
 'use client';
 
+import { NextPage } from 'next';
 import React, { FC, useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
@@ -7,13 +8,15 @@ import DefaultButton from '../../components/buttons/DefaultButton';
 import NewsletterArrow from '@/public/assets/images/drivenSvgs/arrow2.svg';
 import axios from 'axios';
 import parse from 'html-react-parser';
-
+import { useSearchParams } from "next/navigation";
 
 type PostsResponse = {
     posts: any;
 };
 
-const Newsletter: FC = () => {
+const Newsletter: NextPage = () => {
+
+    const searchParams = useSearchParams();
 
     const [data, setData] = useState<any>([]);
     const [viewAll, setViewAll] = useState<boolean>(false);
@@ -23,16 +26,23 @@ const Newsletter: FC = () => {
         const getPosts = async() => {
             try {
                 const res = await axios.post<PostsResponse>('/api/content/posts', {
-                    payload: "&limit=all&filter=tag:hash-newsletter"
+                    payload: "&limit=all&filter=tag:[hash-newsletter,hash-newsletteredition000,newsletters]"
                 });
                 console.log(res.data);
                 setData(res.data.posts);
             } catch (err) {
-              console.log(err);
+                console.log(err);
             }
-        }
-  
+        }  
         getPosts();
+
+
+        if (searchParams?.get('id')) {
+            setDetail({
+                title: searchParams?.get('title'),
+                html: searchParams?.get('html')
+            })
+        }
     }, [])
 
     return (

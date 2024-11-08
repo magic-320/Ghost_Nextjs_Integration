@@ -9,6 +9,8 @@ type PostsResponse = {
 };
 
 interface drivenItemsStyle {
+    wholeData: any;
+    linkUrl: string | undefined;
     typeName: string,
     typeColor: string,
     header: string,
@@ -30,39 +32,37 @@ const StayUpdated: FC = () => {
 
                 console.log(course.data)
 
-                const article = await axios.post<PostsResponse>('/api/content/posts', {
-                    payload: "&limit=all&filter=tag:freearticles"
-                });
-
-                const video = await axios.post<PostsResponse>('/api/content/posts', {
-                    payload: "&limit=all&filter=tag:hash-VideoNewsletterEdition001"
-                });
-
                 const learnObj = {
-                    typeName: "Learn",
+                    typeName: "",
                     typeColor: "#5D5FEF",
-                    header: "New Course Alert",
-                    content: 'Discover the \"Demystifying & Accelerating AI Value\" course, a 3-week intensive program on Maven.com, guiding you through the fundamentals of AI and its real-world applications.',
+                    header: course.data.posts[0]?.title,
+                    content: course.data.posts[0]?.excerpt,
                     cardColor: "#F3F8FE",
                     imgUrl: course.data.posts[0]?.feature_image,
+                    linkUrl: '',
+                    wholeData: course.data.posts[0]
                 }
 
                 const readObj = {
-                    typeName: "Read",
+                    typeName: "",
                     typeColor: "#FF4405",
-                    header: "Latest Article",
-                    content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
+                    header: course.data.posts[1]?.title,
+                    content: course.data.posts[1]?.excerpt,
                     cardColor: "#FFF7F4",
                     imgUrl: course.data.posts[1]?.feature_image,
+                    linkUrl: '',
+                    wholeData: course.data.posts[1]
                 }
 
                 const watchObj = {
-                    typeName: "Watch",
+                    typeName: "",
                     typeColor: "#9E77ED",
-                    header: "Latest Video",
-                    content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations and how to integrate it effectively for long-term impact.',
+                    header: course.data.posts[2]?.title,
+                    content: course.data.posts[2]?.excerpt,
                     cardColor: "#F7F6FF",
                     imgUrl: course.data.posts[2]?.feature_image,
+                    linkUrl: '',
+                    wholeData: course.data.posts[2]
                 }
 
                 let arr = [];
@@ -99,6 +99,8 @@ const StayUpdated: FC = () => {
                             typeName={item.typeName}
                             typeColor={item.typeColor}
                             imgUrl={item.imgUrl}
+                            linkUrl={item.linkUrl}
+                            wholeData={item.wholeData}
                         />
                     ))
                 }
