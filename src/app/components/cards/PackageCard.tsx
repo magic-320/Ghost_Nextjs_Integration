@@ -38,7 +38,7 @@ const PackageCard: FC<PackageCardProps> = ({
         {
             type == 'learn' && (
                     <section className="relative w-full h-[278px]">
-                        <article className="absolute w-full h-[278px] top-0 left-0 rounded-[22px]">
+                        <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
                             {/* Background and border */}
                             <div className="absolute w-full h-[278px] top-0 left-0 bg-[#f3f8fe] rounded-[22px] border border-solid border-[#5c76ff] rotate-180" />
 
@@ -83,9 +83,9 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
+                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
@@ -111,7 +111,7 @@ const PackageCard: FC<PackageCardProps> = ({
         {
             type == 'read' && (
                     <section className="relative w-full h-[278px]">
-                        <article className="absolute w-full h-[278px] top-0 left-0 rounded-[22px]">
+                        <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
                             {/* Background and border */}
                             <div className="absolute w-full h-[278px] top-0 left-0 bg-[#FFF7F4] rounded-[22px] border border-solid border-[#f15f31] rotate-180" />
 
@@ -156,9 +156,9 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
+                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
@@ -183,7 +183,7 @@ const PackageCard: FC<PackageCardProps> = ({
         {
             type == 'meet' && (
                     <section className="relative w-full h-[278px]">
-                        <article className="absolute w-full h-[278px] top-0 left-0 rounded-[22px]">
+                        <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
                             {/* Background and border */}
                             <div className="absolute w-full h-[278px] top-0 left-0 bg-[#f2faec] rounded-[22px] border border-solid border-[#95da79] rotate-180" />
 
@@ -228,9 +228,9 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
+                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
@@ -255,7 +255,7 @@ const PackageCard: FC<PackageCardProps> = ({
         {
             type == 'watch' && (
                     <section className="relative w-full h-[278px]">
-                        <article className="absolute w-full h-[278px] top-0 left-0 rounded-[22px]">
+                        <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
                             {/* Background and border */}
                             <div className="absolute w-full h-[278px] top-0 left-0 bg-[#F7F6FF] rounded-[22px] border border-solid border-[#7f56d9] rotate-180" />
 
@@ -300,9 +300,9 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {price.toLowerCase() !== 'free' ? '$'+price : 'Free'}
+                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px]">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
