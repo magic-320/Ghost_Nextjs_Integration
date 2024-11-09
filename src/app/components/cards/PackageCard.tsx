@@ -85,7 +85,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
                                         {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
@@ -158,7 +158,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
                                         {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
@@ -230,7 +230,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
                                         {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
@@ -302,7 +302,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
                                         {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden ">
+                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>

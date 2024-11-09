@@ -28,8 +28,15 @@ const Newsletter: NextPage = () => {
                 const res = await axios.post<PostsResponse>('/api/content/posts', {
                     payload: "&limit=all&filter=tag:[hash-newsletter,hash-newsletteredition000,newsletters]"
                 });
-                console.log(res.data);
-                setData(res.data.posts);
+                
+                let demoData: any = [];
+
+                res.data.posts.filter((item: { html: any; }) => item.html).map((el: any) => {
+                    demoData.push(el);
+                })
+
+                setData(demoData);
+
             } catch (err) {
                 console.log(err);
             }
