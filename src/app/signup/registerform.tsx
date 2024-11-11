@@ -43,7 +43,7 @@ const RegisterForm: React.FC = () => {
   }
 
   // on Sign Up
-  const onSignUp = async () => {
+  const onSignUp = async (email: string) => {
     try {
       const token = await ghostAPI.member.getIntegrityToken();
       const response = await ghostAPI.member.sendMagicLink({
@@ -132,7 +132,7 @@ const RegisterForm: React.FC = () => {
             />
           </div>
           
-          <button type="submit" className="w-full bg-[#475467] text-white font-bold py-2 rounded-md hover:bg-[#77859b]" onClick={onSignUp}>Get started</button>
+          <button type="submit" className="w-full bg-[#475467] text-white font-bold py-2 rounded-md hover:bg-[#77859b]" onClick={() => onSignUp(email)}>Get started</button>
 
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
@@ -150,7 +150,7 @@ const RegisterForm: React.FC = () => {
                         const decoded = jwtDecode<MyJwtPayload>(token);
                         setUsername(decoded.name);
                         setEmail(decoded.email);
-                        onSignUp();
+                        onSignUp(decoded.email);
                     } else {
                         toast.error(`Token is undefined`, {
                           position: "top-right",
