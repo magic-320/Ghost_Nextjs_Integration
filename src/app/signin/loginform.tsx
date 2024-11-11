@@ -43,7 +43,7 @@ const LoginForm: React.FC = () => {
   }
 
   // Sign in
-  const onLogin = async () => {
+  const onLogin = async (email: string) => {
     try {
 
       const token = await ghostAPI.member.getIntegrityToken();
@@ -135,7 +135,7 @@ const LoginForm: React.FC = () => {
 
           </div>
 
-          <button type="submit" className="w-full bg-[#475467] text-white font-bold py-2 rounded-md hover:bg-[#77859b]" onClick={onLogin}>Sign in</button>
+          <button type="submit" className="w-full bg-[#475467] text-white font-bold py-2 rounded-md hover:bg-[#77859b]" onClick={() => onLogin(email)}>Sign in</button>
 
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
@@ -151,9 +151,9 @@ const LoginForm: React.FC = () => {
                   // Check if the token is defined
                   if (token) {
                     const decoded = jwtDecode<MyJwtPayload>(token);
-                    await setEmail(decoded.email);
-                    await onLogin();
-                    
+                    setEmail(decoded.email);
+                    onLogin(decoded.email);
+
                   } else {
                     toast.error(`Token is undefined`, {
                         position: "top-right",
