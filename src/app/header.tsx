@@ -110,6 +110,7 @@ const Header: FC = () => {
             jwtToken: jwtToken && jwtDecode(jwtToken),
             member: member && JSON.parse(member)
         });
+
     } else {
         getToken();
     }

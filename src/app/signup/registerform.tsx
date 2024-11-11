@@ -139,7 +139,7 @@ const RegisterForm: React.FC = () => {
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
 
-          <GoogleOAuthProvider clientId="1024473496953-0qd867cnd2o7cj3e4njaes6k575n0r11.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId="712439827619-h3e651gphr5dbju3l393810s4kdfpd6g.apps.googleusercontent.com">
             <div className='mt-4 w-full'>
               <GoogleLogin
                 onSuccess={credentialResponse => {
