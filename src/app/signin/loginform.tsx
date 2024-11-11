@@ -44,7 +44,6 @@ const LoginForm: React.FC = () => {
 
   // Sign in
   const onLogin = async () => {
-    console.log(email)
     try {
 
       const token = await ghostAPI.member.getIntegrityToken();
@@ -147,13 +146,14 @@ const LoginForm: React.FC = () => {
           <GoogleOAuthProvider clientId="712439827619-h3e651gphr5dbju3l393810s4kdfpd6g.apps.googleusercontent.com">
             <div className='mt-4 w-full'>
               <GoogleLogin
-                onSuccess={credentialResponse => {
+                onSuccess={async (credentialResponse) => {
                   const token = credentialResponse.credential;
                   // Check if the token is defined
                   if (token) {
                     const decoded = jwtDecode<MyJwtPayload>(token);
-                    setEmail(decoded.email);
-                    onLogin();
+                    await setEmail(decoded.email);
+                    await onLogin();
+                    
                   } else {
                     toast.error(`Token is undefined`, {
                         position: "top-right",
