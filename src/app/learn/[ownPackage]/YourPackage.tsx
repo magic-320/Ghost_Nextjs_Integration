@@ -1,80 +1,58 @@
 'use client';
-import { FC } from 'react';
+import React, { FC, useState } from 'react';
 import DefaultButton from '../../components/buttons/DefaultButton';
 import IndividualPackage from '../../components/cards/IndividualPackage';
+import { useSearchParams } from 'next/navigation';
 
-const IndividualPackageList = [
-    {
-        enable: false,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: 'AI Chatbot',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    },
-    {
-        enable: true,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: 'Access to all Basic Features',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    },
-    {
-        enable: true,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: '3-week to Executive Handbook',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    },
-    {
-        enable: true,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: 'Bonus 1-on-1 Coaching Session',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    },
-    {
-        enable: true,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: 'Access to Curated Resource Library',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    }
-];
-
-
-const AddMoreList = [
-    {
-        enable: true,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: 'AI Chatbot',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    },
-    {
-        enable: true,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: 'AI Chatbot',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    },
-    {
-        enable: true,
-        mainColor: '#5d5fef',
-        price: "10.00",
-        title: 'AI Chatbot',
-        content: 'Includes up to 10 users, 20GB individual data and access to all features.',
-        isChecked: false
-    }
-];
 
 const YourPackage: FC = () => {
+
+    const searchParams = useSearchParams();
+
+    const [title, setTitle] = useState<any>('');
+    const [content, setContent] = useState<any>('');
+    const [IndividualPackageList, setIndividualPackageList] = useState<any[]>([]);
+    const [AddMoreList, setAddMoreList] = useState<any[]>([]);
+
+    React.useEffect(() => {
+        // Title
+        const title = searchParams?.get('title');
+        setTitle(title);
+
+        // Content
+        const content = searchParams?.get('content');
+        setContent(content);
+
+        // Card List
+        const card = searchParams?.getAll('card');
+
+        let individualPackage: React.SetStateAction<any[]> = [];
+        let addMore = [];
+
+        card?.map((el: string) => {
+            const data = {
+                enable: true,
+                mainColor: '#5d5fef',
+                price: "10.00",
+                title: el,
+                content: 'Includes up to 10 users, 20GB individual data and access to all features.',
+                isChecked: false
+            }
+            individualPackage.push(data);
+        })
+
+        setIndividualPackageList(individualPackage);
+        setAddMoreList([{
+            enable: true,
+            mainColor: '#5d5fef',
+            price: "10.00",
+            title: 'AI Chatbot',
+            content: 'Includes up to 10 users, 20GB individual data and access to all features.',
+            isChecked: false
+        }]);
+
+    }, [])
+
     return (
         <div className='md:flex block w-full mt-3'>
             
@@ -87,10 +65,10 @@ const YourPackage: FC = () => {
                 </DefaultButton>
 
                 <h1 className='sm:text-[50px] text-[30px] text-[#475467] font-bold my-5'>
-                    Advance Your Skills
+                    {title}
                 </h1>
                 <p className='sm:text-[24px] text-[20px] text-[#475467] leading-[40px]'>
-                    Ideal for Leaders enhancing their strategic decision-making with data. Ideal for Leaders enhancing their strategic decision-making with data. Ideal for Leaders enhancing their strategic decision-making with data. Ideal for Leaders enhancing their strategic decision-making with data. Ideal for Leaders enhancing their strategic decision-making with data.
+                    {content}
                 </p>
                 <h1 className='sm:text-[40px] text-[30px] text-[#475467] font-bold my-5'>
                     What it includes
@@ -98,9 +76,8 @@ const YourPackage: FC = () => {
                 <div className='gap-2'>
                     {
                         IndividualPackageList.map((el: any, index) => (
-                            <div className='my-2'>
+                            <div key={index} className='my-2'>
                                 <IndividualPackage 
-                                    key={index}
                                     enable={el.enable} 
                                     mainColor={el.mainColor} 
                                     price={el.price} 
@@ -118,9 +95,8 @@ const YourPackage: FC = () => {
                 </h1>
                 {
                     AddMoreList.map((el: any, index) => (
-                        <div className='my-2'>
+                        <div key={index} className='my-2'>
                             <IndividualPackage 
-                                key={index}
                                 enable={el.enable} 
                                 mainColor={el.mainColor} 
                                 price={el.price} 

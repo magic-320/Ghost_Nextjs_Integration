@@ -10,45 +10,37 @@ type TiersResponse = {
 
 const ViewPackage: FC = () => {
 
-    // const packages = [
-    //     {
-    //         type: 'learn',
-    //         title: 'Start your Journey',
-    //         badge: 'for Beginners',
-    //         isChecked: false,
-    //         price: 'Free',
-    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-    //         imgUrl: '',
-    //         linkUrl: '/learn/ownPackage'
-    //     },
-    //     {
-    //         type: 'learn',
-    //         title: 'Advanced your Skills',
-    //         badge: 'for Leaders',
-    //         isChecked: false,
-    //         price: '1,950',
-    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-    //         imgUrl: '',
-    //         linkUrl: '/learn/ownPackage'
-    //     },
-    //     {
-    //         type: 'learn',
-    //         title: 'Archieve Mastery',
-    //         badge: 'for Executives',
-    //         isChecked: false,
-    //         price: '1,950',
-    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-    //         imgUrl: '',
-    //         linkUrl: '/learn/ownPackage'
-    //     }
-    // ]
+    const TiersContent: string[][] = [
+        [
+            'Limited Edition Value Driven Interactive Workbook',
+            'Access 12 Day - Data & AI - Video Coaching',
+            'Regular - Data & AI - Value CheatSheets',
+            'Get 2-Week - AI Value - Email Course',
+            'Starter Self Assessment Scorecard',
+            'Claim Multiple Book Discounts',
+            'Get ALL Value Driven Newsletters'
+        ],
+        [
+            'Get Exclusive - NOT FOR SALE - Executive Handbook',
+            'Advanced Self Assessment Scorecard',
+            'Bonus 1-2-1 Scorecard Feedback Session',
+            '3 Month 1-2-1 Coaching with Options to Extend'
+        ],
+        [
+            'Get Personal Choice of All Published Books',
+            'Personalised Self Assessment Session',
+            'Bonus 1-2-1 Assessment Feedback Session',
+            '12 Month 1-2-1 Coaching with Options to Extend',
+            'Get Exclusive Access to The AI Value Advisory Network',
+            'Access Full Range of Curated Library of Value Driven eBooks'
+        ]
+    ]
 
     const [activeItem, setActiveItem] = useState<string | null>('View All');
     const [packages, setPackages] = useState<any[]>([]);
 
     const handleItemClick = (item: string) => {
         setActiveItem(item);
-        console.log(packages)
     };
 
     React.useEffect(() => {
@@ -60,19 +52,32 @@ const ViewPackage: FC = () => {
                 console.log(res.data.tiers)
                 
                 let demoPackages: any = [];
+                const packageName: string[] = ['Start your Journey', 'Advance your Skills', 'Achieve Mastery'];
 
                 res.data.tiers
                 .filter((item: { visibility: string; }) => item.visibility == 'public')
-                .map((el: any) => {
+                .map((el: any, index:number) => {
+
+                    let cards: string[] = [];
+
+                    if (index == 2) {
+                        cards = [...TiersContent[0], ...TiersContent[1], ...TiersContent[2]]
+                    } else if (index == 1) {
+                        cards = [...TiersContent[0], ...TiersContent[1]];
+                    } else if (index == 0) {    
+                        cards = TiersContent[0];
+                    }
+
                     const demoData = {
                         type: 'learn',
-                        title: el.name,
+                        title: packageName[index],
                         badge: el.name,
                         isChecked: false,
                         price: el.monthly_price ? el.monthly_price : 'free',
                         content: el.description,
                         imgUrl: '',
-                        linkUrl: ''
+                        linkUrl: '/learn/ownPackage',
+                        card: cards
                     }
                     demoPackages.push(demoData);
                 })
@@ -108,6 +113,7 @@ const ViewPackage: FC = () => {
                                 content={el.content} 
                                 imgUrl={el.imgUrl}
                                 linkUrl={el.linkUrl}
+                                card={el.card}
                             />
                         )
                     })

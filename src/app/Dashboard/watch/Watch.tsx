@@ -99,7 +99,7 @@ const Watch: FC = () => {
                 }
 
 
-{
+                {
                     viewAll && !detail.title && (
                         <div className="mx-5">
                             <div className='text-[#344054] font-bold text-[32px] px-3'>

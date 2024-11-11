@@ -19,6 +19,7 @@ interface PackageCardProps {
     content: string,
     imgUrl?: string,
     linkUrl?: string,
+    card?: string[]
 }
 
 const PackageCard: FC<PackageCardProps> = ({
@@ -29,7 +30,8 @@ const PackageCard: FC<PackageCardProps> = ({
     price,
     content,
     imgUrl,
-    linkUrl
+    linkUrl,
+    card
 }: PackageCardProps) => {
 
     return (
@@ -89,7 +91,17 @@ const PackageCard: FC<PackageCardProps> = ({
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
-                                        <Link href={`${linkUrl}`} className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-[#475467]">
+                                        <Link 
+                                            href={{
+                                                pathname: linkUrl,
+                                                query: {
+                                                    title: title,
+                                                    content: content,
+                                                    card: card
+                                                }
+                                            }} 
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-[#475467]"
+                                        >
                                             <button>Learn more</button>
                                         </Link>
                                     </div>
