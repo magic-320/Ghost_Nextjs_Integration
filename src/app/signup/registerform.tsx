@@ -19,6 +19,7 @@ interface MyJwtPayload extends JwtPayload {
 const API_URL = process.env.NEXT_PUBLIC_GHOST_API_URL;
 const ADMIN_API_KEY = process.env.NEXT_PUBLIC_GHOST_ADMIN_API_KEY;
 const CONTENT_API_KEY = process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY;
+const CLIENT_ID_GOOGLE_AUTH = process.env.NEXT_PUBLIC_CLIENT_ID_GOOGLE_AUTH;
 
 const ghostAPI = setupGhostApi({
   apiUrl: API_URL,
