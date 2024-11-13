@@ -12,9 +12,9 @@ const Assessment: FC = () => {
 
     return (
         <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <span className='absolute top-2 right-10 text-[rgb(0,100,250)] hover:cursor-pointer hover:text-[rgb(0,150,250)]' onClick={() => window.open('https://fullfocus.co/mh/')}>Expand</span>
+            <span className='absolute top-2 right-10 text-[rgb(0,100,250)] hover:cursor-pointer hover:text-[rgb(0,150,250)]' onClick={() => window.open('https://personal-value-driven.scoreapp.com/')}>Expand</span>
             <div className='w-full h-[600px] bg-[#FFF] rounded-[22px]'>
-                <embed className='w-full h-full rounded-[22px]' src='https://fullfocus.co/mh/'></embed>
+                <embed className='w-full h-full rounded-[22px]' src='https://personal-value-driven.scoreapp.com/'></embed>
             </div>
         </div>
     )
