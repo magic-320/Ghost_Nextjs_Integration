@@ -1,20 +1,48 @@
 'use client';
 
 import React, { FC, useState } from 'react';
+import axios from 'axios';
+import Link from 'next/link';
+import DefaultButton from '../../components/buttons/DefaultButton';
+
+interface dataStyle {
+    name: string,
+    url: string
+}
 
 const Assessment: FC = () => {
 
-    const [rating, setRating] = useState<number>(3);
+    const [data, setData] = useState<dataStyle[]>([]);
 
     React.useEffect(() => {
+        const getAssessment = async() => {
+            try {
+                const res = await axios.get<dataStyle[]>('/api/assessment/getAssessment');
+                setData(res.data);
+            } catch (err) {
+                console.log(err);
+            }
+        }
 
+        getAssessment();
     }, [])
 
     return (
         <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <span className='absolute top-2 right-10 text-[rgb(0,100,250)] hover:cursor-pointer hover:text-[rgb(0,150,250)]' onClick={() => window.open('https://personal-value-driven.scoreapp.com/')}>Expand</span>
-            <div className='w-full h-[600px] bg-[#FFF] rounded-[22px]'>
-                <embed className='w-full h-full rounded-[22px]' src='https://personal-value-driven.scoreapp.com/'></embed>
+            <div className='w-full h-[600px] bg-[#FFF] rounded-[22px] p-10 overflow-auto'>
+                <h1 className='text-[2rem] font-bold text-text-color'>Assessment</h1>
+                <div>
+                    {
+                        data.map((el: dataStyle, index:number) => {
+                            return (
+                                <Link key={index} href='#' onClick={() => window.open(el.url)}>
+                                    <DefaultButton className='my-5'>{el.name}</DefaultButton>
+                                </Link>
+                            )
+                        })
+                    }
+                </div>
+
             </div>
         </div>
     )

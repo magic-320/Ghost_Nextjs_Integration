@@ -165,6 +165,7 @@ const Header: FC = () => {
         
           <DefaultButton className='max-w-3 aspect-square'>&nbsp;</DefaultButton>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
