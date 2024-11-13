@@ -1,7 +1,6 @@
 'use client';
 
 import React, { FC, useState } from 'react';
-import { FaStar } from "react-icons/fa";
 
 const Assessment: FC = () => {
 
@@ -12,20 +11,10 @@ const Assessment: FC = () => {
     }, [])
 
     return (
-        <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
+        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
+            <span className='absolute top-2 right-10 text-[rgb(0,100,250)] hover:cursor-pointer hover:text-[rgb(0,150,250)]' onClick={() => window.open('https://fullfocus.co/mh/')}>Expand</span>
             <div className='w-full h-[600px] bg-[#FFF] rounded-[22px]'>
-                <h1 className='text-[24px] font-bold font-inter font-[#344054] px-7 pt-5 text-text-color'>
-                    Assessment
-                </h1>
-                <div className='mx-3 my-2'>
-                    <div className='flex gap-2'>
-                        <FaStar size={35} color='#aaa'/>
-                        <FaStar size={35} color='#aaa'/>
-                        <FaStar size={35} color='#aaa'/>
-                        <FaStar size={35} color='#aaa'/>
-                        <FaStar size={35} color='#aaa'/>
-                    </div>
-                </div>
+                <embed className='w-full h-full rounded-[22px]' src='https://fullfocus.co/mh/'></embed>
             </div>
         </div>
     )

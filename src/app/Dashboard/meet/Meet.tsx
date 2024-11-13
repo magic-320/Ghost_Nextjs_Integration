@@ -97,6 +97,7 @@ const Meet: FC = () => {
         '(GMT +12:00) International Date Line West'
     ]);
 
+
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
             <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
@@ -138,7 +139,7 @@ const Meet: FC = () => {
                             <Link href="#" className="w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]">
                                 <button>Slots Remaining 1</button>
                             </Link>
-                            <Link href="#">
+                            <Link href="#" onClick={() => window.open('https://calendly.com/edosa/personalised-value-driven-strategy')}>
                                 <DefaultButton className='w-[210px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                     Book Now
                                 </DefaultButton>
