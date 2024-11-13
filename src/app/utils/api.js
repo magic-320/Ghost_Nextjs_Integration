@@ -586,8 +586,9 @@ function setupGhostApi({siteUrl = typeof window !== 'undefined' ? window.locatio
                 newsletters,
                 tiers: transformApiTiersData({tiers})
             };
-        } catch (e) {
+        } catch (err) {
             // Ignore
+            console.log(err);
         }
         site = transformApiSiteData({site});
         return {site, member};
