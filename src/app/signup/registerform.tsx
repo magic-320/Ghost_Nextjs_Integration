@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
+import error from 'next/error';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 import setupGhostApi from '../utils/api';
 import Link from 'next/link';
