@@ -120,7 +120,7 @@ const Header: FC = () => {
 
   return (
     <>
-      <div className='block lg:hidden flex justify-center my-2 w-full'>
+      <div className='block lg:hidden flex justify-center my-3 w-full'>
         <Link href="/">
           <Image src={LOGO} width={250} className='block lg:hidden' alt='Logo' />
         </Link>
@@ -128,13 +128,13 @@ const Header: FC = () => {
       <div className='flex items-center justify-between relative my-1 sm:my-2'>
         <div className='hidden lg:block'>
           <Link href="/">
-            <Image src={LOGO} width={360} className='hidden lg:block ml-[85px]' alt='Logo' />
+            <Image src={LOGO} width={360} className='hidden lg:block ml-[20px] xl:ml-[85px]' alt='Logo' />
           </Link>
         </div>
 
         <div
           ref={headerPanelRef}
-          className="panel border-2 border-text-color rounded-full bg-white py-1 sm:py-3 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
+          className="panel border-2 border-text-color rounded-full bg-white py-1 sm:py-1.5 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
         >
           {links.map((item, index) => {
             const newStyle = currentUrl === item.link
@@ -144,7 +144,7 @@ const Header: FC = () => {
               <Link
                 href={item.link}
                 key={index}
-                className={`text-xs sm:text-[20px] font-inter ${newStyle}`}
+                className={`text-[14px] md:text-[20px] font-inter ${newStyle}`}
               >
                 {item.text}
               </Link>
@@ -152,21 +152,21 @@ const Header: FC = () => {
           })}
         </div>
 
-        <div className='flex items-center justify-center mr-2 sm:mr-10 px-1 sm:px-3 gap-3'>
-          <Image src={SEARCHICON} className='hidden sm:block w-5 h-5 hover:cursor-pointer' alt='search' />
+        <div className='flex items-center justify-center mr-2 md:mr-10 px-1 sm:px-3 gap-3'>
+          <Image src={SEARCHICON} className='w-5 h-5 hover:cursor-pointer' alt='search' />
 
             {
               !user ? (
-                <Link href='/signin'><DefaultButton className='text-xs sm:text-[20px]'>Sign In</DefaultButton></Link>
+                <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] sm:py-2'>Sign In</DefaultButton></Link>
               ) : (
-                <Link href='/Dashboard'><DefaultButton className='text-xs sm:text-[20px]'>{user.member.name}</DefaultButton></Link>
+                <Link href='/Dashboard'><DefaultButton className='text-[14px] md:text-[20px] sm:py-2'>{user.member.name}</DefaultButton></Link>
               )
             }  
         
-          <DefaultButton className='max-w-3 aspect-square'>&nbsp;</DefaultButton>
+          {/* <DefaultButton className='max-w-3 aspect-square'>&nbsp;</DefaultButton> */}
         </div>
-        <ToastContainer />
       </div>
+      <ToastContainer />
     </>
   );
 };

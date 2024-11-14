@@ -46,8 +46,8 @@ const Sidebar: FC = () => {
     }, [])
 
     return (
-        <div className="w-full h-full px-12 py-10 text-[18px] xl:text-[24px] bg-[#F9F9F9] rounded-[22px] lg:block flex justify-center">
-            <div className="text-center lg:text-left">
+        <div className="w-full h-full py-10 text-[17px] xl:text-[22px] bg-[#F9F9F9] rounded-[22px] lg:block flex justify-center">
+            <div className="text-center lg:text-left mx-[auto] max-w-[125px] xl:max-w-[155px]">
                 <Link href="/Dashboard">
                     <div 
                         className={`hover:cursor-pointer ${active == 'dashboard' && 'font-bold'}`} 

@@ -5,6 +5,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
+        <link
+          rel="stylesheet"
+          href="https://www.edosaodaro.com/assets/built/screen.css"
+        />
         <body>
           <Main />
           <NextScript />

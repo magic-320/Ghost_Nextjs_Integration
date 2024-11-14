@@ -14,7 +14,7 @@ export default function DashboardLayout ({children}: {children: React.ReactNode}
                     <div className="lg:w-1/5 w-full">
                         <Sidebar />
                     </div>
-                    <div className="lg:w-4/5 w-full ml-0 xl:ml-7">
+                    <div className="lg:w-4/5 w-full ml-0 lg:ml-7 mt-2 lg:mt-0">
                         {children}
                     </div>
                 </div>
