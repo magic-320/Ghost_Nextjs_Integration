@@ -23,13 +23,13 @@ const YourPackage: FC = () => {
         const content = searchParams?.get('content');
         setContent(content);
 
-        // Card List
-        const card = searchParams?.getAll('card');
+        // whole Data
+        const benefit = searchParams?.getAll('benefit');
 
         let individualPackage: React.SetStateAction<any[]> = [];
         let addMore = [];
 
-        card?.map((el: string) => {
+        benefit?.map((el: string) => {
             const data = {
                 enable: true,
                 mainColor: '#5d5fef',

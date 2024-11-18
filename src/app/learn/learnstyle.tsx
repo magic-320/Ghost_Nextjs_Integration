@@ -7,6 +7,7 @@ type TiersResponse = {
   tiers: any
 }
 
+const TiersNames = ['Growth', 'Amplify', 'Peak'];
 
 const LearnStyle: FC = () => {
 
@@ -19,17 +20,17 @@ const LearnStyle: FC = () => {
                   payload: '&limit=all&include=monthly_price,benefits'
               });
               console.log(res.data.tiers)
-              let demoLearnItems: { title: string; header: any; text: any; items: any; buttonName: string; backColor: string; border: string; }[] = [];
+              let demoLearnItems: { title: string; header: any; text: any; items: any; buttonStyle: string; backColor: string; border: string; }[] = [];
               res.data.tiers
-                .filter((item: { visibility: string; }) => item.visibility == 'public')
+                .filter((item: { name: string; }) => TiersNames.includes(item.name))
                 .map((el: any, index: number) => {
                     const data = {
                       tierId: el.id,
-                      title: el.monthly_price ? '$'+el.monthly_price : "Free",
+                      title: el.monthly_price ? '$'+ Number(el.monthly_price / 100) : "Free",
                       header: el.name,
                       text: el.description,
                       items: el.benefits,
-                      buttonName: el.trial_days == 0 ? "Get Started" : `Start with ${el.trial_days}-day free trial`,
+                      buttonStyle: el.type == 'paid' ? 'paid' : 'free',
                       backColor: index%2 == 0 ? "white" : "#F3F8FE",
                       border: index%2 == 0 ? "border-2 border-gray-300" : "border-solid",
                     }
@@ -62,7 +63,7 @@ const LearnStyle: FC = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-10 mt-6">
         {
-          learnItems.map((item: { tierId: string; title: string; header: string; text: string; items: string[]; buttonName: string; backColor: string; border: string; }, index: React.Key | null | undefined) => (
+          learnItems.map((item: { tierId: string; title: string; header: string; text: string; items: string[]; buttonStyle: string; backColor: string; border: string; }, index: React.Key | null | undefined) => (
             <LearnCard
               key={index}
               tierid={item.tierId}
@@ -70,7 +71,7 @@ const LearnStyle: FC = () => {
               header={item.header}
               text={item.text}
               items={item.items}
-              buttonName={item.buttonName}
+              button={item.buttonStyle}
               backColor={item.backColor}
               border={item.border}
             />

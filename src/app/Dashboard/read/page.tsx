@@ -1,4 +1,4 @@
-// app/Dashboard/read/page.tsx
+// app/dashboard/read/page.tsx
 "use client";
 
 import Read from "./Read"; // Adjust the path as needed

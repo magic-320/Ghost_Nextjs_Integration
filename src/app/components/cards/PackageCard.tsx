@@ -19,7 +19,7 @@ interface PackageCardProps {
     content: string,
     imgUrl?: string,
     linkUrl?: string,
-    card?: string[]
+    benefit?: string[]
 }
 
 const PackageCard: FC<PackageCardProps> = ({
@@ -31,7 +31,7 @@ const PackageCard: FC<PackageCardProps> = ({
     content,
     imgUrl,
     linkUrl,
-    card
+    benefit
 }: PackageCardProps) => {
 
     return (
@@ -97,7 +97,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                                 query: {
                                                     title: title,
                                                     content: content,
-                                                    card: card
+                                                    benefit: benefit
                                                 }
                                             }} 
                                             className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-[#475467]"

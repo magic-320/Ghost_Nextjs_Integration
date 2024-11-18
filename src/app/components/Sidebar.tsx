@@ -15,28 +15,28 @@ const Sidebar: FC = () => {
     React.useEffect(() => {
         
         switch(pathname) {
-            case "/Dashboard":
+            case "/dashboard":
                 setActive('dashboard');
                 break;
-            case "/Dashboard/learn":
+            case "/dashboard/learn":
                 setActive('learn');
                 break;
-            case "/Dashboard/read":
+            case "/dashboard/read":
                 setActive('read');
                 break;
-            case "/Dashboard/watch":
+            case "/dashboard/watch":
                 setActive('watch');
                 break;
-            case "/Dashboard/meet":
+            case "/dashboard/meet":
                 setActive('meet');
                 break;
-            case "/Dashboard/newsletter":
+            case "/dashboard/newsletter":
                 setActive('newsletter');
                 break;
-            case "/Dashboard/assessment":
+            case "/dashboard/assessment":
                 setActive('assessment');
                 break;
-            case "/Dashboard/settings":
+            case "/dashboard/settings":
                 setActive('settings');
                 break;
             default:
@@ -48,7 +48,7 @@ const Sidebar: FC = () => {
     return (
         <div className="w-full h-full py-10 text-[17px] xl:text-[22px] bg-[#F9F9F9] rounded-[22px] lg:block flex justify-center">
             <div className="text-center lg:text-left mx-[auto] max-w-[125px] xl:max-w-[155px]">
-                <Link href="/Dashboard">
+                <Link href="/dashboard">
                     <div 
                         className={`hover:cursor-pointer ${active == 'dashboard' && 'font-bold'}`} 
                         onClick={() => setActive('dashboard')}
@@ -63,7 +63,7 @@ const Sidebar: FC = () => {
                     My Services <span className="ml-2 md:ml-3 mt-1 md:mt-2">{serviceHidden ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
                 </div>
                     <div className={`px-10 ${serviceHidden && 'hidden'}`}>
-                        <Link href="/Dashboard/learn">
+                        <Link href="/dashboard/learn">
                             <div 
                                 className={`mt-4 hover:cursor-pointer ${active == 'learn' && 'font-bold'}`}
                                 onClick={() => setActive('learn')}
@@ -71,7 +71,7 @@ const Sidebar: FC = () => {
                                 Learn
                             </div>
                         </Link>
-                        <Link href="/Dashboard/read">
+                        <Link href="/dashboard/read">
                             <div 
                                 className={`mt-4 hover:cursor-pointer ${active == 'read' && 'font-bold'}`}
                                 onClick={() => setActive('read')}
@@ -79,7 +79,7 @@ const Sidebar: FC = () => {
                                 Read
                             </div>
                         </Link>
-                        <Link href="/Dashboard/watch">
+                        <Link href="/dashboard/watch">
                             <div 
                                 className={`mt-4 hover:cursor-pointer ${active == 'watch' && 'font-bold'}`}
                                 onClick={() => setActive('watch')}
@@ -87,7 +87,7 @@ const Sidebar: FC = () => {
                                 Watch
                             </div>
                         </Link>
-                        <Link href="/Dashboard/meet">
+                        <Link href="/dashboard/meet">
                             <div 
                                 className={`mt-4 hover:cursor-pointer ${active == 'meet' && 'font-bold'}`}
                                 onClick={() => setActive('meet')}
@@ -96,7 +96,7 @@ const Sidebar: FC = () => {
                             </div>
                         </Link>
                     </div>
-                <Link href="/Dashboard/chatbot">
+                <Link href="/dashboard/chatbot">
                     <div 
                         className={`mt-4 hover:cursor-pointer ${active == 'chatbot' && 'font-bold'}`}
                         onClick={() => setActive('chatbot')}
@@ -104,7 +104,7 @@ const Sidebar: FC = () => {
                         My Chatbot
                     </div>
                 </Link>
-                <Link href="/Dashboard/newsletter">
+                <Link href="/dashboard/newsletter">
                     <div 
                         className={`mt-4 hover:cursor-pointer ${active == 'newsletter' && 'font-bold'}`}
                         onClick={() => setActive('newsletter')}
@@ -112,7 +112,7 @@ const Sidebar: FC = () => {
                         My Newsletter
                     </div>
                 </Link>
-                <Link href="/Dashboard/assessment">
+                <Link href="/dashboard/assessment">
                     <div 
                         className={`mt-4 hover:cursor-pointer ${active == 'assessment' && 'font-bold'}`}
                         onClick={() => setActive('assessment')}
@@ -121,7 +121,7 @@ const Sidebar: FC = () => {
                     </div>
                 </Link>
 
-                <Link href="/Dashboard/settings">
+                <Link href="/dashboard/settings">
                     <div 
                         className={`mt-4 hover:cursor-pointer ${active == 'settings' && 'font-bold'}`}
                         onClick={() => setActive('settings')}

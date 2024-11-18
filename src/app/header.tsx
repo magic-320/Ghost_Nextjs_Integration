@@ -134,7 +134,7 @@ const Header: FC = () => {
 
         <div
           ref={headerPanelRef}
-          className="panel border-2 border-text-color rounded-full bg-white py-1 sm:py-1.5 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
+          className="panel border-2 border-text-color rounded-full bg-white py-1 md:py-1.5 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
         >
           {links.map((item, index) => {
             const newStyle = currentUrl === item.link
@@ -157,9 +157,9 @@ const Header: FC = () => {
 
             {
               !user ? (
-                <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] sm:py-2'>Sign In</DefaultButton></Link>
+                <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>Aceess</DefaultButton></Link>
               ) : (
-                <Link href='/Dashboard'><DefaultButton className='text-[14px] md:text-[20px] sm:py-2'>{user.member.name}</DefaultButton></Link>
+                <Link href='/dashboard'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton></Link>
               )
             }  
         

@@ -10,7 +10,7 @@ const drivenItems = [
 		cardColor: "#F3F8FE",
 		imgUrl: "url(/assets/images/drivenSvgs/card1.svg)",
 		iconUrl: "/assets/images/drivenSvgs/arrow1.svg",
-		linkUrl: '/Dashboard/learn'
+		linkUrl: '/dashboard/learn'
 	},
 	{
 		buttonName: "Read",
@@ -20,7 +20,7 @@ const drivenItems = [
 		cardColor: "#FFF7F4",
 		imgUrl: "url(/assets/images/drivenSvgs/card2.svg)",
 		iconUrl: "/assets/images/drivenSvgs/arrow2.svg",
-		linkUrl: '/Dashboard/read'
+		linkUrl: '/dashboard/read'
 	},
 	{
 		buttonName: "Watch",
@@ -30,7 +30,7 @@ const drivenItems = [
 		cardColor: "#F7F6FF",
 		imgUrl: "url(/assets/images/drivenSvgs/card3.svg)",
 		iconUrl: "/assets/images/drivenSvgs/arrow3.svg",
-		linkUrl: '/Dashboard/watch'
+		linkUrl: '/dashboard/watch'
 	},
 	{
 		buttonName: "Meet",
@@ -40,7 +40,7 @@ const drivenItems = [
 		cardColor: "#F2FAEC",
 		imgUrl: "url(/assets/images/drivenSvgs/card4.svg)",
 		iconUrl: "/assets/images/drivenSvgs/arrow4.svg",
-		linkUrl: '/Dashboard/meet'
+		linkUrl: '/dashboard/meet'
 	},
 ];
 

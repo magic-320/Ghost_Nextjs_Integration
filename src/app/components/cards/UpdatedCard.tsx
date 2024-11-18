@@ -33,7 +33,7 @@ const DrivenCard: FC<DrivenCardProps> = ({
             <div className="flex leading-4 sm:leading-8 text-base sm:text-3xl font-bold  sm:mx-5 flex mx-4">
                 <div>{header}</div>
                 <div className="w-[32px]">
-                    <Link href={{pathname: '/Dashboard/newsletter', query: wholeData}}>
+                    <Link href={{pathname: '/dashboard/newsletter', query: wholeData}}>
                         <img src="/assets/images/stayUpdated/link.svg" className="w-6 sm:w-8 h-6 sm:h-8 absolute right-0 mx-5 hover:cursor-pointer" />
                     </Link>
                 </div>
