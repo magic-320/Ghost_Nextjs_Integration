@@ -12,6 +12,7 @@ const TiersNames = ['Growth', 'Amplify', 'Peak'];
 const LearnStyle: FC = () => {
 
   const [learnItems, setLearnItems] = useState<any>([]);
+  const [isMore, setIsMore] = useState<boolean>(false);
 
   React.useEffect(() => {
       const getTiers = async() => {
@@ -74,6 +75,8 @@ const LearnStyle: FC = () => {
               button={item.buttonStyle}
               backColor={item.backColor}
               border={item.border}
+              more={isMore}
+              setMore={setIsMore}
             />
           ))
         }

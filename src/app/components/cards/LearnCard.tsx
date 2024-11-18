@@ -25,6 +25,8 @@ interface LearnCardProps {
     button: string;
     backColor: string;
     border: string;
+    more: boolean,
+    setMore: Function
 }
 // const  tItems,setCurrentItems = useState<VisitorData[]>([]);
 const LearnCard: FC<LearnCardProps> = ({
@@ -35,12 +37,14 @@ const LearnCard: FC<LearnCardProps> = ({
     items,
     button,
     backColor,
-    border
+    border,
+    more,
+    setMore
 }: LearnCardProps) => {
 
     const router = useRouter();
     
-    const [isMore, setIsMore] = useState<Boolean>(false);
+    // const [isMore, setIsMore] = useState<Boolean>(false);
     const edosaJwtToken = localStorage.getItem('edosaJwtToken');
     const edosaMember = localStorage.getItem('edosaMember');
     const member = edosaMember && JSON.parse(edosaMember);
@@ -96,7 +100,7 @@ const LearnCard: FC<LearnCardProps> = ({
             
             <div className="px-5" style={{height: '-webkit-fill-available'}}>
                 {items.map((item, index) => {
-                    if (!isMore) return;
+                    if (!more) return;
                     return (
                         <div key={index} className="flex flex-row">
                             <Image src={CHECK} width={24} height={24} alt="checked" />
@@ -108,10 +112,10 @@ const LearnCard: FC<LearnCardProps> = ({
 
             <div className="underline text-[rgb(0,150,250)] hover:cursor-pointer">
                 {
-                    isMore ? (
-                        <span onClick={() => setIsMore(!isMore)}>Less</span>
+                    more ? (
+                        <span onClick={() => setMore(!more)}>Less</span>
                     ) : (
-                        <span onClick={() => setIsMore(!isMore)}>More</span>
+                        <span onClick={() => setMore(!more)}>More</span>
                     )
                 }
             </div>
