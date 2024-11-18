@@ -151,7 +151,7 @@ const LearnCard: FC<LearnCardProps> = ({
             </div>
 
             {
-                member && !member.paid && (
+                edosaJwtToken && (
                     <div className="w-5/6 text-center text-text-color">
                         Already a member? <Link href="/signin" className="text-[rgb(0,150,250)]">Sign In Here</Link>
                     </div>
