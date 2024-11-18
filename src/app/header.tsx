@@ -159,7 +159,7 @@ const Header: FC = () => {
               !user ? (
                 <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>Aceess</DefaultButton></Link>
               ) : (
-                <Link href='/dashboard'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton></Link>
+                <Link href='/Dashboard'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton></Link>
               )
             }  
         

@@ -69,14 +69,14 @@ const LearnCard: FC<LearnCardProps> = ({
 
     const onFreeAccess = () => {
         if (edosaJwtToken) {
-            router.push('/dashboard');
+            router.push('/Dashboard');
         } else {
             router.push('/signin');
         }
     }
 
     const onMemberAccess = () => {
-        router.push('/dashboard');
+        router.push('/Dashboard');
     }
 
     return (
