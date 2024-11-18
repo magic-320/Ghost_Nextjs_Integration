@@ -4,6 +4,7 @@ import CHECK from "@/public/assets/svg/check.svg";
 import DefaultButton from "../buttons/DefaultButton";
 import setupGhostApi from "../../utils/api";
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 const API_URL = process.env.NEXT_PUBLIC_GHOST_API_URL;
 const ADMIN_API_KEY = process.env.NEXT_PUBLIC_GHOST_ADMIN_API_KEY;
@@ -143,6 +144,10 @@ const LearnCard: FC<LearnCardProps> = ({
                         </span>
                     )
                 }
+            </div>
+
+            <div className="w-5/6 text-center text-text-color">
+                Already a member? <Link href="/signin" className="text-[rgb(0,150,250)]">Sign In Here</Link>
             </div>
         </div>
     );

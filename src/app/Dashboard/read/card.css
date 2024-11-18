@@ -2,3 +2,20 @@
 @import url('https://www.edosaodaro.com/public/cards.min.css?v=e84a12bca2');
 
 :root {--ghost-accent-color: #004000;}
+
+.publisher-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.publisher-item a {
+    border: 1px solid #475467;
+    border-radius: 50px;
+    color: #475467;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 1.4;
+    padding: 8px 20px;
+    margin: 16px 0;
+}
