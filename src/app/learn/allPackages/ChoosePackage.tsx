@@ -33,11 +33,12 @@ const ViewPackage: FC = () => {
                         title: el.description.split(' with')[0],
                         badge: el.name,
                         isChecked: false,
-                        price: el.monthly_price ? Number(el.monthly_price / 100) : 'free',
+                        price: el.monthly_price ? '$'+Number(el.monthly_price / 100) : 'Free',
                         content: el.description,
                         imgUrl: '',
                         linkUrl: '/learn/ownPackage',
-                        benefit: el.benefits
+                        benefit: el.benefits,
+                        button: 'Learn more'
                     }
                     demoPackages.push(demoData);
                 })
@@ -74,6 +75,7 @@ const ViewPackage: FC = () => {
                                 imgUrl={el.imgUrl}
                                 linkUrl={el.linkUrl}
                                 benefit={el.benefit}
+                                button={el.button}
                             />
                         )
                     })

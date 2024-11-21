@@ -19,7 +19,8 @@ interface PackageCardProps {
     content: string,
     imgUrl?: string,
     linkUrl?: string,
-    benefit?: string[]
+    benefit?: string[],
+    button: string
 }
 
 const PackageCard: FC<PackageCardProps> = ({
@@ -31,7 +32,8 @@ const PackageCard: FC<PackageCardProps> = ({
     content,
     imgUrl,
     linkUrl,
-    benefit
+    benefit,
+    button
 }: PackageCardProps) => {
 
     return (
@@ -42,13 +44,13 @@ const PackageCard: FC<PackageCardProps> = ({
                     <section className="relative w-full h-[278px]">
                         <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
                             {/* Background and border */}
-                            <div className="absolute w-full h-[278px] top-0 left-0 bg-[#f3f8fe] rounded-[22px] border border-solid border-[#5c76ff] rotate-180" />
+                            <div className="absolute w-full h-[278px] top-0 left-0 bg-l-demo-color rounded-[22px] border border-solid border-l-main-color rotate-180" />
 
                             {/* Checkbox instead of the check icon */}
                             <div className="absolute top-6 right-7">
                                 <input
                                     type="checkbox"
-                                    className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                    className="w-4 h-4 rounded border-gray-300 text-l-main-color"
                                     // checked={isChecked}
                                 />
                             </div>
@@ -57,13 +59,13 @@ const PackageCard: FC<PackageCardProps> = ({
                             {
                                 badge && (
                                     <div
-                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#5c76ff]"
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-l-main-color"
                                         aria-label="Badge"
                                     >
                                         <div className="relative w-2 h-3" aria-hidden="true">
-                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-[#5c76ff] rounded-[3px]" />
+                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-l-main-color rounded-[3px]" />
                                         </div>
-                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-[#5c76ff] text-xs text-center tracking-wide leading-tight whitespace-nowrap">
+                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-l-main-color text-xs text-center tracking-wide leading-tight whitespace-nowrap">
                                             {badge}
                                         </span>
                                     </div>
@@ -76,7 +78,7 @@ const PackageCard: FC<PackageCardProps> = ({
                             </h2>
 
                             {/* Blue circle */}
-                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-[#5c76ff]">
+                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-l-main-color">
                                 <Image src={l_mark} alt={'learn_mark'} className='w-full h-full' />
                             </div>
 
@@ -85,9 +87,9 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
+                                        {price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
+                                    <p className="font-normal text-text-color text-[12px] leading-[19px] h-[77px] overflow-hidden">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
@@ -100,9 +102,9 @@ const PackageCard: FC<PackageCardProps> = ({
                                                     benefit: benefit
                                                 }
                                             }} 
-                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-[#475467]"
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
                                         >
-                                            <button>Learn more</button>
+                                            <button>{button}</button>
                                         </Link>
                                     </div>
                                 </div>
@@ -125,13 +127,13 @@ const PackageCard: FC<PackageCardProps> = ({
                     <section className="relative w-full h-[278px]">
                         <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
                             {/* Background and border */}
-                            <div className="absolute w-full h-[278px] top-0 left-0 bg-[#FFF7F4] rounded-[22px] border border-solid border-[#f15f31] rotate-180" />
+                            <div className="absolute w-full h-[278px] top-0 left-0 bg-r-demo-color rounded-[22px] border border-solid border-r-main-color rotate-180" />
 
                             {/* Checkbox instead of the check icon */}
                             <div className="absolute top-6 right-7">
                                 <input
                                     type="checkbox"
-                                    className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                    className="w-4 h-4 rounded border-gray-300 text-r-main-color"
                                     // checked={isChecked}
                                 />
                             </div>
@@ -140,13 +142,13 @@ const PackageCard: FC<PackageCardProps> = ({
                             {
                                 badge && (
                                     <div
-                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#f15f31]"
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-r-main-color"
                                         aria-label="Badge"
                                     >
                                         <div className="relative w-2 h-3" aria-hidden="true">
-                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-[#f15f31] rounded-[3px]" />
+                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-r-main-color rounded-[3px]" />
                                         </div>
-                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-[#f15f31] text-xs text-center tracking-wide leading-tight whitespace-nowrap">
+                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-r-main-color text-xs text-center tracking-wide leading-tight whitespace-nowrap">
                                             {badge}
                                         </span>
                                     </div>
@@ -158,8 +160,8 @@ const PackageCard: FC<PackageCardProps> = ({
                                 {title}
                             </h2>
 
-                            {/* Orange circle */}
-                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-[#f15f31]">
+                            {/* Orage circle */}
+                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-r-main-color">
                                 <Image src={r_mark} alt={'read_mark'} className='w-full h-full' />
                             </div>
 
@@ -168,14 +170,24 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
+                                        {price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
+                                    <p className="font-normal text-text-color text-[12px] leading-[19px] h-[77px] overflow-hidden">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
-                                        <Link href={`${linkUrl}`} className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-[#475467]">
-                                            <button>Learn more</button>
+                                        <Link 
+                                            href={{
+                                                pathname: linkUrl,
+                                                query: {
+                                                    title: title,
+                                                    content: content,
+                                                    benefit: benefit
+                                                }
+                                            }} 
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
+                                        >
+                                            <button>{button}</button>
                                         </Link>
                                     </div>
                                 </div>
@@ -185,97 +197,26 @@ const PackageCard: FC<PackageCardProps> = ({
                         {/* Decorative line */}
                         <Image
                             className="absolute w-[85%] left-[7.5%] md:w-[90%] md:left-[5%] h-px top-[60px] object-cover"
-                            alt="blueLine"
+                            alt="orangeLine"
                             src={orangeLine}
                         />
                     </section>
             )
         }
 
-        {
-            type == 'meet' && (
-                    <section className="relative w-full h-[278px]">
-                        <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
-                            {/* Background and border */}
-                            <div className="absolute w-full h-[278px] top-0 left-0 bg-[#f2faec] rounded-[22px] border border-solid border-[#95da79] rotate-180" />
 
-                            {/* Checkbox instead of the check icon */}
-                            <div className="absolute top-6 right-7">
-                                <input
-                                    type="checkbox"
-                                    className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                                    // checked={isChecked}
-                                />
-                            </div>
-                            
-                            {/* Badge */}
-                            {
-                                badge && (
-                                    <div
-                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#95da79]"
-                                        aria-label="Badge"
-                                    >
-                                        <div className="relative w-2 h-3" aria-hidden="true">
-                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-[#95da79] rounded-[3px]" />
-                                        </div>
-                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-[#95da79] text-xs text-center tracking-wide leading-tight whitespace-nowrap">
-                                            {badge}
-                                        </span>
-                                    </div>
-                                )
-                            }
-
-                            {/* Course title */}
-                            <h2 className="absolute top-[21px] left-[70px] font-bold text-[#101828] text-sm leading-[25px] whitespace-nowrap">
-                                {title}
-                            </h2>
-
-                            {/* Green circle */}
-                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-[#95da79]">
-                                <Image src={wm_mark} alt={'wm_mark'} className='w-full h-full rotate-180' />
-                            </div>
-
-                            {/* White box */}
-                            <div className="absolute flex top-[78px] left-[33px] right-[33px]">
-                                <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
-                                <div className='w-[50%] h-[177px] pl-7'>
-                                    <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
-                                    </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
-                                        {content}
-                                    </p>
-                                    <div className='w-full flex justify-center mt-5'>
-                                        <Link href={`${linkUrl}`} className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-[#475467]">
-                                            <button>Learn more</button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        {/* Decorative line */}
-                        <Image
-                            className="absolute w-[85%] left-[7.5%] md:w-[90%] md:left-[5%] h-px top-[60px] object-cover"
-                            alt="blueLine"
-                            src={greenLine}
-                        />
-                    </section>
-            )
-        }
-        
         {
             type == 'watch' && (
                     <section className="relative w-full h-[278px]">
                         <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
                             {/* Background and border */}
-                            <div className="absolute w-full h-[278px] top-0 left-0 bg-[#F7F6FF] rounded-[22px] border border-solid border-[#7f56d9] rotate-180" />
+                            <div className="absolute w-full h-[278px] top-0 left-0 bg-w-demo-color rounded-[22px] border border-solid border-w-main-color rotate-180" />
 
                             {/* Checkbox instead of the check icon */}
                             <div className="absolute top-6 right-7">
                                 <input
                                     type="checkbox"
-                                    className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                    className="w-4 h-4 rounded border-gray-300 text-w-main-color"
                                     // checked={isChecked}
                                 />
                             </div>
@@ -284,13 +225,13 @@ const PackageCard: FC<PackageCardProps> = ({
                             {
                                 badge && (
                                     <div
-                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-[#7f56d9]"
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-w-main-color"
                                         aria-label="Badge"
                                     >
                                         <div className="relative w-2 h-3" aria-hidden="true">
-                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-[#7f56d9] rounded-[3px]" />
+                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-w-main-color rounded-[3px]" />
                                         </div>
-                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-[#7f56d9] text-xs text-center tracking-wide leading-tight whitespace-nowrap">
+                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-w-main-color text-xs text-center tracking-wide leading-tight whitespace-nowrap">
                                             {badge}
                                         </span>
                                     </div>
@@ -303,8 +244,8 @@ const PackageCard: FC<PackageCardProps> = ({
                             </h2>
 
                             {/* Purple circle */}
-                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-[#7f56d9]">
-                                <Image src={wm_mark} alt={'wm_mark'} className='w-full h-full' />
+                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-w-main-color">
+                                <Image src={r_mark} alt={'read_mark'} className='w-full h-full' />
                             </div>
 
                             {/* White box */}
@@ -312,14 +253,24 @@ const PackageCard: FC<PackageCardProps> = ({
                                 <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
                                 <div className='w-[50%] h-[177px] pl-7'>
                                     <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
-                                        {typeof(price) == 'string' && price.toLowerCase() == 'free' ? 'Free' : '$'+price}
+                                        {price}
                                     </div>
-                                    <p className="font-normal text-[#475467] text-[12px] leading-[19px] h-[77px] overflow-hidden">
+                                    <p className="font-normal text-text-color text-[12px] leading-[19px] h-[77px] overflow-hidden">
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
-                                        <Link href={`${linkUrl}`} className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-[#475467]">
-                                            <button>Learn more</button>
+                                        <Link 
+                                            href={{
+                                                pathname: linkUrl,
+                                                query: {
+                                                    title: title,
+                                                    content: content,
+                                                    benefit: benefit
+                                                }
+                                            }} 
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
+                                        >
+                                            <button>{button}</button>
                                         </Link>
                                     </div>
                                 </div>
@@ -329,8 +280,91 @@ const PackageCard: FC<PackageCardProps> = ({
                         {/* Decorative line */}
                         <Image
                             className="absolute w-[85%] left-[7.5%] md:w-[90%] md:left-[5%] h-px top-[60px] object-cover"
-                            alt="blueLine"
+                            alt="purpleLine"
                             src={purpleLine}
+                        />
+                    </section>
+            )
+        }
+
+
+        {
+            type == 'meet' && (
+                    <section className="relative w-full h-[278px]">
+                        <article className="absolute w-full h-auto top-0 left-0 rounded-[22px]">
+                            {/* Background and border */}
+                            <div className="absolute w-full h-[278px] top-0 left-0 bg-m-demo-color rounded-[22px] border border-solid border-m-main-color rotate-180" />
+
+                            {/* Checkbox instead of the check icon */}
+                            <div className="absolute top-6 right-7">
+                                <input
+                                    type="checkbox"
+                                    className="w-4 h-4 rounded border-gray-300 text-m-main-color"
+                                    // checked={isChecked}
+                                />
+                            </div>
+                            
+                            {/* Badge */}
+                            {
+                                badge && (
+                                    <div
+                                        className="absolute top-5 right-16 flex w-auto h-[25px] items-center gap-1 px-1.5 py-0.5 bg-white rounded-[23px] border border-solid border-m-main-color"
+                                        aria-label="Badge"
+                                    >
+                                        <div className="relative w-2 h-3" aria-hidden="true">
+                                            <div className="relative w-1.5 h-1.5 top-px left-px bg-m-main-color rounded-[3px]" />
+                                        </div>
+                                        <span className="relative w-fit mt-[-1px] font-text-xs-medium font-medium text-m-main-color text-xs text-center tracking-wide leading-tight whitespace-nowrap">
+                                            {badge}
+                                        </span>
+                                    </div>
+                                )
+                            }
+
+                            {/* Course title */}
+                            <h2 className="absolute top-[21px] left-[70px] font-bold text-[#101828] text-sm leading-[25px] whitespace-nowrap">
+                                {title}
+                            </h2>
+
+                            {/* Green circle */}
+                            <div className="absolute w-6 h-[25px] top-[21px] left-[30px] rounded-[18px] bg-m-main-color">
+                                <Image src={r_mark} alt={'read_mark'} className='w-full h-full' />
+                            </div>
+
+                            {/* White box */}
+                            <div className="absolute flex top-[78px] left-[33px] right-[33px]">
+                                <div className='w-[50%] h-[177px] bg-white rounded-[22px]' style={{backgroundImage: `url(${imgUrl})`, backgroundSize: '100% 100%'}}></div>
+                                <div className='w-[50%] h-[177px] pl-7'>
+                                    <div className="font-semibold text-[#344054] text-[14px] text-sm leading-[38px] whitespace-nowrap">
+                                        {price}
+                                    </div>
+                                    <p className="font-normal text-text-color text-[12px] leading-[19px] h-[77px] overflow-hidden">
+                                        {content}
+                                    </p>
+                                    <div className='w-full flex justify-center mt-5'>
+                                        <Link 
+                                            href={{
+                                                pathname: linkUrl,
+                                                query: {
+                                                    title: title,
+                                                    content: content,
+                                                    benefit: benefit
+                                                }
+                                            }} 
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
+                                        >
+                                            <button>{button}</button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        {/* Decorative line */}
+                        <Image
+                            className="absolute w-[85%] left-[7.5%] md:w-[90%] md:left-[5%] h-px top-[60px] object-cover"
+                            alt="greenLine"
+                            src={greenLine}
                         />
                     </section>
             )
