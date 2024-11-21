@@ -9,6 +9,7 @@ import NewsletterArrow from '@/public/assets/images/drivenSvgs/arrow2.svg';
 import axios from 'axios';
 import parse from 'html-react-parser';
 import { useSearchParams } from "next/navigation";
+import '../card.css';
 
 type PostsResponse = {
     posts: any;
@@ -28,10 +29,12 @@ const Newsletter: NextPage = () => {
                 const res = await axios.post<PostsResponse>('/api/content/posts', {
                     payload: "&limit=all&filter=tag:[hash-newsletter,hash-newsletteredition000,newsletters]"
                 });
+
+                console.log(res.data);
                 
                 let demoData: any = [];
 
-                res.data.posts.filter((item: { html: any; }) => item.html).map((el: any) => {
+                res.data.posts.map((el: any) => {
                     demoData.push(el);
                 })
 

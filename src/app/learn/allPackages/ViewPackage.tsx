@@ -1,153 +1,194 @@
 'use client';
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
+import axios from 'axios';
 import PackageCard from '../../components/cards/PackageCard';
+
+type TiersResponse = {
+    tiers: any
+}
 
 const ViewPackage: FC = () => {
 
-    const packages = [
-        {
-            type: 'learn',
-            title: '5-day Email Course',
-            badge: '',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'learn',
-            title: 'AI Chatbot',
-            badge: '',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'read',
-            title: 'Free Newsletter',
-            badge: 'Newsletter',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'read',
-            title: 'Premium Newsletter',
-            badge: 'Newsletter',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'read',
-            title: 'Interactive Workbook',
-            badge: 'Book',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'read',
-            title: 'Executive Handbook',
-            badge: 'Book',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'read',
-            title: 'Value-Driven Data',
-            badge: 'Book',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'meet',
-            title: 'Personal Coaching Session',
-            badge: 'on demand',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'meet',
-            title: 'Reflective Coaching Session',
-            badge: 'on demand',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'meet',
-            title: 'Corporate Advisory Session',
-            badge: 'on demand',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'learn',
-            title: '3-week Cohort',
-            badge: 'Maven',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'watch',
-            title: 'Curated Resource Library',
-            badge: 'Maven',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'read',
-            title: 'Request Publish Books',
-            badge: 'on request',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        },
-        {
-            type: 'meet',
-            title: 'Request Edosa to Speak',
-            badge: 'on request',
-            isChecked: false,
-            prince: '10.00',
-            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
-            imgUrl: '',
-            linkUrl: ''
-        }
-    ]
+    // const packages = [
+    //     {
+    //         type: 'learn',
+    //         title: '5-day Email Course',
+    //         badge: '',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'learn',
+    //         title: 'AI Chatbot',
+    //         badge: '',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'read',
+    //         title: 'Free Newsletter',
+    //         badge: 'Newsletter',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'read',
+    //         title: 'Premium Newsletter',
+    //         badge: 'Newsletter',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'read',
+    //         title: 'Interactive Workbook',
+    //         badge: 'Book',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'read',
+    //         title: 'Executive Handbook',
+    //         badge: 'Book',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'read',
+    //         title: 'Value-Driven Data',
+    //         badge: 'Book',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'meet',
+    //         title: 'Personal Coaching Session',
+    //         badge: 'on demand',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'meet',
+    //         title: 'Reflective Coaching Session',
+    //         badge: 'on demand',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'meet',
+    //         title: 'Corporate Advisory Session',
+    //         badge: 'on demand',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'learn',
+    //         title: '3-week Cohort',
+    //         badge: 'Maven',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'watch',
+    //         title: 'Curated Resource Library',
+    //         badge: 'Maven',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'read',
+    //         title: 'Request Publish Books',
+    //         badge: 'on request',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     },
+    //     {
+    //         type: 'meet',
+    //         title: 'Request Edosa to Speak',
+    //         badge: 'on request',
+    //         isChecked: false,
+    //         prince: '10.00',
+    //         content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+    //         imgUrl: '',
+    //         linkUrl: ''
+    //     }
+    // ]
 
     const [activeItem, setActiveItem] = useState<string | null>('View All');
+    const [packages, setPackages] = useState<any[]>([]);
+
+    React.useEffect(() => {
+        const getTiers = async() => {
+            try {
+                const res = await axios.post<TiersResponse>('/api/content/tiers', {
+                    payload: '&limit=all&include=monthly_price,benefits'
+                });
+                console.log(res.data.tiers)
+                
+                let demoPackage:any = [];
+
+                res.data.tiers.map((el: any) => {
+                    el.benefits.map((j: any) => {
+                        demoPackage.push({
+                            type: 'learn',
+                            title: j,
+                            badge: 'badge',
+                            isChecked: false,
+                            prince: '10.00',
+                            content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations.',
+                            imgUrl: '',
+                            linkUrl: ''
+                        });
+                    })
+                })
+
+                setPackages(demoPackage);
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+  
+        getTiers();
+    }, []);
 
     const handleItemClick = (item: string) => {
         setActiveItem(item);

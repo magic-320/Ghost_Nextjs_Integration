@@ -7,7 +7,7 @@ import axios from 'axios';
 import parse from 'html-react-parser';
 import BOOK2 from "@/public/assets/images/books/book2.png";
 import DefaultButton from '../../components/buttons/DefaultButton';
-import './card.css';
+import '../card.css';
 
 type PostsResponse = {
     meta: any,
