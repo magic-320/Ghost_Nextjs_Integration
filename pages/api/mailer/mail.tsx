@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           secure: false, // true for 465, false for other ports
           auth: {
             user: "rc.magic320@gmail.com",
-            pass:  "zomb hwca mlkt vgpr"
+            pass:  "butw ixda xqdl iawu"
           }
         });
       

@@ -69,7 +69,13 @@ const Header: FC = () => {
   useEffect(() => {
 
     if (hasRun.current) return;
-    hasRun.current = true;     
+    hasRun.current = true;
+
+    ////////////// Real Time Funciton /////////////
+    // 12-day Email Course
+    axios.post('/api/12-day-course/check12DayCourse');
+    //////////// End Real Time Funciton ///////////
+
 
     const getToken = async() => {
       try {

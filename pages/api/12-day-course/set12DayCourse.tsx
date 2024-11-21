@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const addData = {
             email: email,
             joined_at: now,
-            today: 0,
+            today: 1,
             ended_at: endDay,
             isCourseMember: true
         }
@@ -32,7 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
 
         axios.post(`${PUBLIC_DOMAIN}/api/mailer/mail`, {
-            // toUser: 'olekssikaravanov@gmail.com',
             toUser: email,
             subject: '12 Day Email Course',
             html: `<h2>Hello, you will get an Email per day for 12 days.</h2>`

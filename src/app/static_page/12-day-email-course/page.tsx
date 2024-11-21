@@ -50,7 +50,7 @@ const Page: FC = () => {
     }
 
     return (
-        <div className='mx-[15px] lg:mx-[auto] my-[1rem] sm:my-[2rem] p-[1.5rem] max-w-[60rem] border border-[rgba(200,0,0,.6)]' style={{boxShadow: '0px 0px 6px rgba(200,0,0,.6)'}}>
+        <div className='mx-[15px] lg:mx-[auto] my-[1rem] sm:my-[2rem] p-[1.5rem] max-w-[60rem] border border-[rgba(0,200,50,.8)]' style={{boxShadow: '0px 0px 6px rgba(0,200,50,.8)'}}>
             <div className='mb-5 relative'>
                 <Image src={LOGO} width={250} alt='Logo' />
                 <MdOutlineCancel className='absolute top-[0] right-[0] w-[25px] h-[25px] text-text-color hover:cursor-pointer' title='Cancel' onClick={() => window.close()} />
