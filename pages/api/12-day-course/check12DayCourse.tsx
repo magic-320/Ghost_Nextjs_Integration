@@ -10,6 +10,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const now = new Date();
     const aDay = 86400000;
 
+    // axios.post(`${PUBLIC_DOMAIN}/api/mailer/mail`, {
+    //     toUser: 'peterleo1026@gmail.com',
+    //     subject: '12 Day Email Course',
+    //     html: `<h2>Hello, you will get an Email per day for 12 days.</h2>`
+    // })
+
     try {
         const filePath = path.join(process.cwd(), '/pages/api/12-day-course/course.json');
         const jsonData = fs.readFileSync(filePath, 'utf-8');

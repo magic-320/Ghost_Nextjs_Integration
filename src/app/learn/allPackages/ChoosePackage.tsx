@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useState } from 'react';
 import axios from 'axios';
-import PackageCard from '../../components/cards/PackageCard';
+import TierPackageCard from '../../components/cards/TierPackageCard';
 import { badge } from '@material-tailwind/react';
 
 type TiersResponse = {
@@ -64,7 +64,7 @@ const ViewPackage: FC = () => {
                 {
                     packages.map((el:any, index:number) => {
                         return (
-                            <PackageCard 
+                            <TierPackageCard 
                                 key={index}
                                 type={el.type} 
                                 title={el.title} 

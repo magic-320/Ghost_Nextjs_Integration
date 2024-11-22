@@ -23,7 +23,7 @@ interface PackageCardProps {
     button: string
 }
 
-const PackageCard: FC<PackageCardProps> = ({
+const TierPackageCard: FC<PackageCardProps> = ({
     type,
     title,
     badge,
@@ -375,4 +375,4 @@ const PackageCard: FC<PackageCardProps> = ({
     );
 };
 
-export default PackageCard;
+export default TierPackageCard;

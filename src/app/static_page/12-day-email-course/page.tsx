@@ -16,23 +16,27 @@ const Page: FC = () => {
     const [random, setRandom] = useState<number>(0);
 
     React.useEffect(() => {
-        const get_member = localStorage.getItem('edosaMember');
-        const member = get_member && JSON.parse(get_member);
-        setMember(member);
-
-        const getIsMeCourseMember = async () => {
-            const res = await axios.get<any>('/api/12-day-course/get12DayCourse');
+        
+        if ( localStorage.getItem('edosaMember') ) {
             
-            let count:number = 0;
-            res.data.map((el:any) => {
-                if (el.email == member.email && el.isCourseMember == true) count++;
-            })
+            const get_member = localStorage.getItem('edosaMember');
+            const member = get_member && JSON.parse(get_member);
+            setMember(member);
 
-            if (count == 0) setIsJoined(false);
-            else setIsJoined(true);
+            const getIsMeCourseMember = async () => {
+                const res = await axios.get<any>('/api/12-day-course/get12DayCourse');
+                
+                let count:number = 0;
+                res.data.map((el:any) => {
+                    if (el.email == member.email && el.isCourseMember == true) count++;
+                })
+    
+                if (count == 0) setIsJoined(false);
+                else setIsJoined(true);
+            }
+    
+            getIsMeCourseMember();
         }
-
-        getIsMeCourseMember();
     }, [random]);
 
     const onJoin = async () => {
