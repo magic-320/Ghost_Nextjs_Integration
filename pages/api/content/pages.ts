@@ -19,7 +19,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
             "v5.0"
         );
 
-        const response = await api.posts.browse().fetch();
+        const response = await api.pages.browse().formats({ html: true }).fetch();
         console.log(response);
 
         res.json(response);
