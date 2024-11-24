@@ -14,8 +14,8 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     try {
 
         const api = new TSGhostAdminAPI (
-            API_URL || '', 
-            ADMIN_API_KEY || '', 
+            'https://www.edosaodaro.com/', 
+            '64be7a99a7dd040001d08613:c00b1d067a935241e2ea66298a60a31ccc33514fcd5baf7878ce82ddb016fc34', 
             "v5.0"
         );
 
