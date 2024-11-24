@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const response = await axios.get(`https://www.edosaodaro.com/posts`, {
+    const response = await axios.get(`https://www.edosaodaro.com//posts`, {
       headers: {
         'Authorization': `Ghost b33c063de2ed7799ce7a4202c1`,
       },

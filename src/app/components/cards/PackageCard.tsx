@@ -18,8 +18,6 @@ interface PackageCardProps {
     price: string,
     content: string,
     imgUrl?: string,
-    linkUrl?: string,
-    benefit?: string[],
     button: string
 }
 
@@ -31,8 +29,6 @@ const PackageCard: FC<PackageCardProps> = ({
     price,
     content,
     imgUrl,
-    linkUrl,
-    benefit,
     button
 }: PackageCardProps) => {
 
@@ -93,19 +89,11 @@ const PackageCard: FC<PackageCardProps> = ({
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
-                                        <Link 
-                                            href={{
-                                                pathname: linkUrl,
-                                                query: {
-                                                    title: title,
-                                                    content: content,
-                                                    benefit: benefit
-                                                }
-                                            }} 
-                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
+                                        <span
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
                                         >
                                             <button>{button}</button>
-                                        </Link>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -176,19 +164,11 @@ const PackageCard: FC<PackageCardProps> = ({
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
-                                        <Link 
-                                            href={{
-                                                pathname: linkUrl,
-                                                query: {
-                                                    title: title,
-                                                    content: content,
-                                                    benefit: benefit
-                                                }
-                                            }} 
-                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
+                                        <span
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
                                         >
                                             <button>{button}</button>
-                                        </Link>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -259,19 +239,11 @@ const PackageCard: FC<PackageCardProps> = ({
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
-                                        <Link 
-                                            href={{
-                                                pathname: linkUrl,
-                                                query: {
-                                                    title: title,
-                                                    content: content,
-                                                    benefit: benefit
-                                                }
-                                            }} 
-                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
+                                        <span
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
                                         >
                                             <button>{button}</button>
-                                        </Link>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -342,19 +314,11 @@ const PackageCard: FC<PackageCardProps> = ({
                                         {content}
                                     </p>
                                     <div className='w-full flex justify-center mt-5'>
-                                        <Link 
-                                            href={{
-                                                pathname: linkUrl,
-                                                query: {
-                                                    title: title,
-                                                    content: content,
-                                                    benefit: benefit
-                                                }
-                                            }} 
-                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color"
+                                        <span
+                                            className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
                                         >
                                             <button>{button}</button>
-                                        </Link>
+                                        </span>
                                     </div>
                                 </div>
                             </div>

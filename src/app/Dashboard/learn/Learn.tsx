@@ -32,9 +32,14 @@ const Learn: FC = () => {
         const getPosts = async() => {
             try {
 
-                const res = await axios.post<any>('/api/content/posts', {
+                const res = await axios.post<any>('/api/content/pages', {
                     payload: "&limit=all"
                 });
+                console.log(res.data)
+
+                // const res = await axios.post<any>('/api/content/posts', {
+                //     payload: "&limit=all"
+                // });
                 // const readyData = fixedCourse.concat(res.data.posts);
                 const readyData = fixedCourse;
 

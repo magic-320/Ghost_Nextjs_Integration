@@ -6,34 +6,56 @@ const CONTENT_API_KEY = process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY;
 
 import { TSGhostAdminAPI } from '@ts-ghost/admin-api';
 
+import jwt from 'jsonwebtoken';
+import axios from 'axios';
+
 export default async function handler (req: NextApiRequest, res: NextApiResponse) {
 
-    const api = new TSGhostAdminAPI (
-        API_URL || '', 
-        ADMIN_API_KEY || '', 
-        "v5.0"
-    );
+    try {
 
-    const response = await api.pages
-        .browse({
-            limit: 10,
-        })
-        .fields({
-            title: true,
-            slug: true,
-            id: true,
-            html: true,
-            plaintext: true,
-        })
-        .formats({
-            html: true,
-            plaintext: true,
-        })
-        .fetch();
+        const api = new TSGhostAdminAPI (
+            API_URL || '', 
+            ADMIN_API_KEY || '', 
+            "v5.0"
+        );
 
-    console.log(response);
-    res.json(response);
+        const response = await api.posts.browse().fetch();
+        console.log(response);
+
+        res.json(response);
+
+    } catch (err) {
+        console.log(err);
+    }
+
+    // const api = new TSGhostAdminAPI (
+    //     API_URL || '', 
+    //     ADMIN_API_KEY || '', 
+    //     "v5.0"
+    // );
+
+    // console.log(api.pages)
+
+    // const response = await api.pages
+    //     .browse()
+    //     .fields({
+    //         title: true,
+    //         slug: true,
+    //         id: true,
+    //         html: true,
+    //         plaintext: true,
+    //     })
+    //     .formats({
+    //         html: true,
+    //         plaintext: true,
+    //     })
+    //     .fetch();
+
+    // console.log(response);
+    // res.json(response);
     
+
+
     
     // const pages = await fetch(`${API_URL}/ghost/api/content/pages/?key=${CONTENT_API_KEY}${req.body.payload}`, {
     //     method: 'GET',

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 
-const GHOST_API_URL = "https://www.edosaodaro.com"; //process.env.GHOST_API_URL; // e.g., http://your-ghost-url/ghost/api/v3/admin/
+const GHOST_API_URL = "https://www.edosaodaro.com/"; //process.env.GHOST_API_URL; // e.g., http://your-ghost-url/ghost/api/v3/admin/
 const GHOST_API_KEY = "b33c063de2ed7799ce7a4202c1"; //process.env.GHOST_API_KEY; // Your Ghost Admin API Key
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

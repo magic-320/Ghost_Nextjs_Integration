@@ -70,7 +70,6 @@ const ViewPackage: FC = () => {
                                     price={el.price} 
                                     content={el.content} 
                                     imgUrl={el.imgUrl}
-                                    linkUrl={el.linkUrl}
                                     button={el.button}
                                 />
                             ) : (
@@ -84,7 +83,6 @@ const ViewPackage: FC = () => {
                                         price={el.price} 
                                         content={el.content} 
                                         imgUrl={el.imgUrl}
-                                        linkUrl={el.linkUrl}
                                         button={el.button}
                                     />
                                 )
