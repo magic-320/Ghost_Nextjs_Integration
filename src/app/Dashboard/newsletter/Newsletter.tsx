@@ -1,7 +1,7 @@
 'use client';
 
 import { NextPage } from 'next';
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useRef } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import DefaultButton from '../../components/buttons/DefaultButton';
@@ -11,34 +11,38 @@ import parse from 'html-react-parser';
 import { useSearchParams } from "next/navigation";
 import '../card.css';
 
-type PostsResponse = {
-    posts: any;
-};
+const filterTags: string[] = ['hash-newsletter', 'hash-newsletteredition000', 'newsletters'];
 
 const Newsletter: NextPage = () => {
 
     const searchParams = useSearchParams();
 
+    const hasRun = useRef(false);
     const [data, setData] = useState<any>([]);
     const [viewAll, setViewAll] = useState<boolean>(false);
     const [detail, setDetail] = useState<any>({});
 
     React.useEffect(() => {
+        if (hasRun.current) return;
+        hasRun.current = true;
+
         const getPosts = async() => {
             try {
-                const res = await axios.post<PostsResponse>('/api/content/posts', {
-                    payload: "&limit=all&filter=tag:[hash-newsletter,hash-newsletteredition000,newsletters]"
-                });
-
-                console.log(res.data);
                 
+                const res = await axios.get<any>('/api/admin/posts');
                 let demoData: any = [];
 
-                res.data.posts.map((el: any) => {
-                    demoData.push(el);
-                })
-
+                for (const post of res.data.data) {
+                    post.tags.map((el:any) => {
+                        if (filterTags.includes(el.slug)) demoData.push(post);
+                    })
+                }
                 setData(demoData);
+
+
+                // const res = await axios.post<PostsResponse>('/api/content/posts', {
+                //     payload: "&limit=all&filter=tag:[hash-newsletter,hash-newsletteredition000,newsletters]"
+                // });
 
             } catch (err) {
                 console.log(err);

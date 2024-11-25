@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useRef } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import axios from 'axios';
@@ -9,25 +9,35 @@ import BOOK2 from "@/public/assets/images/books/book2.png";
 import DefaultButton from '../../components/buttons/DefaultButton';
 import '../card.css';
 
-type PostsResponse = {
-    meta: any,
-    posts: any;
-};
+const filterTags: string[] = ['hash-books'];
 
 const Read: FC = () => {
 
-    const [data, setData] = useState<PostsResponse | undefined>(undefined);
+    const hasRun = useRef(false);
+    const [data, setData] = useState<any>([]);
     const [individual, setIndividual] = useState<any | undefined>(undefined);
     const [isReading, setIsReading] = useState<boolean>(false);
 
     React.useEffect(() => {
+        if (hasRun.current) return;
+        hasRun.current = true;
+
         const getPosts = async() => {
             try {
-                const res = await axios.post<PostsResponse>('/api/content/posts', {
-                    payload: "&limit=all&filter=tag:hash-books"
-                });
-                console.log(res.data)
-                setData(res.data);
+
+                const res = await axios.get<any>('/api/admin/posts');
+                let demoData: any = [];
+
+                for (const post of res.data.data) {
+                    post.tags.map((el:any) => {
+                        if (filterTags.includes(el.slug)) demoData.push(post);
+                    })
+                }
+                setData(demoData);
+                
+                // const res = await axios.post<PostsResponse>('/api/content/posts', {
+                //     payload: "&limit=all&filter=tag:hash-books"
+                // });
             } catch (err) {
               console.log(err);
             }
@@ -42,11 +52,6 @@ const Read: FC = () => {
         setIsReading(false);
     }
 
-    React.useEffect(() => {
-        if (data) {
-            console.log('Updated data:', data);
-        }
-    }, [data]);
 
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
@@ -59,8 +64,8 @@ const Read: FC = () => {
                     !individual && !isReading && (
                         <div className='px-12'>
                             {
-                                data?.posts.map((el:any, index:number) => (
-                                    <div key={index} className="flex hover:cursor-pointer hover:bg-[#F9F9F9]" onClick={() => setIndividual(data.posts[index])} >
+                                data.map((el:any, index:number) => (
+                                    <div key={index} className="flex hover:cursor-pointer hover:bg-[#F9F9F9]" onClick={() => setIndividual(data[index])} >
                                         <div className='w-[10rem] h-[10rem] p-2 flex justify-center'>
                                             <img src={el.feature_image} className='h-full' />
                                         </div>
