@@ -28,10 +28,10 @@ const Newsletter: NextPage = () => {
 
         const getPosts = async() => {
             try {
-                
+
                 const res = await axios.get<any>('/api/admin/posts');
                 let demoData: any = [];
-
+console.log(res.data.data)
                 for (const post of res.data.data) {
                     post.tags.map((el:any) => {
                         if (filterTags.includes(el.slug)) demoData.push(post);

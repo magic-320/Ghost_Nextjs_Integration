@@ -2,12 +2,20 @@
 import React, { FC, useState } from 'react';
 import PackageCard from '../../components/cards/PackageCard';
 import wholePackage from './WholePackage';
+import { useRouter } from 'next/navigation';
 
 
 const ViewPackage: FC = () => {
 
+    const router = useRouter();
     const [activeItem, setActiveItem] = useState<string | null>('View All');
     const [packages, setPackages] = useState<any[]>([]);
+
+    const handleAction = (action:any) => {
+        if (typeof action === 'function') {
+            action(router);
+        }
+    }
 
     React.useEffect(() => {
 
@@ -21,7 +29,8 @@ const ViewPackage: FC = () => {
                 price: el.price,
                 content: el.content,
                 imgUrl: el.imgUrl,
-                button: localStorage.getItem('edosaMember') ? el.button2 : el.button1
+                button: localStorage.getItem('edosaMember') ? el.button2 : el.button1,
+                action: localStorage.getItem('edosaMember') ? () => handleAction(el.action2) : () => handleAction(el.action1)
             }
             demoPackage.push(data);
         });
@@ -71,6 +80,7 @@ const ViewPackage: FC = () => {
                                     content={el.content} 
                                     imgUrl={el.imgUrl}
                                     button={el.button}
+                                    action={el.action}
                                 />
                             ) : (
                                 el.type == activeItem?.toLowerCase() && (
@@ -84,6 +94,7 @@ const ViewPackage: FC = () => {
                                         content={el.content} 
                                         imgUrl={el.imgUrl}
                                         button={el.button}
+                                        action={el.action}
                                     />
                                 )
                             )

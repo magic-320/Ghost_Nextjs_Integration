@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useRef } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import axios from 'axios';
@@ -8,30 +8,42 @@ import DefaultButton from '../../components/buttons/DefaultButton';
 import WatchArrow from '@/public/assets/images/drivenSvgs/arrow3.svg';
 import parse from 'html-react-parser';
 
-type PostsResponse = {
-    posts: any;
-};
+const filterTags: string[] = ['hash-videonewsletteredition001', 'hash-videonewsletteredition002', 'hash-videopageseries0'];
 
 const Watch: FC = () => {
 
+    const hasRun = useRef(false);
     const [data, setData] = useState<any>([]);
     const [viewAll, setViewAll] = useState<boolean>(false);
     const [detail, setDetail] = useState<any>({});
 
     React.useEffect(() => {
+        if (hasRun.current) return;
+        hasRun.current = true;
+
         const getPosts = async() => {
             try {
-                const res = await axios.post<PostsResponse>('/api/content/posts', {
-                    payload: "&limit=all&filter=tag:[hash-VideoNewsletterEdition001,hash-videonewsletteredition002,hash-videopageseries0]"
-                });
 
-                let demoData:any = [];
+                let demoData: any = [];
+                
+                const res = await axios.get<any>('/api/admin/posts');
+                for (const post of res.data.data) {
+                    post.tags.map((el:any) => {
+                        if (filterTags.includes(el.slug)) demoData.push(post);
+                    })
+                }
 
-                res.data.posts.filter((item: { html: any; }) => item.html).map((el: any) => {
-                    demoData.push(el);
-                })
+                const page_slug = 'free-coaching-snippets';
+                const pages = await axios.get<any>('/api/admin/pages');
+                for (const page of pages.data.data) {
+                    if (page.slug == page_slug) demoData.push(page);
+                }
 
                 setData(demoData);
+
+                // const res = await axios.post<PostsResponse>('/api/content/posts', {
+                //     payload: "&limit=all&filter=tag:[hash-VideoNewsletterEdition001,hash-videonewsletteredition002,hash-videopageseries0]"
+                // });
 
             } catch (err) {
               console.log(err);

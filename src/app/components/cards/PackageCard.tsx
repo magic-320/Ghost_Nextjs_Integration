@@ -18,7 +18,8 @@ interface PackageCardProps {
     price: string,
     content: string,
     imgUrl?: string,
-    button: string
+    button: string,
+    action: any
 }
 
 const PackageCard: FC<PackageCardProps> = ({
@@ -29,7 +30,8 @@ const PackageCard: FC<PackageCardProps> = ({
     price,
     content,
     imgUrl,
-    button
+    button,
+    action
 }: PackageCardProps) => {
 
     return (
@@ -91,6 +93,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className='w-full flex justify-center mt-5'>
                                         <span
                                             className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
+                                            onClick={action}
                                         >
                                             <button>{button}</button>
                                         </span>
@@ -166,6 +169,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className='w-full flex justify-center mt-5'>
                                         <span
                                             className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
+                                            onClick={action}
                                         >
                                             <button>{button}</button>
                                         </span>
@@ -241,6 +245,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className='w-full flex justify-center mt-5'>
                                         <span
                                             className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
+                                            onClick={action}
                                         >
                                             <button>{button}</button>
                                         </span>
@@ -316,6 +321,7 @@ const PackageCard: FC<PackageCardProps> = ({
                                     <div className='w-full flex justify-center mt-5'>
                                         <span
                                             className="w-full font-bold text-[#344054] text-xs text-center leading-[30px] bg-white rounded-[20px] border border-solid border-text-color hover:cursor-pointer"
+                                            onClick={action}
                                         >
                                             <button>{button}</button>
                                         </span>

@@ -32,16 +32,15 @@ const Learn: FC = () => {
         const getPosts = async() => {
             try {
 
-                const res = await axios.post<any>('/api/content/pages', {
-                    payload: "&limit=all"
-                });
-                console.log(res.data)
+                let demoData:any[] = [];
 
-                // const res = await axios.post<any>('/api/content/posts', {
-                //     payload: "&limit=all"
-                // });
-                // const readyData = fixedCourse.concat(res.data.posts);
-                const readyData = fixedCourse;
+                const page_slug = 'free-coaching-snippets';
+                const pages = await axios.get<any>('/api/admin/pages');
+                for (const page of pages.data.data) {
+                    if (page.slug == page_slug) demoData.push(page);
+                }
+
+                const readyData = fixedCourse.concat(demoData);
 
                 setData(readyData);
 

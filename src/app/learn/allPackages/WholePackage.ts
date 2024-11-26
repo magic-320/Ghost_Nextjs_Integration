@@ -1,4 +1,31 @@
 
+const toSignIn = (router: any) => {
+    router.push('/signin')
+}
+const toLearn = (router: any) => {
+    router.push('/Dashboard/learn')
+}
+const toRead = (router: any) => {
+    router.push('/Dashboard/read')
+}
+const toWatch = (router: any) => {
+    router.push('/Dashboard/watch');
+}
+const toMeet = (router: any) => {
+    router.push('/Dashboard/meet')
+}
+const toNewsletter = (router: any) => {
+    router.push('/Dashboard/newsletter')
+}
+const toAssessment = (router: any) => {
+    router.push('/Dashboard/assessment')
+}
+
+const to12EmailCourse = (router:any) => {
+    window.open('/static_page/12-day-email-course')
+}
+
+
 
 const wholePackage:any = [
     {
@@ -10,7 +37,9 @@ const wholePackage:any = [
         content: 'Get Limited Edition Value Driven Interactive Workbooks',
         imgUrl: '',
         button1: 'Get Now', // before sign in
-        button2: 'Access Here'  // after sign in
+        button2: 'Access Here',  // after sign in
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'watch',
@@ -21,7 +50,9 @@ const wholePackage:any = [
         content: 'Claim 12 Day of Data & AI Value Video Coaching',
         imgUrl: '',
         button1: 'Claim Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toWatch(router)
     },
     {
         type: 'learn',
@@ -32,7 +63,9 @@ const wholePackage:any = [
         content: 'Access Regular AI Value Advisor Cheat Sheets',
         imgUrl: '',
         button1: 'Access Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'learn',
@@ -43,7 +76,9 @@ const wholePackage:any = [
         content: 'Get Your Individual 2 Week Email Course on Becoming an AI Value Advisor',
         imgUrl: '',
         button1: 'Get Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => to12EmailCourse(router)
     },
     {
         type: 'learn',
@@ -54,7 +89,9 @@ const wholePackage:any = [
         content: 'Access Your Personalised Starter Self Assessment Scorecard',
         imgUrl: '',
         button1: 'Access Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'read',
@@ -65,7 +102,9 @@ const wholePackage:any = [
         content: 'Redeem a package of multiple book discounts',
         imgUrl: '',
         button1: 'Redeem Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'read',
@@ -76,7 +115,9 @@ const wholePackage:any = [
         content: 'Get ALL Value Driven Newsletters',
         imgUrl: '',
         button1: 'Get Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toNewsletter(router)
     },
     {
         type: 'read',
@@ -87,7 +128,9 @@ const wholePackage:any = [
         content: 'Claim Exclusive Value Driven Executive Handbook which is not available at bookstores',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toLearn(router)
     },
     {
         type: 'learn',
@@ -98,7 +141,9 @@ const wholePackage:any = [
         content: 'Access Your Advanced Self Assessment Scorecard Session',
         imgUrl: '',
         button1: 'Access Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'meet',
@@ -109,7 +154,9 @@ const wholePackage:any = [
         content: 'Redeem Your Bonus 1-2-1 Scorecard Feedback Session',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Book Here'
+        button2: 'Book Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'meet',
@@ -120,7 +167,9 @@ const wholePackage:any = [
         content: 'Get 3 Months of 1-2-1 Coaching with Options to Extend',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'read',
@@ -131,7 +180,9 @@ const wholePackage:any = [
         content: 'Get Personal Choice of All Published Books in Your preferred format',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'meet',
@@ -142,7 +193,9 @@ const wholePackage:any = [
         content: 'Access Your Personalised Self Assessment Scorecard Session',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Book Here'
+        button2: 'Book Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'meet',
@@ -153,7 +206,9 @@ const wholePackage:any = [
         content: 'Redeem Your Bonus 1-2-1 Scorecard Feedback Session',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Book Here'
+        button2: 'Book Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'meet',
@@ -164,7 +219,9 @@ const wholePackage:any = [
         content: 'Get 12 Months of 1-2-1 Coaching with Options to Extend',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'meet',
@@ -175,7 +232,9 @@ const wholePackage:any = [
         content: 'Get Exclusive Access to The AI Value Advisory Network',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'read',
@@ -186,7 +245,9 @@ const wholePackage:any = [
         content: 'Access Full Range of Curated Library of Value Driven eBooks',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'meet',
@@ -197,7 +258,9 @@ const wholePackage:any = [
         content: 'Gain EXCLUSIVE access to the PERSONALISED AI Value Advisory COACHING Program',
         imgUrl: '',
         button1: 'Apply Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'learn',
@@ -208,7 +271,9 @@ const wholePackage:any = [
         content: 'Claim FREE access to the NEW ValueBot Data & AI Value Chatbot',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toLearn(router)
     },
     {
         type: 'watch',
@@ -219,7 +284,9 @@ const wholePackage:any = [
         content: 'Claim 12 Day of Data & AI Value Video Coaching',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toWatch(router)
     },
     {
         type: 'read',
@@ -230,7 +297,9 @@ const wholePackage:any = [
         content: 'Get Limited Edition Value Driven Interactive Workbooks',
         imgUrl: '',
         button1: 'Get now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'read',
@@ -241,7 +310,9 @@ const wholePackage:any = [
         content: 'Claim Exclusive Value Driven Executive Handbook which is not available at bookstores',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'meet',
@@ -252,7 +323,9 @@ const wholePackage:any = [
         content: 'Gain EXCLUSIVE access to the PERSONALISED AI Value Advisory COACHING Program',
         imgUrl: '',
         butto1: 'Apply Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'learn',
@@ -263,7 +336,9 @@ const wholePackage:any = [
         content: 'Get FREE and UNLIMITED access to the Data & AI Value Driven Business Readiness Assessment',
         imgUrl: '',
         button1: 'Access Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'read',
@@ -274,7 +349,9 @@ const wholePackage:any = [
         content: 'Claim Exclusive Value Driven Executive Handbook which is not available at bookstores',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toWatch(router)
     },
     {
         type: 'learn',
@@ -285,7 +362,9 @@ const wholePackage:any = [
         content: 'Claim FREE access to the NEW ValueBot AI data value Chatbot',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toLearn(router)
     },
     {
         type: 'watch',
@@ -296,7 +375,9 @@ const wholePackage:any = [
         content: 'Claim 12 Day of Data & AI Value Video Coaching',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toWatch(router)
     },
     {
         type: 'read',
@@ -307,7 +388,9 @@ const wholePackage:any = [
         content: 'Get Limited Edition Value Driven Interactive Workbooks',
         imgUrl: '',
         button1: 'Get Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'read',
@@ -318,7 +401,9 @@ const wholePackage:any = [
         content: 'Redeem a package of multiple book discounts',
         imgUrl: '',
         button1: 'Redeem Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'learn',
@@ -329,7 +414,9 @@ const wholePackage:any = [
         content: 'Claim FREE access to the NEW ValueBot Data & AI Value Chatbot',
         imgUrl: '',
         button1: 'Claim Now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toLearn(router)
     },
     {
         type: 'learn',
@@ -340,7 +427,9 @@ const wholePackage:any = [
         content: 'Get FREE and UNLIMITED access to the Data & AI Value Driven Business Readiness Assessment',
         imgUrl: '',
         button1: 'Access now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toAssessment(router)
     },
     {
         type: 'read',
@@ -351,7 +440,9 @@ const wholePackage:any = [
         content: 'Get Limited Edition Value Driven Interactive Workbooks',
         imgUrl: '',
         button1: 'Get now',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toRead(router)
     },
     {
         type: 'watch',
@@ -362,7 +453,9 @@ const wholePackage:any = [
         content: 'Claim 12 Day of Data & AI Value Video Coaching',
         imgUrl: '',
         button1: 'Claim Here',
-        button2: 'Access Here'
+        button2: 'Access Here',
+        action1: (router:any) => toSignIn(router),
+        action2: (router:any) => toWatch(router)
     }
 ];
 

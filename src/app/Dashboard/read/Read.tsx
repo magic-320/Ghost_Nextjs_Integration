@@ -24,17 +24,23 @@ const Read: FC = () => {
 
         const getPosts = async() => {
             try {
-
-                const res = await axios.get<any>('/api/admin/posts');
                 let demoData: any = [];
 
+                const res = await axios.get<any>('/api/admin/posts');
                 for (const post of res.data.data) {
                     post.tags.map((el:any) => {
                         if (filterTags.includes(el.slug)) demoData.push(post);
                     })
                 }
-                setData(demoData);
                 
+                const page_slug = 'cheatsheets-resources';
+                const pages = await axios.get<any>('/api/admin/pages');
+                for (const page of pages.data.data) {
+                    if (page.slug == page_slug) demoData.push(page);
+                }
+                
+                setData(demoData);
+
                 // const res = await axios.post<PostsResponse>('/api/content/posts', {
                 //     payload: "&limit=all&filter=tag:hash-books"
                 // });
