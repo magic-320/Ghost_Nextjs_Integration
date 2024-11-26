@@ -38,7 +38,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Get Now', // before sign in
         button2: 'Access Here',  // after sign in
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toRead(router),
         action2: (router:any) => toRead(router)
     },
     {
@@ -51,7 +51,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Claim Here',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toWatch(router),
         action2: (router:any) => toWatch(router)
     },
     {
@@ -64,7 +64,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Access Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toRead(router),
         action2: (router:any) => toRead(router)
     },
     {
@@ -77,7 +77,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Get Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => to12EmailCourse(router),
         action2: (router:any) => to12EmailCourse(router)
     },
     {
@@ -90,7 +90,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Access Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -103,7 +103,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Redeem Here',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toRead(router),
         action2: (router:any) => toRead(router)
     },
     {
@@ -116,7 +116,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Get Here',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toNewsletter(router),
         action2: (router:any) => toNewsletter(router)
     },
     {
@@ -142,7 +142,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Access Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -155,7 +155,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Apply Here',
         button2: 'Book Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -194,7 +194,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Apply Here',
         button2: 'Book Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -207,7 +207,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Apply Here',
         button2: 'Book Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -233,7 +233,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Apply Here',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -246,7 +246,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Apply Here',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -272,7 +272,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Claim Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toLearn(router),
         action2: (router:any) => toLearn(router)
     },
     {
@@ -285,7 +285,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Claim Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toWatch(router),
         action2: (router:any) => toWatch(router)
     },
     {
@@ -298,7 +298,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Get now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toRead(router),
         action2: (router:any) => toRead(router)
     },
     {
@@ -337,7 +337,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Access Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -363,7 +363,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Claim Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toLearn(router),
         action2: (router:any) => toLearn(router)
     },
     {
@@ -376,7 +376,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Claim Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toWatch(router),
         action2: (router:any) => toWatch(router)
     },
     {
@@ -389,7 +389,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Get Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toRead(router),
         action2: (router:any) => toRead(router)
     },
     {
@@ -402,7 +402,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Redeem Here',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toRead(router),
         action2: (router:any) => toRead(router)
     },
     {
@@ -415,7 +415,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Claim Now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toLearn(router),
         action2: (router:any) => toLearn(router)
     },
     {
@@ -428,7 +428,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Access now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toAssessment(router),
         action2: (router:any) => toAssessment(router)
     },
     {
@@ -441,7 +441,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Get now',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toRead(router),
         action2: (router:any) => toRead(router)
     },
     {
@@ -454,7 +454,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Claim Here',
         button2: 'Access Here',
-        action1: (router:any) => toSignIn(router),
+        action1: (router:any) => toWatch(router),
         action2: (router:any) => toWatch(router)
     }
 ];

@@ -21,6 +21,16 @@ const Watch: FC = () => {
         if (hasRun.current) return;
         hasRun.current = true;
 
+        let jwtToken: string = '';
+        let tierOfMember: string = '';    // tier of paid member
+
+        if (localStorage.getItem('edosaJwtToken') && localStorage.getItem('edosaMember')) {
+            jwtToken += localStorage.getItem('edosaJwtToken');
+            const getMember = localStorage.getItem('edosaMember');
+            const member = getMember && JSON.parse(getMember);
+            tierOfMember = member.subscriptions[0].tier.slug;
+        }
+
         const getPosts = async() => {
             try {
 
@@ -29,9 +39,18 @@ const Watch: FC = () => {
                 const res = await axios.get<any>('/api/admin/posts');
                 for (const post of res.data.data) {
                     post.tags.map((el:any) => {
-                        if (filterTags.includes(el.slug)) demoData.push(post);
+                        if (filterTags.includes(el.slug)) {
+                            if (jwtToken) {
+                                const tierOfPost = post.tiers.map((j:any) => j.slug);
+                                if (tierOfPost.includes(tierOfMember) || post.visibility == 'public') demoData.push(post);
+                            } else {
+                                if (post.visibility == 'public') demoData.push(post);
+                            }
+                        }
                     })
                 }
+                console.log(res.data.data)
+                console.log(demoData)
 
                 const page_slug = 'free-coaching-snippets';
                 const pages = await axios.get<any>('/api/admin/pages');
