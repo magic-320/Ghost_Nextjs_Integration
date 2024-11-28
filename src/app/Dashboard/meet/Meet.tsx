@@ -32,40 +32,40 @@ const Meet: FC = () => {
 
     const router = useRouter();
 
-    const params = new URLSearchParams({
-        client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
-        redirect_uri: 'http://localhost:4000/',
-        response_type: 'code',
-        scope: 'https://www.googleapis.com/auth/calendar.events',
-        access_type: 'offline',
-        prompt: 'consent',
-    });
+    // const params = new URLSearchParams({
+    //     client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
+    //     redirect_uri: 'http://localhost:4000/',
+    //     response_type: 'code',
+    //     scope: 'https://www.googleapis.com/auth/calendar.events',
+    //     access_type: 'offline',
+    //     prompt: 'consent',
+    // });
 
-    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
-    console.log(authUrl)
+    // const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+    // console.log(authUrl)
 
     
-    const aa = async() => {
-        const code = '4/0AeanS0ZZfL0tU3urD_yDT2vVaxWsVyZtQzSWi_gqN2aTLhco20L9GvuTU12H_Q_vsl7CEA';
-        const params = new URLSearchParams({
-            code,
-            client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
-            client_secret: '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',
-            redirect_uri: 'http://localhost:4000/',
-            grant_type: 'authorization_code',
-          });
+    // const aa = async() => {
+    //     const code = '4/0AeanS0ZZfL0tU3urD_yDT2vVaxWsVyZtQzSWi_gqN2aTLhco20L9GvuTU12H_Q_vsl7CEA';
+    //     const params = new URLSearchParams({
+    //         code,
+    //         client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
+    //         client_secret: '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',
+    //         redirect_uri: 'http://localhost:4000/',
+    //         grant_type: 'authorization_code',
+    //       });
           
-          const response = await axios.post('https://oauth2.googleapis.com/token', params.toString(), {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          });
+    //       const response = await axios.post('https://oauth2.googleapis.com/token', params.toString(), {
+    //         headers: {
+    //           'Content-Type': 'application/x-www-form-urlencoded',
+    //         },
+    //       });
 
-          console.log(response)
+    //       console.log(response)
           
-    }
+    // }
 
-    aa();
+    // aa();
 
 
 
