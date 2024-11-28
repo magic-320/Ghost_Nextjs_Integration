@@ -6,8 +6,6 @@ import Link from 'next/link';
 import DefaultButton from '../../components/buttons/DefaultButton';
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import Calendar from '../../components/Calendar';
-import { useRouter } from 'next/navigation';
-import axios from 'axios';
 
 const bookTimes = [
     {
@@ -29,45 +27,6 @@ const bookTimes = [
 
 
 const Meet: FC = () => {
-
-    const router = useRouter();
-
-    const params = new URLSearchParams({
-        client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
-        redirect_uri: 'http://localhost:4000/',
-        response_type: 'code',
-        scope: 'https://www.googleapis.com/auth/calendar.events',
-        access_type: 'offline',
-        prompt: 'consent',
-    });
-
-    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
-    console.log(authUrl)
-
-    
-    const aa = async() => {
-        const code = '4/0AeanS0ZZfL0tU3urD_yDT2vVaxWsVyZtQzSWi_gqN2aTLhco20L9GvuTU12H_Q_vsl7CEA';
-        const params = new URLSearchParams({
-            code,
-            client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
-            client_secret: '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',
-            redirect_uri: 'http://localhost:4000/',
-            grant_type: 'authorization_code',
-          });
-          
-          const response = await axios.post('https://oauth2.googleapis.com/token', params.toString(), {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          });
-
-          console.log(response)
-          
-    }
-
-    aa();
-
-
 
     const [timezoneDropdown, setTimezoneDropdown] = useState<boolean>(false);
     const [timezone, setTimezone] = useState<any>([
@@ -139,7 +98,7 @@ const Meet: FC = () => {
         '(GMT +12:00) International Date Line West'
     ]);
 
-
+    
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
             <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
