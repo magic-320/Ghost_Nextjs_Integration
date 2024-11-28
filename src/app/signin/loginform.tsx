@@ -11,7 +11,7 @@ import setupGhostApi from '../utils/api';
 import Link from 'next/link';
 import { toast, ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { google } from 'googleapis';
 
 interface MyJwtPayload extends JwtPayload {
   email: string;
@@ -143,12 +143,10 @@ const LoginForm: React.FC = () => {
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
           
-          {/* <GoogleOAuthProvider clientId="712439827619-h3e651gphr5dbju3l393810s4kdfpd6g.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId="712439827619-h3e651gphr5dbju3l393810s4kdfpd6g.apps.googleusercontent.com">
             <div className='mt-4 w-full'>
               <GoogleLogin
                 onSuccess={async (credentialResponse) => {
-                  console.log(JSON.stringify(credentialResponse));
-                  console.log(credentialResponse)
 
                   const token = credentialResponse.credential;
                   // Check if the token is defined
@@ -156,6 +154,31 @@ const LoginForm: React.FC = () => {
                     const decoded = jwtDecode<MyJwtPayload>(token);
                     setEmail(decoded.email);
                     onLogin(decoded.email);
+
+                    const calendar = google.calendar({ version: 'v3' });
+                    const event = {
+                      summary: 'New Event',
+                      location: 'Online',
+                      description: 'Description of the event',
+                      start: {
+                        dateTime: '2024-12-01T10:00:00-07:00',
+                        timeZone: 'America/Los_Angeles',
+                      },
+                      end: {
+                        dateTime: '2024-12-01T11:00:00-07:00',
+                        timeZone: 'America/Los_Angeles',
+                      },
+                      attendees: [
+                        { email: 'user@example.com' },
+                      ],
+                    };
+                    const response = await calendar.events.insert({
+                      calendarId: 'primary',
+                      requestBody: event,
+                      auth: token,
+                    });
+
+                    console.log(response)
 
                   } else {
                     toast.error(`Token is undefined`, {
@@ -186,82 +209,7 @@ const LoginForm: React.FC = () => {
                 }}
               />
             </div>
-          </GoogleOAuthProvider> */}
-
-
-
-<GoogleOAuthProvider clientId="712439827619-h3e651gphr5dbju3l393810s4kdfpd6g.apps.googleusercontent.com">
-      <div className="mt-4 w-full">
-        <GoogleLogin
-          onSuccess={async (credentialResponse) => {
-            console.log('Credential Response:', credentialResponse);
-
-            const token = credentialResponse.credential;
-            if (token) {
-              const decoded = jwtDecode<MyJwtPayload>(token);
-
-              // Call Google's token endpoint for additional scopes
-              const response = await fetch('https://oauth2.googleapis.com/token', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({
-                  client_id: '712439827619-h3e651gphr5dbju3l393810s4kdfpd6g.apps.googleusercontent.com',
-                  client_secret: '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',
-                  grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-                  assertion: token,
-                  scope: 'https://www.googleapis.com/auth/calendar.events',
-                }).toString(),
-              });
-
-              if (response.ok) {
-                const tokens = await response.json();
-                console.log('Additional Scopes Granted:', tokens);
-
-                setEmail(decoded.email);
-                onLogin(decoded.email);
-
-                toast.success(`Login Successful: ${decoded.email}`, {
-                  position: 'top-right',
-                  autoClose: 5000,
-                  hideProgressBar: true,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  theme: 'colored',
-                  transition: Bounce,
-                });
-              } else {
-                console.error('Error requesting additional scopes:', await response.json());
-              }
-            } else {
-              toast.error('Token is undefined', {
-                position: 'top-right',
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                theme: 'colored',
-                transition: Bounce,
-              });
-            }
-          }}
-          onError={() => {
-            toast.error('Login Failed', {
-              position: 'top-right',
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              theme: 'colored',
-              transition: Bounce,
-            });
-          }}
-        />
-      </div>
-    </GoogleOAuthProvider>
-
+          </GoogleOAuthProvider>
           
           <p className="text-center mt-5">
             Don't have an account? <Link href="/signup" className="text-blue-600">Sign up</Link>
