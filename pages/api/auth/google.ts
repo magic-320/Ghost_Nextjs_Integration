@@ -12,6 +12,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
 
     console.log('============== userinfo ==================')
     console.log(userInfo)
+    console.log('++++++++++++++++ END ++++++++++++++++')
 
     const calendar = google.calendar({ version: 'v3', auth: accessToken });
 
@@ -32,6 +33,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     const response = await calendar.events.insert({
         calendarId: 'primary',
         requestBody: event,
+        auth: accessToken
     });
 
     console.log('============== response ====================');
