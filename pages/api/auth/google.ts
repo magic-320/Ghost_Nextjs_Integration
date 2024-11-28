@@ -14,7 +14,10 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     console.log(userInfo)
     console.log('++++++++++++++++ END ++++++++++++++++')
 
-    const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
+    const tokenInfo = await oauth2Client.getTokenInfo(accessToken);
+    console.log('Token Info:', tokenInfo);
+    
+    const calendar = google.calendar({ version: 'v3', auth: accessToken });
 
     const event = {
         summary: 'New Event',
@@ -31,7 +34,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     };
 
     const response = await calendar.events.insert({
-        auth: accessToken,
+        // auth: accessToken,
         calendarId: 'primary',
         requestBody: event
     });
