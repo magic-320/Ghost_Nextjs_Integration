@@ -14,7 +14,7 @@ const SignInButton = () => {
     onError: () => {
       console.error('Login failed');
     },
-    scope: 'openid email profile https://www.googleapis.com/auth/calendar.events',
+    scope: 'openid email profile https://www.googleapis.com/auth/calendar',
   });
 
   return <button onClick={() => login()}>Sign in with Google</button>;
