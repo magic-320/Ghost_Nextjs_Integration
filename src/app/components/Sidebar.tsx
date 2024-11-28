@@ -36,7 +36,7 @@ const Sidebar: FC = () => {
             case "/Dashboard/assessment":
                 setActive('assessment');
                 break;
-            case "/Dashboard/settings":
+            case "/Dashboard/assessment/setting":
                 setActive('settings');
                 break;
             default:
@@ -121,7 +121,7 @@ const Sidebar: FC = () => {
                     </div>
                 </Link>
 
-                <Link href="/Dashboard/settings">
+                <Link href="/Dashboard/assessment/setting">
                     <div 
                         className={`mt-4 hover:cursor-pointer ${active == 'settings' && 'font-bold'}`}
                         onClick={() => setActive('settings')}

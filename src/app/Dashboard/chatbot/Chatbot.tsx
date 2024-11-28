@@ -3,6 +3,7 @@
 import React, { FC, useState, useRef } from 'react';
 import Image from 'next/image';
 import parse from 'html-react-parser';
+import axios from 'axios';
 import Edosa_mark from '@/public/assets/images/O_edosa.png';
 import { AiOutlineRobot } from "react-icons/ai";
 
@@ -54,6 +55,13 @@ const Chatbot: FC = () => {
 
     React.useEffect(() => {
         console.log('================== Effect =================')
+
+        const sendMsg = async() => {
+            const response = await axios.post<any>('/api/openai/chatbot', {prompt: 'Hello, how are you?'});
+            console.log(response);
+        }
+
+        sendMsg();
     }, []);
 
     React.useEffect(() => {

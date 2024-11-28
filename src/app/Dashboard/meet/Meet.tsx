@@ -6,6 +6,8 @@ import Link from 'next/link';
 import DefaultButton from '../../components/buttons/DefaultButton';
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import Calendar from '../../components/Calendar';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 const bookTimes = [
     {
@@ -25,7 +27,47 @@ const bookTimes = [
     }
 ]
 
+
 const Meet: FC = () => {
+
+    const router = useRouter();
+
+    const params = new URLSearchParams({
+        client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
+        redirect_uri: 'http://localhost:4000/',
+        response_type: 'code',
+        scope: 'https://www.googleapis.com/auth/calendar.events',
+        access_type: 'offline',
+        prompt: 'consent',
+    });
+
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+    console.log(authUrl)
+
+    
+    const aa = async() => {
+        const code = '4/0AeanS0ZZfL0tU3urD_yDT2vVaxWsVyZtQzSWi_gqN2aTLhco20L9GvuTU12H_Q_vsl7CEA';
+        const params = new URLSearchParams({
+            code,
+            client_id: '987314413429-pr2eka5h8amiftjmhaprkhelrunnhdjn.apps.googleusercontent.com',
+            client_secret: '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',
+            redirect_uri: 'http://localhost:4000/',
+            grant_type: 'authorization_code',
+          });
+          
+          const response = await axios.post('https://oauth2.googleapis.com/token', params.toString(), {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          });
+
+          console.log(response)
+          
+    }
+
+    aa();
+
+
 
     const [timezoneDropdown, setTimezoneDropdown] = useState<boolean>(false);
     const [timezone, setTimezone] = useState<any>([
@@ -136,8 +178,11 @@ const Meet: FC = () => {
                         
 
                         <div className='mt-12 flex gap-3 text-center justify-center w-full'>
-                            <Link href="#" className="w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]">
-                                <button>Slots Remaining 1</button>
+                            <Link href="#" 
+                                className="w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]"
+                                onClick={() => window.open('https://calendar.google.com/calendar/')}
+                            >
+                                <button>Go to Calendar</button>
                             </Link>
                             <Link href="#" onClick={() => window.open('https://calendly.com/edosa/personalised-value-driven-strategy')}>
                                 <DefaultButton className='w-[210px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
@@ -153,3 +198,4 @@ const Meet: FC = () => {
 }
 
 export default Meet;
+

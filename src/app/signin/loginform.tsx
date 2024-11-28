@@ -147,6 +147,9 @@ const LoginForm: React.FC = () => {
             <div className='mt-4 w-full'>
               <GoogleLogin
                 onSuccess={async (credentialResponse) => {
+                  console.log(JSON.stringify(credentialResponse));
+                  console.log(credentialResponse)
+
                   const token = credentialResponse.credential;
                   // Check if the token is defined
                   if (token) {

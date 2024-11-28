@@ -4,6 +4,7 @@ import Image from "next/image";
 import Chevron_left from '@/public/assets/svg/chevron-left.svg';
 import Chevron_right from '@/public/assets/svg/chevron-right.svg';
 
+
 // Define an interface for the calendar day items
 interface CalendarDay {
     day: number;
@@ -14,6 +15,7 @@ interface CalendarDay {
 }
 
 const Calendar: FC = () => {
+
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [data, setData] = useState<CalendarDay[]>([]);
