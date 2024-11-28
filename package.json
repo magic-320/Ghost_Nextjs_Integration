@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
     "@googleapis/docs": "^3.3.0",
     "@material-tailwind/react": "^2.1.10",
     "@openai/openai": "npm:@jsr/openai__openai@^4.71.1",
@@ -26,7 +27,7 @@
     "dotenv": "^16.4.5",
     "gapi-script": "^1.2.0",
     "ghost-auth": "^2.0.7",
-    "googleapis": "^144.0.0",
+    "googleapis": "^105.0.0",
     "html-react-parser": "^5.1.18",
     "html-to-react": "^1.7.0",
     "http-proxy": "^1.18.1",

@@ -24,12 +24,12 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         location: 'Online',
         description: 'Test event from Next.js app',
         start: {
-        dateTime: '2025-12-01T10:00:00-07:00',
-        timeZone: 'America/Los_Angeles',
+            dateTime: '2025-12-01T10:00:00-07:00',
+            timeZone: 'America/Los_Angeles',
         },
         end: {
-        dateTime: '2025-12-01T11:00:00-07:30',
-        timeZone: 'America/Los_Angeles',
+            dateTime: '2025-12-01T11:00:00-07:30',
+            timeZone: 'America/Los_Angeles',
         },
     };
 
