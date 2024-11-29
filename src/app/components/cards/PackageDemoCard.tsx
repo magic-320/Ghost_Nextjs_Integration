@@ -6,16 +6,16 @@ interface PackageDemoCardProps {
     type: string,
     title: string,
     learnURL: string,
-    mainURL: string,
-    buttonName: string
+    buttonName: string,
+    action: any
 }
 
 const PackageDemoCard: FC<PackageDemoCardProps> = ({
     type,
     title,
     learnURL,
-    mainURL,
-    buttonName
+    buttonName,
+    action
 }: PackageDemoCardProps) => {
 
     return (
@@ -32,11 +32,11 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                             <Link href={`${learnURL}`} className="w-[115px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]">
                                 <button>Learn more</button>
                             </Link>
-                            <Link href={`${mainURL}`}>
+                            <span onClick={action}>
                                 <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                     {buttonName}
                                 </DefaultButton>
-                            </Link>
+                            </span>
                         </div>
                     </section>
             )
@@ -54,11 +54,11 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                         <Link href={`${learnURL}`} className="w-[115px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]">
                             <button>Learn more</button>
                         </Link>
-                        <Link href={`${mainURL}`}>
+                        <span onClick={action}>
                             <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                 {buttonName}
                             </DefaultButton>
-                        </Link>
+                        </span>
                     </div>
                 </section>
             )
@@ -75,11 +75,11 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                         <Link href={`${learnURL}`} className="w-[115px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]">
                             <button>Learn more</button>
                         </Link>
-                        <Link href={`${mainURL}`}>
+                        <span onClick={action}>
                             <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                 {buttonName}
                             </DefaultButton>
-                        </Link>
+                        </span>
                     </div>
                 </section>
             )
@@ -96,11 +96,11 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                         <Link href={`${learnURL}`} className="w-[115px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]">
                             <button>Learn more</button>
                         </Link>
-                        <Link href={`${mainURL}`}>
+                        <span onClick={action}>
                             <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                 {buttonName}
                             </DefaultButton>
-                        </Link>
+                        </span>
                     </div>
                 </section>
             )

@@ -5,13 +5,22 @@ import Link from 'next/link';
 import PackageDemoCard from '../components/cards/PackageDemoCard';
 import Calendar from '../components/Calendar';
 import wholePackage from '../learn/allPackages/WholePackage';
+import { useRouter } from 'next/navigation';
 
 
 const MyPackage: FC = () => {
 
+    const router = useRouter();
+
     const [packageName, setPackageName] = useState<string>('');
     const [isMore, setIsMore] = useState<boolean>(false);
-    const [packageDemoCardList, setPackageDemoCardList] = useState<any>([]);
+    const [packageDemoCardList, setPackageDemoCardList] = useState<any[]>([]);
+
+    const handleAction = (action:any) => {
+        if (typeof action === 'function') {
+            action(router);
+        }
+    }
 
     React.useEffect(() => {
         if ( localStorage.getItem('edosaMember') ) {
@@ -28,8 +37,8 @@ const MyPackage: FC = () => {
                             type: j.type,
                             title: j.title,
                             learnURL: '#',
-                            mainURL: '#',
-                            buttonName: j.button2
+                            buttonName: j.button2,
+                            action: () => handleAction(j.action2)
                         }
                         demoPackageDemoCardList.push(demoData);
                     }
@@ -42,8 +51,8 @@ const MyPackage: FC = () => {
                             type: j.type,
                             title: j.title,
                             learnURL: '#',
-                            mainURL: '#',
-                            buttonName: j.button2
+                            buttonName: j.button2,
+                            action: () => handleAction(j.action2)
                         }
                         demoPackageDemoCardList.push(demoData);
                     }
@@ -74,9 +83,9 @@ const MyPackage: FC = () => {
                                     key={index}
                                     type={el.type} 
                                     title={el.title} 
-                                    learnURL={el.learnURL} 
-                                    mainURL={el.mainURL} 
+                                    learnURL={el.learnURL}
                                     buttonName={el.buttonName} 
+                                    action={el.action}
                                 />
                             )
                         })
