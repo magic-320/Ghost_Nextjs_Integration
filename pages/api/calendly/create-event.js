@@ -39,15 +39,15 @@ const calendar = google.calendar({
 export default async function handler(req, res) {
 
     var event = {
-        'summary': 'Test Meet',
+        'summary': req.body.summary,
         'location': 'Online',
-        'description': 'First event with nodeJS!',
+        'description': 'Meeting with Edosa',
         'start': {
-            'dateTime': '2024-12-03T09:00:00-00:00',
+            'dateTime': req.body.date,
             'timeZone': 'America/New_York',
         },
         'end': {
-            'dateTime': '2024-12-03T10:00:00-00:00',
+            'dateTime': '2030-01-01T10:00:00-00:00',
             'timeZone': 'America/New_York',
         },
         // 'attendees': [{ email: 'rc.magic320@gmail.com' }],

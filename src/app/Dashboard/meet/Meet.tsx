@@ -5,23 +5,31 @@ import Image from "next/image";
 import Link from 'next/link';
 import DefaultButton from '../../components/buttons/DefaultButton';
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
+import axios from 'axios';
 import Calendar from '../../components/Calendar';
+import { toast, ToastContainer, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const bookTimes = [
     {
-        time: "3:30 pm"
+        time: "3:30 pm",
+        value: "15:30:00"
     },
     {
-        time: "4:00 pm"
+        time: "4:00 pm",
+        value: "16:00:00"
     },
     {
-        time: "4:30 pm"
+        time: "4:30 pm",
+        value: "16:30:00"
     },
     {
-        time: "5:00 pm"
+        time: "5:00 pm",
+        value: "17:00:00"
     },
     {
-        time: "5:30 pm"
+        time: "5:30 pm",
+        value: "17:30:00"
     }
 ]
 
@@ -97,7 +105,79 @@ const Meet: FC = () => {
         '(GMT +12:00) Fiji, Kamchatka, Marshall Is.',
         '(GMT +12:00) International Date Line West'
     ]);
+    const [timeToBook, setTimeToBook] = useState<string>('');
 
+    const onBook = async() => {
+        if ( localStorage.getItem('edosaMember') && localStorage.getItem('selectDate') && timeToBook ) {
+
+            const date = localStorage.getItem('selectDate');    
+            const time = timeToBook;
+            localStorage.removeItem('selectDate');
+
+            const getMember = localStorage.getItem('edosaMember');
+            const member = getMember && JSON.parse(getMember);
+
+            const reqData = {
+                summary: `${member.name}: ${member.email}`,
+                date: `${date}T${time}-00:00`
+            };
+
+            const response = await axios.post<any>('/api/calendly/create-event', reqData);
+            if (response.data) {
+                setTimeToBook('');
+                toast.success(`Success Booking!`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce
+                });
+            }
+
+        } else if ( !localStorage.getItem('edosaMember') ) {
+            toast.error(`Please sign in to the site!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce
+            });
+
+        } else if ( !localStorage.getItem('selectDate') ) {
+            toast.error(`Please select the date to book!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce
+            });
+
+        } else if (!timeToBook) {
+            toast.error(`Please select the time to book!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce
+            });
+        }
+    }
     
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
@@ -128,7 +208,11 @@ const Meet: FC = () => {
 
                         {
                             bookTimes.map((el:any, index:number) => (
-                                <div key={index} className='flex justify-center items-center hover:cursor-pointer w-full h-[60px] text-text-color border border-solid border-m-main-color rounded-[22px] px-6 mt-3 font-bold text-m-main-color'>
+                                <div 
+                                    key={index} 
+                                    className={`flex justify-center items-center hover:cursor-pointer w-full h-[60px] border border-solid border-m-main-color rounded-[22px] px-6 mt-3 font-bold text-text-color ${timeToBook == el.value && 'bg-m-main-color'}`}
+                                    onClick={() => setTimeToBook(el.value)}
+                                >
                                     {el.time}
                                 </div>
                             ))
@@ -141,7 +225,7 @@ const Meet: FC = () => {
                             >
                                 <button>Slots Remaining</button>
                             </Link>
-                            <Link href="#" onClick={() => window.open('https://calendly.com/edosa/personalised-value-driven-strategy')}>
+                            <Link href="#" onClick={onBook}>
                                 <DefaultButton className='w-[210px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                     Book Now
                                 </DefaultButton>
@@ -150,6 +234,7 @@ const Meet: FC = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }
