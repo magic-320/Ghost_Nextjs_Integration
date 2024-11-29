@@ -7,6 +7,7 @@ import DefaultButton from '../../components/buttons/DefaultButton';
 import LearnArrow from '@/public/assets/images/drivenSvgs/arrow1.svg';
 import axios from 'axios';
 import parse from 'html-react-parser';
+import '../card.css';
 import Loading from '@/public/assets/loading/blue.gif';
 
 const fixedCourse: any = [
