@@ -237,7 +237,7 @@ const Calendar: FC = () => {
                                     <Tooltip key={index} anchorSelect={`#tooltip${index}`} clickable>
                                         {
                                             el.info.map((j:any, j_index:number) => (
-                                                <div key={j_index}>- {j.time.replace('Z','')} &nbsp;{j.summary.split(': ')[1]}</div>
+                                                <div key={j_index}>- {j.time.replace('Z','')} &nbsp;<i>with</i> Edosa Odaro</div>
                                             ))
                                         }
                                     </Tooltip>
