@@ -30,7 +30,7 @@ const Watch: FC = () => {
             jwtToken += localStorage.getItem('edosaJwtToken');
             const getMember = localStorage.getItem('edosaMember');
             const member = getMember && JSON.parse(getMember);
-            tierOfMember = member.subscriptions[0].tier.slug;
+            if (member.paid) tierOfMember = member.subscriptions[0].tier.slug;
         }
 
         const getPosts = async() => {

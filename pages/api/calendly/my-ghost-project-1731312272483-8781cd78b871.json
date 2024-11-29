@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "my-ghost-project-1731312272483",
+  "private_key_id": "8781cd78b871aef4a0f1c03f411a285629c55d09",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC7fKRj5dr4M9Pi\nY7xcqGCWdF+TlCZ1661eYPTCm0f7A+BYXxZRez0ClGvEOw5ibbx1stzsi6jAHszF\nD6a3j/esJ2cTxNVeysPXtbch9/DoSdaWY/9KYdWw2tufShJe3JC5Aj29kipz9yZp\n7LKeAJZrdsw2AE/SMoaovUvkUQNDTdyqtXv93/WmtVM4bef4xFzheq6Uhf7EBIC3\nH5TFGHvHTK/3m4RFPQlgctXlHNFBCrB2VJHr5ELHdszNO0FUMArZ1BfB2ibyDBeT\nKv2851UfNfhIY5mo3uCZXrBpR57yqLXzg/s6g7FvOxCyEddbrGbhzF3o85WE72wx\nbkhDKMSnAgMBAAECggEAG3L9Mm8Fpw8Xd264tiwksAJrt9SZ6OvPXyD81L0dRb/k\niauqPdW4Mfd+66Tlzz1XuTetpqgv1ajsu/E1rGxUi4zdR4Sq5Iz1LVC6diuxxqCA\n3VXYm5BFU/ZG70RN+jt6qMuONIIA2yeVJS71W7KkUyl6bnGPPiwNkQjd4piFzMWK\nS4Oost3jG37dS3YrDtvmFTMmR2Bj6yq3LXnpYAe7TohB6z7GHaNvL1XATs/SC/NE\nlsK8RpLfUHWGYY91ToQFo8UJhGVyoPUFLoVwu5wYU+Wesz3BzJ9D+5z6E8PTmHPV\ndgvsh8xLryv+sG4lW3VUShTaEIKDi27MsLNxl24VOQKBgQDmvr1kt3o/NZ+3BxzD\nde2Wx/oDIGOt+XNdZJcf+pVy1yg6Xnr+2rQBh6RcKXVyiud9QtYJORRcmxI2x9U+\nK6c8ism1+v3RacohYE+4npqWwQapyrTnMmtJq5YXG6Zp3fgRowHgR7/MYaREjjBY\nqheWfRh/KHCqpCtGgTD73ie0GwKBgQDQAdkwa7Ux2xZIYVs2yVtZ4XDIM4XF2cjd\nTrcf3k5U8aXtmAqUgaA/WT+cUpvmroZv87gVPlIhQxNf6R8SgBdbImLLLh2KbdOb\ncZDgt9MHUBJ5xUEQy4i7Kg5Zn6X5Opd1LFGw+wOfKgoB/zMQI9X5hhpYpVXMmNOD\nDpri0quCZQKBgQC6Bf4kS3MHsJCReu9qeRFRJOlfSeZypI+oNGdNxbRkgCcTX4Yj\nHmhOb29HSblA3dEggBiUGOtceTwm49X7qC/MNEvIJZApGvN1EvNScLNKZFWd3ykW\n1uP94ZJAEO+JnATZGyRxDwcGm5VWG5fIc2BO140/PngOagnlblPySjiSDwKBgQDP\n1Fj2aVeklbug3C1wAyYUGw0960TI1347qO+Nluf7NWrNhzFjClVblkfZYCzHAy/t\n4bzW9OrIsyVDmkBikrtDYosFaXE4o91fHcxcyy69ysJ7CpylNEfMggvOfpYt+93i\nxEJnK5aFzFIthpe1k6iy5MukMKYWg8gp1UjqQwX8hQKBgGXccJ1aWOAVSr39C8GR\nVL1N5Cd9u+NmvSlJKBHJSPd0q8qd51tWGse2qLZTyBbwxZA+CN+AuksS4H5OV2ge\nrRUun/6M1nWVxi5RTgEedGehXBvdTct5GG5w+6DWG8mRNUX7w0mndMIWruvkqX8f\nazxkmuVfuCeSLifh3aCk54HL\n-----END PRIVATE KEY-----\n",
+  "client_email": "calendar-key@my-ghost-project-1731312272483.iam.gserviceaccount.com",
+  "client_id": "106867073036982173803",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/calendar-key%40my-ghost-project-1731312272483.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

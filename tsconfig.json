@@ -33,7 +33,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/ghost-client.js"
-  ],
+, "pages/api/calendly/list-events.js"  ],
   "exclude": [
     "node_modules"
   ]
