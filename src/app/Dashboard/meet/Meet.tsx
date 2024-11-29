@@ -101,7 +101,7 @@ const Meet: FC = () => {
     
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
+            <div className='w-full h-full bg-[#FFF] rounded-[22px] pb-3'>
                 <h1 className='text-[20px] md:text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
                     Services &gt; Meet &gt; Personal Coaching
                 </h1>

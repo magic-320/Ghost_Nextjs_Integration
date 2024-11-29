@@ -4,14 +4,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
-import error from 'next/error';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
-import jwt from 'jsonwebtoken';
 import setupGhostApi from '../utils/api';
 import Link from 'next/link';
 import { toast, ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SignInButton from './SignInButton';
 
 interface MyJwtPayload extends JwtPayload {
   email: string;
@@ -35,6 +32,7 @@ const LoginForm: React.FC = () => {
   useEffect(() => {
     // Runs only on the client-side
     setIsClient(true);
+    axios.get('/api/calendly/list-events').then(res => console.log(res)).catch(err => console.log(err))
   }, []);
 
   if (!isClient) {
@@ -183,7 +181,6 @@ const LoginForm: React.FC = () => {
                 }}
               />
             </div>
-            <SignInButton />
           </GoogleOAuthProvider>
 
 

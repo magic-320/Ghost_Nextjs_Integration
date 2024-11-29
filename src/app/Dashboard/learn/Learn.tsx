@@ -7,7 +7,7 @@ import DefaultButton from '../../components/buttons/DefaultButton';
 import LearnArrow from '@/public/assets/images/drivenSvgs/arrow1.svg';
 import axios from 'axios';
 import parse from 'html-react-parser';
-
+import Loading from '@/public/assets/loading/blue.gif';
 
 const fixedCourse: any = [
     {
@@ -27,6 +27,7 @@ const Learn: FC = () => {
     const [data, setData] = useState<any>([]);
     const [viewAll, setViewAll] = useState<boolean>(false);
     const [detail, setDetail] = useState<any>({});
+    const [loaidng, setLoading] = useState<boolean>(true);
 
     React.useEffect(() => {
         const getPosts = async() => {
@@ -43,6 +44,7 @@ const Learn: FC = () => {
                 const readyData = fixedCourse.concat(demoData);
 
                 setData(readyData);
+                setLoading(false);
 
             } catch (err) {
               console.log(err);
@@ -55,7 +57,7 @@ const Learn: FC = () => {
 
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
+            <div className='w-full h-full bg-[#FFF] rounded-[22px] pb-3'>
                 <h1 className='text-[20px] md:text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
                     Services &gt; Learn &gt; <Link href="#" onClick={() => { setViewAll(false); setDetail({}); }}>Courses</Link>
                 </h1>
@@ -72,7 +74,15 @@ const Learn: FC = () => {
                                 </div>
 
                                 {
-                                    data.map((el:any, index:number) => {
+                                    loaidng && (
+                                        <div className='flex justify-center'>
+                                            <Image src={Loading} alt='loading' className='w-[40px] h-[40px]' />
+                                        </div>
+                                    )
+                                }
+
+                                {
+                                    !loaidng && data.map((el:any, index:number) => {
                                         if (index >= 5) return;
                                         return (
                                             <div key={index} className='flex justify-between items-center w-full h-auto text-text-color bg-l-demo-color rounded-[22px] px-6 py-2 mt-3'>

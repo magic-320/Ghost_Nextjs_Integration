@@ -7,6 +7,7 @@ import axios from 'axios';
 import DefaultButton from '../../components/buttons/DefaultButton';
 import WatchArrow from '@/public/assets/images/drivenSvgs/arrow3.svg';
 import parse from 'html-react-parser';
+import Loading from '@/public/assets/loading/blue.gif';
 
 const filterTags: string[] = ['hash-videonewsletteredition001', 'hash-videonewsletteredition002', 'hash-videopageseries0'];
 
@@ -16,6 +17,7 @@ const Watch: FC = () => {
     const [data, setData] = useState<any>([]);
     const [viewAll, setViewAll] = useState<boolean>(false);
     const [detail, setDetail] = useState<any>({});
+    const [loading, setLoading] = useState<boolean>(true);
 
     React.useEffect(() => {
         if (hasRun.current) return;
@@ -59,6 +61,7 @@ const Watch: FC = () => {
                 }
 
                 setData(demoData);
+                setLoading(false);
 
                 // const res = await axios.post<PostsResponse>('/api/content/posts', {
                 //     payload: "&limit=all&filter=tag:[hash-VideoNewsletterEdition001,hash-videonewsletteredition002,hash-videopageseries0]"
@@ -74,7 +77,7 @@ const Watch: FC = () => {
 
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
+            <div className='w-full h-full bg-[#FFF] rounded-[22px] pb-3'>
                 <h1 className='text-[20px] md:text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
                     Services &gt; Watch &gt; <Link href="#" onClick={() => { setViewAll(false); setDetail({}); }}>Curated Resource Library</Link>
                 </h1>
@@ -89,9 +92,15 @@ const Watch: FC = () => {
                                 <div className="text-[25px] md:text-[36px] leading-11 font-bold text-text-color my-5">
                                     Curated Resource Library
                                 </div>
-
                                 {
-                                    data.map((el:any, index:number) => {
+                                    loading && (
+                                        <div className='flex justify-center'>
+                                            <Image src={Loading} alt='loading' className='w-[40px] h-[40px]' />
+                                        </div>
+                                    )
+                                }
+                                {
+                                    !loading && data.map((el:any, index:number) => {
                                         if (index >= 5) return;
                                         return (
                                             <div key={index} className='flex justify-between items-center w-full h-auto text-text-color bg-w-demo-color rounded-[22px] px-6 py-2 mt-3'>

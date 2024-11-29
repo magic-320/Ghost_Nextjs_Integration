@@ -29,7 +29,7 @@ const Assessment: FC = () => {
 
     return (
         <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-[600px] bg-[#FFF] rounded-[22px] px-10 py-5 overflow-auto'>
+            <div className='w-full h-[600px] bg-[#FFF] rounded-[22px] px-10 py-5 pb-3 overflow-auto'>
                 <h1 className='text-[2rem] font-bold text-text-color mb-5'>Assessment</h1>
                 <div>
                     {

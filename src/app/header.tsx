@@ -159,11 +159,11 @@ const Header: FC = () => {
         </div>
 
         <div className='flex items-center justify-center mr-2 md:mr-10 px-1 sm:px-3 gap-3'>
-          <Image src={SEARCHICON} className='w-5 h-5 hover:cursor-pointer' alt='search' />
+          {/* <Image src={SEARCHICON} className='w-5 h-5 hover:cursor-pointer' alt='search' /> */}
 
             {
               !user ? (
-                <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>Aceess</DefaultButton></Link>
+                <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>Access</DefaultButton></Link>
               ) : (
                 <Link href='/Dashboard'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton></Link>
               )

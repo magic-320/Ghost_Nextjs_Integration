@@ -8,6 +8,7 @@ import parse from 'html-react-parser';
 import BOOK2 from "@/public/assets/images/books/book2.png";
 import DefaultButton from '../../components/buttons/DefaultButton';
 import '../card.css';
+import Loading from '@/public/assets/loading/blue.gif';
 
 const filterTags: string[] = ['hash-books'];
 
@@ -17,6 +18,7 @@ const Read: FC = () => {
     const [data, setData] = useState<any>([]);
     const [individual, setIndividual] = useState<any | undefined>(undefined);
     const [isReading, setIsReading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
 
     React.useEffect(() => {
         if (hasRun.current) return;
@@ -40,6 +42,7 @@ const Read: FC = () => {
                 }
                 
                 setData(demoData);
+                setLoading(false);
 
                 // const res = await axios.post<PostsResponse>('/api/content/posts', {
                 //     payload: "&limit=all&filter=tag:hash-books"
@@ -61,7 +64,7 @@ const Read: FC = () => {
 
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-full bg-[#FFF] rounded-[22px]'>
+            <div className='w-full h-full bg-[#FFF] rounded-[22px] pb-3'>
                 <h1 className='text-[20px] md:text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
                     Services &gt; <span className='hover:cursor-pointer' onClick={initIndividual}>Read</span> {individual && ` > ` + individual.title}
                 </h1>
@@ -70,7 +73,14 @@ const Read: FC = () => {
                     !individual && !isReading && (
                         <div className='px-12'>
                             {
-                                data.map((el:any, index:number) => (
+                                loading && (
+                                    <div className='flex justify-center'>
+                                        <Image src={Loading} alt='loading' className='w-[60px] h-[60px]' />
+                                    </div>
+                                )
+                            }
+                            {
+                                !loading && data.map((el:any, index:number) => (
                                     <div key={index} className="flex hover:cursor-pointer hover:bg-[#F9F9F9]" onClick={() => setIndividual(data[index])} >
                                         <div className='w-[10rem] h-[10rem] p-2 flex justify-center'>
                                             <img src={el.feature_image} className='h-full' />

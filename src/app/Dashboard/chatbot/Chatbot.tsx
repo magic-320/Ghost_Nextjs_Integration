@@ -92,7 +92,7 @@ const Chatbot: FC = () => {
 
     return (
         <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='relative w-full h-[750px] bg-[#FFF] rounded-[22px]'>
+            <div className='relative w-full h-[750px] bg-[#FFF] rounded-[22px] pb-3'>
                 <h1 className='text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
                     My Chatbot
                 </h1>

@@ -77,7 +77,7 @@ const wholePackage:any = [
         imgUrl: '',
         button1: 'Get Now',
         button2: 'Access Here',
-        action1: (router:any) => to12EmailCourse(router),
+        action1: (router:any) => toSignIn(router),
         action2: (router:any) => to12EmailCourse(router)
     },
     {

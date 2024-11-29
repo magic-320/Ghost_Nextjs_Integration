@@ -33,7 +33,7 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                                 <button>Learn more</button>
                             </Link>
                             <Link href={`${mainURL}`}>
-                                <DefaultButton className='w-[115px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
+                                <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                     {buttonName}
                                 </DefaultButton>
                             </Link>
@@ -55,7 +55,7 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                             <button>Learn more</button>
                         </Link>
                         <Link href={`${mainURL}`}>
-                            <DefaultButton className='w-[115px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
+                            <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                 {buttonName}
                             </DefaultButton>
                         </Link>
@@ -76,7 +76,7 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                             <button>Learn more</button>
                         </Link>
                         <Link href={`${mainURL}`}>
-                            <DefaultButton className='w-[115px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
+                            <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                 {buttonName}
                             </DefaultButton>
                         </Link>
@@ -97,7 +97,7 @@ const PackageDemoCard: FC<PackageDemoCardProps> = ({
                             <button>Learn more</button>
                         </Link>
                         <Link href={`${mainURL}`}>
-                            <DefaultButton className='w-[115px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
+                            <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                 {buttonName}
                             </DefaultButton>
                         </Link>
