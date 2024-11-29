@@ -114,15 +114,15 @@ const Meet: FC = () => {
                         <div className='text-center py-3'>
                             <Calendar />
                         </div>
-                        <div 
+                        {/* <div 
                             className='w-full flex justify-center hover:cursor-pointer' 
                             onClick={() => setTimezoneDropdown(!timezoneDropdown)}
                         >
                             Eastern Time - US & Canada <span className="ml-2 my-1">{timezoneDropdown ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='px-3'>
-                        <div className="text-[25px] md:text-[36px] leading-11 font-bold text-text-color my-5">
+                        <div className="text-[23px] md:text-[36px] leading-11 font-bold text-text-color my-5">
                             Book your slot with Edosa
                         </div>
 
@@ -134,14 +134,12 @@ const Meet: FC = () => {
                             ))
                         }
 
-                        
-
                         <div className='mt-12 flex gap-3 text-center justify-center w-full'>
                             <Link href="#" 
                                 className="w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]"
-                                onClick={() => window.open('https://calendar.google.com/calendar/')}
+                                // onClick={() => window.open('https://calendar.google.com/calendar/')}
                             >
-                                <button>Go to Calendar</button>
+                                <button>Slots Remaining</button>
                             </Link>
                             <Link href="#" onClick={() => window.open('https://calendly.com/edosa/personalised-value-driven-strategy')}>
                                 <DefaultButton className='w-[210px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>

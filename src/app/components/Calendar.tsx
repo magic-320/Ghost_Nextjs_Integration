@@ -13,6 +13,7 @@ interface CalendarDay {
     isSelected?: boolean;
     hasDot?: boolean;
     isToday?: boolean;
+    info?: any;
 }
 
 const Calendar: FC = () => {
@@ -21,25 +22,40 @@ const Calendar: FC = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [data, setData] = useState<CalendarDay[]>([]);
     const [isAnimating, setIsAnimating] = useState(false);
-
-    React.useEffect(() => {
-        const getEvents = async() => {
-            try {
-                const response = await axios.post('/api/calendly/list-events');
-                console.log(response.data)
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getEvents();
-    }, []);
+    const [events, setEvents] = useState<any>([]);
 
     React.useEffect(() => {
         generateCalendarDays(currentDate);
     }, [currentDate, selectedDate]);
 
-    const generateCalendarDays = (date: Date) => {
+
+    const generateCalendarDays = async(date: Date) => {
+
+        ///////////////////////// Get Events //////////////////////////
+
+        const demoDate = new Date(date).toLocaleDateString('en-CA');
+        const year = demoDate.split('-')[0];
+        const month = demoDate.split('-')[1];
+
+        const lastDate = new Date(Number(year), Number(month), 0);
+        const lastDay = lastDate.toLocaleDateString('en-CA').split('-')[2];
+
+        const response = await axios.post<any>('/api/calendly/list-events', { 
+            startTime: `${year}-${month}-1T00:00:00Z`, 
+            endTime: `${year}-${month}-${lastDay}T00:00:00Z` 
+        });
+        
+        let demoEvents:any[] = [];
+        response.data.events && response.data.events.map((el:any) => {
+            const demoInfo = {
+                date: el.start.dateTime.split('T')[0],
+                time: el.start.dateTime.split('T')[1]
+            }
+            demoEvents.push(demoInfo);
+        });
+        
+        ///////////////////////// Show Calendar //////////////////////////
+
         const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
         const startDayOfWeek = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
         const days: CalendarDay[] = [];
@@ -52,12 +68,27 @@ const Calendar: FC = () => {
         for (let i = 1; i <= daysInMonth; i++) {
             const isToday = i === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear();
             const isSelected = i === selectedDate.getDate() && date.getMonth() === selectedDate.getMonth() && date.getFullYear() === selectedDate.getFullYear();
+            
+            let info: any[] = [];
+            demoEvents.map((el:any, index:number) => {
+                const day = Number(el.date.split('-')[2]);
+                if (day == i) {
+                    const demoInfo = {
+                        date: el.date,
+                        time: el.time
+                    }
+                    info.push(demoInfo);
+                }
+            })
+            const isDot = info.length ? true : false;
 
             days.push({ 
                 day: i, 
                 isCurrentMonth: true,
                 isToday: isToday,
                 isSelected: isSelected,
+                hasDot: isDot,
+                info: info
             });
         }
 
