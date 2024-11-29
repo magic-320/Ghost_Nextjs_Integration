@@ -1,8 +1,9 @@
 'use client'
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 import Chevron_left from '@/public/assets/svg/chevron-left.svg';
 import Chevron_right from '@/public/assets/svg/chevron-right.svg';
+import axios from "axios";
 
 
 // Define an interface for the calendar day items
@@ -21,7 +22,20 @@ const Calendar: FC = () => {
     const [data, setData] = useState<CalendarDay[]>([]);
     const [isAnimating, setIsAnimating] = useState(false);
 
-    useEffect(() => {
+    React.useEffect(() => {
+        const getEvents = async() => {
+            try {
+                const response = await axios.post('/api/calendly/list-events');
+                console.log(response.data)
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        getEvents();
+    }, []);
+
+    React.useEffect(() => {
         generateCalendarDays(currentDate);
     }, [currentDate, selectedDate]);
 
