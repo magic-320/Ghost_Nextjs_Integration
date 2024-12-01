@@ -80,16 +80,26 @@ const Read: FC = () => {
                                 )
                             }
                             {
-                                !loading && data.map((el:any, index:number) => (
-                                    <div key={index} className="flex hover:cursor-pointer hover:bg-[#F9F9F9]" onClick={() => setIndividual(data[index])} >
-                                        <div className='w-[10rem] h-[10rem] p-2 flex justify-center'>
-                                            <img src={el.feature_image} className='h-full' />
-                                        </div>
-                                        <div className='px-5 flex items-center text-[1.7rem] font-bold text-text-color'>
-                                            {el.title}
-                                        </div>
+                                !loading && (
+                                    <div className='grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
+                                        {
+                                            data.map((el:any, index:number) => (
+                                                <div key={index} className="relative w-full h-[278px] bg-l-demo-color rounded-[22px] py-7">
+                                                    <h1 className='text-[18px] font-bold font-inter mt-2 mx-7'>
+                                                        aaa
+                                                    </h1>
+                                                    <div className='absolute bottom-5 flex gap-3 text-center justify-center w-full'>
+                                                        <span >
+                                                            <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
+                                                                REead
+                                                            </DefaultButton>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
-                                ))
+                                )
                             }                            
                         </div>
                     )

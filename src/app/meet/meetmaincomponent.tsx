@@ -1,21 +1,35 @@
 'use client';
 import { FC, useEffect } from 'react';
+import Image from 'next/image';
+import PLAY from '@/public/assets/images/play.svg';
+
 const MeetMainComponent: FC = () => {
 
     return (
-        <div className='bg-[#F2FAEC] rounded-[20px] h-[330px] sm:h-[500px] lg:h-[736px]'>
-            <div className='ml-[20px] mr-[20px] relative'>
+        <div className='bg-cover bg-center rounded-[20px] relative w-full h-full overflow-hidden'>
+
+            <video className='absolute top-1/2 left-1/2 w-auto min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover' autoPlay muted loop>
+                <source src='/assets/video/Dashboard_video.mp4' type='video/mp4' />
+            </video>
+
+            <div className='pl-[20px] pr-[20px] relative bg-black/50'>
 
                 <div className="inset-0 flex ml-4 sm:ml-[50px] lg:ml-[94px] pt-[30px] sm:pt-[70px] lg:pt-[168px]">
-                    <h2 className="text-2xl sm:text-[40px] lg:text-[60px] font-bold text-[#475467] leading-10 sm:leading-[50px] lg:leading-[72px]">
+                    <h2 className="text-2xl sm:text-[40px] lg:text-[60px] font-bold text-[#FFF] leading-10 sm:leading-[50px] lg:leading-[72px]">
                         Get to know the Visionary <br /> Edosa Odaro
                     </h2>
                 </div>
                 <div className="inset-0 flex mt-4 sm:mt-[45px] ml-4 sm:ml-[50px] lg:ml-[94px]">
-                    <h2 className="text-lg sm:text-2xl lg:text-3xl text-[#475467] leading-8 sm:leading-[35px] lg:leading-[44px]">
+                    <h2 className="text-lg sm:text-2xl lg:text-3xl text-[#FFF] leading-8 sm:leading-[35px] lg:leading-[44px]">
                         Choose the plan that best fits your <br /> needs and
                         <span className='text-[#95DA79] font-bold'> start transforming data <br /> into decisions. </span>
                     </h2>
+                </div>
+                <div className='relative flex items-center ml-4 sm:ml-[50px] lg:ml-[90px] mt-4 sm:mt-[45px] pb-8 sm:pb-[108px]'>
+                    <Image src={PLAY} className='w-10 sm:w-16 lg:w-20 hover:cursor-pointer' alt='Picture' onClick={() => window.open('/assets/video/Dashboard_video.mp4')} />
+                    <span className="text-sm sm:text-[20px] text-[#FFF] pl-4 sm:pl-8 leading-6">
+                        Listen to what <br /> Edosa has to say
+                    </span>
                 </div>
             </div>
         </div >
