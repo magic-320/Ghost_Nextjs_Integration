@@ -8,6 +8,7 @@ import ITEM3 from '@/public/assets/svg/item3.svg';
 import ITEM4 from '@/public/assets/svg/item4.svg';
 import ITEM5 from '@/public/assets/svg/item5.svg';
 import Image from 'next/image';
+
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
