@@ -31,17 +31,25 @@ const Read: FC = () => {
                 const res = await axios.get<any>('/api/admin/posts');
                 for (const post of res.data.data) {
                     post.tags.map((el:any) => {
-                        if (filterTags.includes(el.slug)) demoData.push(post);
+                        if (filterTags.includes(el.slug)) {
+                            post.badge = 'Published';
+                            console.log(post)
+                            demoData.push(post);
+                        }
                     })
                 }
                 
                 const page_slug = 'cheatsheets-resources';
                 const pages = await axios.get<any>('/api/admin/pages');
                 for (const page of pages.data.data) {
-                    if (page.slug == page_slug) demoData.push(page);
+                    if (page.slug == page_slug) {
+                        page.badge = 'eCheatSheets';
+                        demoData.push(page);
+                    }
                 }
                 
                 setData(demoData);
+                console.log(demoData)
                 setLoading(false);
 
                 // const res = await axios.post<PostsResponse>('/api/content/posts', {
@@ -84,18 +92,19 @@ const Read: FC = () => {
                                     <div className='grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
                                         {
                                             data.map((el:any, index:number) => (
-                                                <div key={index} className="relative w-full h-[278px] bg-l-demo-color rounded-[22px] py-7">
+                                                <section key={index} className="relative w-full h-[278px] bg-r-demo-color rounded-[22px] py-7">
+                                                    <span className='inline-block w-[auto] h-[25px] px-3 py-1 text-center text-[12px] text-white bg-r-main-color rounded-full mx-7'>{el.badge}</span>
                                                     <h1 className='text-[18px] font-bold font-inter mt-2 mx-7'>
-                                                        aaa
+                                                        {el.title}
                                                     </h1>
                                                     <div className='absolute bottom-5 flex gap-3 text-center justify-center w-full'>
-                                                        <span >
-                                                            <DefaultButton className='w-[auto] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
-                                                                REead
+                                                        <span onClick={() => setIndividual(data[index])}>
+                                                            <DefaultButton className='w-[auto] h-[40px] font-bold !px-10 py-[10px] text-xs text-center'>
+                                                                Read Now
                                                             </DefaultButton>
                                                         </span>
                                                     </div>
-                                                </div>
+                                                </section>
                                             ))
                                         }
                                     </div>
