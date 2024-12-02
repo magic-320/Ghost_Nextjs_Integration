@@ -1,12 +1,39 @@
 'use client';
-import { FC, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import Image from 'next/image';
 import PLAY from '@/public/assets/images/play.svg';
+import close_circle from '@/public/assets/svg/close-circle-svgrepo-com.svg';
 
 const LearnMainComponent: FC = () => {
 
+    const [showModal, setShowModal] = useState<boolean>(false);
+
+    React.useEffect(() => {
+        const video = document.getElementById('backVideo') as HTMLVideoElement | null;
+        if (!showModal && video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+    }, [showModal])
+
+    const openVideo = () => {
+        setShowModal(!showModal);
+    }
+
     return (
         <div className='bg-cover bg-center rounded-[20px] relative w-full h-full overflow-hidden'>
+
+            <div className={`fixed top-0 left-0 w-full h-full bg-[rgb(0,0,0,.8)] z-[1000] flex justify-center items-center none ${showModal ? 'block' : 'hidden'}`}>
+                <Image 
+                    src={close_circle} 
+                    alt='close_circle' 
+                    className='fixed top-5 right-5 z-[1001] w-[40px] h-[auto] hover:cursor-pointer transition-transform transform scale-100 hover:scale-110' 
+                    onClick={openVideo} 
+                />
+                <video className='w-[auto] h-[95%]' controls id='backVideo'>
+                    <source src='/assets/video/Dashboard_video.mp4' type='video/mp4' />
+                </video>
+            </div>
 
             <video className='absolute top-1/2 left-1/2 w-auto min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover' autoPlay muted loop>
                 <source src='/assets/video/Dashboard_video.mp4' type='video/mp4' />
@@ -26,7 +53,7 @@ const LearnMainComponent: FC = () => {
                     </h2>
                 </div>
                 <div className='relative flex items-center ml-4 sm:ml-[50px] lg:ml-[90px] mt-4 sm:mt-[45px] pb-8 sm:pb-[108px]'>
-                    <Image src={PLAY} className='w-10 sm:w-16 lg:w-20 hover:cursor-pointer' alt='Picture' onClick={() => window.open('/assets/video/Dashboard_video.mp4')} />
+                    <Image src={PLAY} className='w-10 sm:w-16 lg:w-20 hover:cursor-pointer' alt='Picture' onClick={openVideo} />
                     <span className="text-sm sm:text-[20px] text-[#FFF] pl-4 sm:pl-8 leading-6">
                         Listen to what <br /> Edosa has to say
                     </span>
