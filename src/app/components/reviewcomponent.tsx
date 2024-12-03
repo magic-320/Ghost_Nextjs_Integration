@@ -19,6 +19,7 @@ import Ram from '@/public/assets/review_photo/Ram.webp';
 import Mona from '@/public/assets/review_photo/Mona.webp';
 import Stylianos from '@/public/assets/review_photo/Stylianos.webp';
 import Sam from '@/public/assets/review_photo/Sam.webp';
+import MakingDataWork from '@/public/assets/review_photo/makingDataWork.png';
 
 
 const responsive = {
@@ -97,6 +98,12 @@ const reviews:any[] = [
     photo: Mona
   },
   {
+    content: "Wow! Leaders at The House of Influence just experienced Edosa's powerful session on AI and Data. Tackling leaders' knowledge gaps, angst and anxieties, his clear, engaging approach sparked excitement and enlightenment. Renowned for simplifying complex topics, Edosa left us all both captivated and empowered. Salute!",
+    name: "Dion Johnson",
+    job: "Board-Level Leadership Coach",
+    photo: Dion
+  },
+  {
     content: "A valuable instrument in an era of cost optimisation, providing knowledge to aid in directing and articulating vision, value and creating pathways to overcome obstacles.",
     name: "Stylianos Taxidis",
     job: "Manager Data & Technology Consulting in Sustainable Finance @ EY",
@@ -109,10 +116,22 @@ const reviews:any[] = [
     photo: Sam
   },
   {
-    content: "Wow! Leaders at The House of Influence just experienced Edosa's powerful session on AI and Data. Tackling leaders' knowledge gaps, angst and anxieties, his clear, engaging approach sparked excitement and enlightenment. Renowned for simplifying complex topics, Edosa left us all both captivated and empowered. Salute!",
-    name: "Dion Johnson",
-    job: "Board-Level Leadership Coach",
-    photo: Dion
+    content: 'This book offers fresh insight about how to solve the interactional frictions that hamper the flow of data, information and knowledge across organisations. Yet, rather than being stuck with endless polarising debates such as breaking down silos, it shifts focus back towards the ultimate "to what end."',
+    name: "Tim Carmichael",
+    job: "Chief Data Officer, Chalhoub Group",
+    photo: MakingDataWork
+  },
+  {
+    content: "If you care about AI transformation, empowering people or advancing organisational success in an increasingly digital world, then you should read this book.",
+    name: "Jacky Wright",
+    job: "Chief Digital Officer (CDO), Microsoft US",
+    photo: MakingDataWork
+  },
+  {
+    content: "Making Data Work explores real-world examples of data mismanagement, highlighting the risks of failed implementations, and offers guidance on leveraging data and AI effectively to drive digital transformation, empower people, and achieve better outcomes.",
+    name: "Yomi Ibosiola",
+    job: "Chief Data and Analytics Officer, Union Bank",
+    photo: MakingDataWork
   }
 ]
 
@@ -121,11 +140,11 @@ const reviews:any[] = [
 const ReviewComponent: NextPage = () => {
 
   return (
-    <Carousel responsive={responsive} arrows={true}>
+    <Carousel responsive={responsive} autoPlay infinite arrows={true} autoPlaySpeed={3000}>
         {
           reviews.map((el:any, index:number) => {
             return (
-                <div key={index} className='flex flex-col md:flex-row md:row-span-2 relative mt-5 md:mt-10 rounded-2xl bg-[#F3F8FE] min-h-[448px] w-[100%]'>
+                <div key={index} className='flex flex-col md:flex-row md:row-span-2 relative mt-5 md:mt-10 rounded-2xl bg-[#F3F8FE] h-[auto] w-[100%]'>
                   <div className="flex flex-col ml-6 md:ml-16 mt-16">
                     <div className="flex flex-row gap-2">
                       <Image src={STAR} alt="star"></Image>
@@ -134,7 +153,7 @@ const ReviewComponent: NextPage = () => {
                       <Image src={STAR} alt="star"></Image>
                       <Image src={STAR} alt="star"></Image>
                     </div>
-                    <div className="text-xl md:text-3xl mt-4 mr-4 font-inter md:mt-6">
+                    <div className="text-xl md:text-2xl mt-4 mr-4 font-inter md:mt-6">
                       {el.content}
                     </div>
                     <div className="text-xl font-bold font-inter w-3/5 mt-6">
@@ -143,20 +162,20 @@ const ReviewComponent: NextPage = () => {
                     <div className="text-xl font-inter md:first-letter:w-3/5 mt-3">
                       {el.job}
                     </div>
-                    <div className="mt-6 flex gap-4">
+                    <div className="mt-6 flex gap-3">
                       {
                         reviews.map((j:any, i:number) => (
                           index == i ? (
-                            <div key={i} className="w-[15px] aspect-[1/1] bg-[#6941c6] rounded-[50%] hover:cursor-pointer"></div>
+                            <div key={i} className="w-[12px] aspect-[1/1] bg-[#6941c6] rounded-[50%] hover:cursor-pointer"></div>
                           ) : (
-                            <div key={i} className="w-[15px] aspect-[1/1] bg-[#aaa] rounded-[50%] hover:cursor-pointer"></div>
+                            <div key={i} className="w-[12px] aspect-[1/1] bg-[#aaa] rounded-[50%] hover:cursor-pointer"></div>
                           )
                         ))
                       }
                       
                     </div>
                   </div>
-                  <div className="flex w-full justify-center md:justify-end mb-5 md:mb-0">
+                  <div className="flex justify-center md:justify-end mb-5 md:mb-0 w-full h-[auto]">
                     <Image src={el.photo} alt="learn image" height={448} className="rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl mt-4 md:mt-0" />
                   </div>
                 </div>
