@@ -20,6 +20,8 @@ import Mona from '@/public/assets/review_photo/Mona.webp';
 import Stylianos from '@/public/assets/review_photo/Stylianos.webp';
 import Sam from '@/public/assets/review_photo/Sam.webp';
 import MakingDataWork from '@/public/assets/review_photo/makingDataWork.png';
+import Book1 from '@/public/assets/review_photo/book1.png';
+import NoUser from '@/public/assets/review_photo/noUser.jpg';
 
 
 const responsive = {
@@ -47,91 +49,106 @@ const reviews:any[] = [
     content: "Provides insightful frameworks and considerations for every organisation that wants to get more value out of data and analytics.",
     name: "Gero Martin Gunkel",
     job: "Data Science Leader & Chief Operating Officer (ZCAM) at Zurich Insurance",
-    photo: Gero
+    photo: Gero,
+    bookImg: Book1
   },
   {
     content: "Value Driven Data cuts through the rumours and hearsay with real-life, no-nonsense examples of creating a data vision and value in practice.",
     name: "Graeme McDermott",
     job: "Chief Data Officer @ Tempcover",
-    photo: Graeme
+    photo: Graeme,
+    bookImg: Book1
   },
   {
     content: "My clients, senior sales executives, grapple with how to make sense of mountains of data residing in multiple databases and in processes driven by short-term targets. Edosa’s insights about leveraging AI are perfect for opening their eyes about better ways to use data to achieve sales targets.",
     name: "Andrew Brown",
     job: "Founder @ Bridgemaker Referral Programs",
-    photo: Andrew
+    photo: Andrew,
+    bookImg: Book1
   },
   {
     content: "Edosa brings his experience and expertise together to remind us all of how expressing data value is fundamental to data driven transformation.",
     name: "JC Lionti",
     job: "Managing Director and Chief Data Officer @ Mizuho",
-    photo: JC
+    photo: JC,
+    bookImg: Book1
   },
   {
     content: "Value-Driven Data is a timely and practical guide to support us all with the challenge of unlocking and measuring the value of data.",
     name: "Dr Johanna Hutchinson",
     job: "Chief Data Officer, BAE Systems and Board Member, The Royal Statistics Society",
-    photo: Johanna
+    photo: Johanna,
+    bookImg: Book1
   },
   {
     content: "Value-Driven Data provides a comprehensive framework for developing a data vision that aligns with the overall strategy of an organisation.",
     name: "Rowland Agidee",
     job: "Chief Analytics Officer at University Hospitals of Derby and Burton NHS Foundation Trust",
-    photo: Rowland
+    photo: Rowland,
+    bookImg: Book1
   },
   {
     content: "Offers a combination of deep knowledge and practical value for leaders guiding organisations through the responsible use of data. I hope his shared knowledge will reach data professionals around the world and contribute to their success.",
     name: "Simone Steel",
     job: "Chief Data and Analytics Officer & CIO for Enterprise Data Platforms, Nationwide Building Society",
-    photo: Simone
+    photo: Simone,
+    bookImg: Book1
   },
   {
     content: "Edosa has done terrific work in producing this masterpiece!",
     name: "Ram Kumar",
     job: "Chief Data and Analytics Officer, International Health @ Cigna",
-    photo: Ram
+    photo: Ram,
+    bookImg: Book1
   },
   {
     content: "Edosa has masterfully stitched together a collection of great examples with a set of tangible principles to guide readers on how to enhance their potential with data.",
     name: "Mona Soni",
     job: "Chief Technology Officer, formerly at S&P Global and Dow Jones",
-    photo: Mona
+    photo: Mona,
+    bookImg: Book1
   },
   {
     content: "Wow! Leaders at The House of Influence just experienced Edosa's powerful session on AI and Data. Tackling leaders' knowledge gaps, angst and anxieties, his clear, engaging approach sparked excitement and enlightenment. Renowned for simplifying complex topics, Edosa left us all both captivated and empowered. Salute!",
     name: "Dion Johnson",
     job: "Board-Level Leadership Coach",
-    photo: Dion
+    photo: Dion,
+    bookImg: Book1
   },
   {
     content: "A valuable instrument in an era of cost optimisation, providing knowledge to aid in directing and articulating vision, value and creating pathways to overcome obstacles.",
     name: "Stylianos Taxidis",
     job: "Manager Data & Technology Consulting in Sustainable Finance @ EY",
-    photo: Stylianos
+    photo: Stylianos,
+    bookImg: Book1
   },
   {
     content: "Business Leaders, whilst interested, do not really care how we as data professionals do it. Influencing top line, cost avoidance and bottom line are central to 99.9% of business strategies and so should also be the main focus when creating data strategies.",
     name: "Sam Richmond",
     job: "Group Head of Data at The Go-Ahead Group",
-    photo: Sam
+    photo: Sam,
+    bookImg: Book1
   },
   {
     content: 'This book offers fresh insight about how to solve the interactional frictions that hamper the flow of data, information and knowledge across organisations. Yet, rather than being stuck with endless polarising debates such as breaking down silos, it shifts focus back towards the ultimate "to what end."',
     name: "Tim Carmichael",
     job: "Chief Data Officer, Chalhoub Group",
-    photo: MakingDataWork
+    photo: NoUser,
+    bookImg: MakingDataWork
   },
   {
     content: "If you care about AI transformation, empowering people or advancing organisational success in an increasingly digital world, then you should read this book.",
     name: "Jacky Wright",
     job: "Chief Digital Officer (CDO), Microsoft US",
-    photo: MakingDataWork
+    photo: NoUser,
+    bookImg: MakingDataWork
   },
   {
     content: "Making Data Work explores real-world examples of data mismanagement, highlighting the risks of failed implementations, and offers guidance on leveraging data and AI effectively to drive digital transformation, empower people, and achieve better outcomes.",
     name: "Yomi Ibosiola",
     job: "Chief Data and Analytics Officer, Union Bank",
-    photo: MakingDataWork
+    photo: NoUser,
+    bookImg: MakingDataWork
   }
 ]
 
@@ -140,7 +157,7 @@ const reviews:any[] = [
 const ReviewComponent: NextPage = () => {
 
   return (
-    <Carousel responsive={responsive} autoPlay infinite arrows={true} autoPlaySpeed={3000}>
+    <Carousel responsive={responsive} autoPlay={true} infinite={true} arrows={true} autoPlaySpeed={3000}>
         {
           reviews.map((el:any, index:number) => {
             return (
@@ -175,8 +192,9 @@ const ReviewComponent: NextPage = () => {
                       
                     </div>
                   </div>
-                  <div className="flex justify-center md:justify-end mb-5 md:mb-0 w-full h-[auto]">
-                    <Image src={el.photo} alt="learn image" height={448} className="rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl mt-4 md:mt-0" />
+                  <div className="flex justify-center md:justify-end mb-5 md:mb-0 w-full h-[auto] relative">
+                    <Image src={el.photo} alt="user image" height={448} className="rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl mt-4 md:mt-0" />
+                    <Image src={el.bookImg} alt="book image" height={150} className="absolute top-[15px] md:top-[0px] right-[0px] sm:right-[50px] md:right-[0px]" />
                   </div>
                 </div>
             )
