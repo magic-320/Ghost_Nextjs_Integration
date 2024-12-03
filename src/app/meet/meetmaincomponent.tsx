@@ -2,7 +2,6 @@
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
 import PLAY from '@/public/assets/images/play.svg';
-import close_circle from '@/public/assets/svg/close-circle-svgrepo-com.svg';
 
 const MeetMainComponent: FC = () => {
 
@@ -18,19 +17,15 @@ const MeetMainComponent: FC = () => {
 
     const openVideo = () => {
         setShowModal(!showModal);
+        const video = document.getElementById('backVideo') as HTMLVideoElement | null;
+        if (video) video.play();
     }
 
     return (
         <div className='bg-cover bg-center rounded-[20px] relative w-full h-full overflow-hidden'>
 
-            <div className={`fixed top-0 left-0 w-full h-full bg-[rgb(0,0,0,.8)] z-[1000] flex justify-center items-center none ${showModal ? 'block' : 'hidden'}`}>
-                <Image 
-                    src={close_circle} 
-                    alt='close_circle' 
-                    className='fixed top-5 right-5 z-[1001] w-[40px] h-[auto] hover:cursor-pointer transition-transform transform scale-100 hover:scale-110' 
-                    onClick={openVideo} 
-                />
-                <video className='w-[auto] h-[95%]' controls id='backVideo'>
+            <div className={`absolute top-0 left-0 w-full h-full bg-[rgb(250,250,250,.9)] z-[10] flex justify-center items-center none ${showModal ? 'block' : 'hidden'}`}>
+                <video className='w-full h-full object-cover' controls id='backVideo'>
                     <source src='/assets/video/Dashboard_video.mp4' type='video/mp4' />
                 </video>
             </div>
