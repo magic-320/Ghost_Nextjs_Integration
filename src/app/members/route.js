@@ -32,8 +32,8 @@ export async function GET(request) {
       const res = NextResponse.redirect(`${PUBLIC_DOMAIN}/`, 302);
       if (session) {
         const cookieOptions = 'Path=/; HttpOnly; Secure; SameSite=None'; // Ensure Secure and SameSite=None for cross-origin
-        res.headers.set('Set-Cookie', `${session}; ${cookieOptions}`);
-        // res.headers.set('Set-Cookie', session.replace('samesite=lax; secure; httponly', '').replace('samesite=lax; secure; httponly', ''));
+        // res.headers.set('Set-Cookie', `${session}; ${cookieOptions}`);
+        res.headers.set('Set-Cookie', session.replace('samesite=lax; secure; httponly', '').replace('samesite=lax; secure; httponly', ''));
       }
       return res; // Return the response with Set-Cookie header
     } else if (response.ok) {

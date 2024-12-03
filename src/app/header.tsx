@@ -11,8 +11,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import LOGO from '@/public/assets/images/logo.png';
 import SEARCHICON from '@/public/assets/svg/search.svg';
 import DefaultButton from './components/buttons/DefaultButton';
+import setupGhostApi from './utils/api';
 
 const API_URL = process.env.NEXT_PUBLIC_GHOST_API_URL;
+const ADMIN_API_KEY = process.env.NEXT_PUBLIC_GHOST_ADMIN_API_KEY;
+
+
+const ghostAPI = setupGhostApi({
+  apiUrl: API_URL,
+  apiKey: ADMIN_API_KEY
+})
 
 
 const links: Array<{ text: string, link: string, textColor: string, bgColor: string }> = [
@@ -76,7 +84,6 @@ const Header: FC = () => {
     axios.post('/api/12-day-course/check12DayCourse');
     //////////// End Real Time Funciton ///////////
 
-
     const getToken = async() => {
       try {
           const res = await fetch('/api/getUserInfo/members');
@@ -123,6 +130,21 @@ const Header: FC = () => {
 
   }, [])
 
+  // Sign Out
+  const signout = async() => {
+    const response = await ghostAPI.member.signout();
+    if (response == 'Success') {
+        sessionStorage.clear();
+        localStorage.clear();
+        // Remove Cookie
+        const cookies = document.cookie.split(";");
+        for (const cookie of cookies) {
+          const eqPos = cookie.indexOf("=");
+          const name = eqPos > -1 ? cookie.substring(0, eqPos).trim() : cookie.trim();
+          document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        }
+    }
+  }
 
   return (
     <>
@@ -166,7 +188,7 @@ const Header: FC = () => {
               !user ? (
                 <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>Access</DefaultButton></Link>
               ) : (
-                <Link href='/Dashboard'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton></Link>
+                <span onClick={signout}><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton></span>
               )
             }  
         

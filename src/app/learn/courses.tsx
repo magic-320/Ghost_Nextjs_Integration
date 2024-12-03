@@ -12,7 +12,7 @@ const Courses: NextPage = () => {
             Courses
           </div>
           <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-            Demystifying & <br />Accelerating AI Value
+            $Million AI Value Advisor - 12 Steps Kickstarting Your Journey
           </div>
           <div className="text-sm sm:text-lg leading-8 mt-4 sm:mt-8 text-text-color mr-10 sm:w-3/4">
             <h2>What You’ll Learn:</h2>
@@ -33,7 +33,7 @@ const Courses: NextPage = () => {
           </div>
           <div className="flex flex-row mt-8 ml-4 ">
             <DefaultButton buttonColor="white" className="!text-text-color !py-2 !sm-py-2 border-2 border-gray-800">Get in Touch</DefaultButton>
-            <DefaultButton className="ml-8 !py-2 !sm-py-2">Book your Slot</DefaultButton>
+            <DefaultButton className="ml-8 !py-2 !sm-py-2">Start Here</DefaultButton>
           </div>
         </div>
         <div>
