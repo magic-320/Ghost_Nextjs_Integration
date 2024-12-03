@@ -12,6 +12,7 @@ import LOGO from '@/public/assets/images/logo.png';
 import SEARCHICON from '@/public/assets/svg/search.svg';
 import DefaultButton from './components/buttons/DefaultButton';
 import setupGhostApi from './utils/api';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
 const API_URL = process.env.NEXT_PUBLIC_GHOST_API_URL;
 const ADMIN_API_KEY = process.env.NEXT_PUBLIC_GHOST_ADMIN_API_KEY;
@@ -131,7 +132,7 @@ const Header: FC = () => {
   }, [])
 
   // Sign Out
-  const signout = async() => {
+  const onSignout = async() => {
     const response = await ghostAPI.member.signout();
     if (response == 'Success') {
         sessionStorage.clear();
@@ -186,9 +187,53 @@ const Header: FC = () => {
 
             {
               !user ? (
-                <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>Access</DefaultButton></Link>
+
+                  <Link href='/signin'><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>Access</DefaultButton></Link>
+
               ) : (
-                <span onClick={signout}><DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton></span>
+
+                  <Menu as="div" className="relative inline-block text-left">
+                    <div>
+                      <MenuButton>
+                        <DefaultButton className='text-[14px] md:text-[20px] py-[8px]'>{user.member.name}</DefaultButton>
+                      </MenuButton>
+                    </div>
+
+                    <MenuItems
+                      transition
+                      className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                    >
+                      <div className="py-1">
+                        <MenuItem>
+                          <div
+                            className="block px-4 py-4 text-md text-gray-700 font-bold"
+                          >
+                            Hello, {user.member.name} !
+                          </div>
+                        </MenuItem>
+                      </div>
+                      <div className="py-1">
+                        <MenuItem>
+                          <Link
+                            href="/Dashboard"
+                            className="block px-4 py-3 text-md text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                          >
+                            Dashboard
+                          </Link>
+                        </MenuItem>
+                        <MenuItem>
+                          <button
+                            type="submit"
+                            className="block w-full px-4 py-3 text-left text-md text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                            onClick={onSignout}
+                          >
+                            Sign out
+                          </button>
+                        </MenuItem>
+                      </div>
+                    </MenuItems>
+                  </Menu>
+                  
               )
             }  
         
