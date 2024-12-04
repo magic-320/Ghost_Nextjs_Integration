@@ -14,19 +14,21 @@ const Admin: FC = () => {
             <AdminHeader />
             <hr />
             <div className='mt-3 block md:flex'>
-                <div className='w-full md:w-3/12 h-full py-10 text-[17px] xl:text-[22px] bg-[#F9F9F9] rounded-[22px] lg:block flex justify-center mr-3'>
-                    <div className='text-left mx-[auto] max-w-[125px] xl:max-w-[155px]'>
-                        <div 
-                            className={`hover:cursor-pointer ${selected == 'learn' && 'font-bold'}`}
-                            onClick={() => setSelected('learn')}
-                        >
-                            Learn
-                        </div>
-                        <div 
-                            className={`hover:cursor-pointer ${selected == 'assessment' && 'font-bold'}`}
-                            onClick={() => setSelected('assessment')}
-                        >
-                            Assessment
+                <div className='w-full md:w-3/12 mr-4'>
+                    <div className='w-full h-full py-10 text-[17px] xl:text-[22px] bg-[#F9F9F9] rounded-[22px] lg:block flex justify-center'>
+                        <div className='text-left mx-[auto] max-w-[125px] xl:max-w-[155px]'>
+                            <div 
+                                className={`hover:cursor-pointer ${selected == 'learn' && 'font-bold'}`}
+                                onClick={() => setSelected('learn')}
+                            >
+                                Learn
+                            </div>
+                            <div 
+                                className={`hover:cursor-pointer ${selected == 'assessment' && 'font-bold'}`}
+                                onClick={() => setSelected('assessment')}
+                            >
+                                Assessment
+                            </div>
                         </div>
                     </div>
                 </div>

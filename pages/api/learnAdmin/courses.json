@@ -1,6 +1,6 @@
 {
   "course1": true,
-  "course2": false,
-  "eCoaching": false,
+  "course2": true,
+  "eCoaching": true,
   "personalisedCoaching": true
 }
