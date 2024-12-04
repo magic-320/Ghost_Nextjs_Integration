@@ -192,9 +192,8 @@ const ReviewComponent: NextPage = () => {
                       
                     </div>
                   </div>
-                  <div className="flex justify-center md:justify-end mb-5 md:mb-0 w-full h-[auto] relative">
+                  <div className="flex justify-center md:justify-end mb-5 md:mb-0 w-full h-[auto]">
                     <Image src={el.photo} alt="user image" height={448} className="rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl mt-4 md:mt-0" />
-                    <Image src={el.bookImg} alt="book image" height={150} className="absolute top-[15px] md:top-[0px] right-[0px] sm:right-[50px] md:right-[0px]" />
                   </div>
                 </div>
             )

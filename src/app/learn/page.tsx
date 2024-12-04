@@ -4,7 +4,6 @@ import LearnMainComponent from './learnmaincomponent';
 import Footer from '../footer';
 import LearnStyle from "./learnstyle";
 import BuildPackage from "./buildpackage";
-import MavenCourse from "./mavencourse";
 import ReviewComponent from "../components/reviewcomponent";
 import Courses from "./courses";
 
@@ -17,7 +16,6 @@ const Learn: NextPage = () => {
                 <LearnStyle />
                 <BuildPackage />
                 <Courses />
-                <MavenCourse />
                 <ReviewComponent />
                 <Footer />
             </div>

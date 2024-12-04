@@ -36,9 +36,6 @@ const Sidebar: FC = () => {
             case "/Dashboard/assessment":
                 setActive('assessment');
                 break;
-            case "/Dashboard/assessment/setting":
-                setActive('settings');
-                break;
             default:
                 break;
         }
@@ -121,14 +118,6 @@ const Sidebar: FC = () => {
                     </div>
                 </Link>
 
-                <Link href="/Dashboard/assessment/setting">
-                    <div 
-                        className={`mt-4 hover:cursor-pointer ${active == 'settings' && 'font-bold'}`}
-                        onClick={() => setActive('settings')}
-                    >
-                        Settings
-                    </div>
-                </Link>
             </div>
         </div>
     )

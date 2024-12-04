@@ -2,8 +2,15 @@
   {
     "email": "oleksiikaravanov@gmail.com",
     "joined_at": "2024-11-29T14:09:54.852Z",
-    "today": 4,
+    "today": 6,
     "ended_at": "2024-12-11T14:09:54.852Z",
+    "isCourseMember": true
+  },
+  {
+    "email": "peterleo1026@gmail.com",
+    "joined_at": "2024-12-04T14:56:32.098Z",
+    "today": 1,
+    "ended_at": "2024-12-16T14:56:32.098Z",
     "isCourseMember": true
   }
 ]

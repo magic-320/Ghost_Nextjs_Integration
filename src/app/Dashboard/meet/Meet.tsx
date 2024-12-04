@@ -108,75 +108,80 @@ const Meet: FC = () => {
     const [timeToBook, setTimeToBook] = useState<string>('');
 
     const onBook = async() => {
-        if ( localStorage.getItem('edosaMember') && localStorage.getItem('selectDate') && timeToBook ) {
 
-            const date = localStorage.getItem('selectDate');    
-            const time = timeToBook;
-            localStorage.removeItem('selectDate');
+        const response = await axios.get('/api/nylas/getEvents');
+        // const response = await axios.get('/api/nylas/nylas');
+        console.log(response.data)
 
-            const getMember = localStorage.getItem('edosaMember');
-            const member = getMember && JSON.parse(getMember);
+        // if ( localStorage.getItem('edosaMember') && localStorage.getItem('selectDate') && timeToBook ) {
 
-            const reqData = {
-                summary: `${member.name}: ${member.email}`,
-                date: `${date}T${time}-00:00`
-            };
+        //     const date = localStorage.getItem('selectDate');    
+        //     const time = timeToBook;
+        //     localStorage.removeItem('selectDate');
 
-            const response = await axios.post<any>('/api/calendly/create-event', reqData);
-            if (response.data) {
-                setTimeToBook('');
-                toast.success(`Success Booking!`, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                    transition: Bounce
-                });
-            }
+        //     const getMember = localStorage.getItem('edosaMember');
+        //     const member = getMember && JSON.parse(getMember);
 
-        } else if ( !localStorage.getItem('edosaMember') ) {
-            toast.error(`Please sign in to the site!`, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce
-            });
+        //     const reqData = {
+        //         summary: `${member.name}: ${member.email}`,
+        //         date: `${date}T${time}-00:00`
+        //     };
 
-        } else if ( !localStorage.getItem('selectDate') ) {
-            toast.error(`Please select the date to book!`, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce
-            });
+        //     const response = await axios.post<any>('/api/calendly/create-event', reqData);
+        //     if (response.data) {
+        //         setTimeToBook('');
+        //         toast.success(`Success Booking!`, {
+        //             position: "top-right",
+        //             autoClose: 5000,
+        //             hideProgressBar: true,
+        //             closeOnClick: true,
+        //             pauseOnHover: true,
+        //             draggable: true,
+        //             progress: undefined,
+        //             theme: "colored",
+        //             transition: Bounce
+        //         });
+        //     }
 
-        } else if (!timeToBook) {
-            toast.error(`Please select the time to book!`, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce
-            });
-        }
+        // } else if ( !localStorage.getItem('edosaMember') ) {
+        //     toast.error(`Please sign in to the site!`, {
+        //         position: "top-right",
+        //         autoClose: 5000,
+        //         hideProgressBar: true,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "colored",
+        //         transition: Bounce
+        //     });
+
+        // } else if ( !localStorage.getItem('selectDate') ) {
+        //     toast.error(`Please select the date to book!`, {
+        //         position: "top-right",
+        //         autoClose: 5000,
+        //         hideProgressBar: true,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "colored",
+        //         transition: Bounce
+        //     });
+
+        // } else if (!timeToBook) {
+        //     toast.error(`Please select the time to book!`, {
+        //         position: "top-right",
+        //         autoClose: 5000,
+        //         hideProgressBar: true,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "colored",
+        //         transition: Bounce
+        //     });
+        // }
     }
     
     return (

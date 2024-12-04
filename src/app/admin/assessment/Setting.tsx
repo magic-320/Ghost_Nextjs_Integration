@@ -3,6 +3,9 @@
 import React, { FC, useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
+import Loading from '@/public/assets/loading/blue.gif';
 
 interface dataStyle {
     name: string,
@@ -12,6 +15,7 @@ interface dataStyle {
 
 const Setting: FC = () => {
 
+    const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<dataStyle[]>([]);
 
     React.useEffect(() => {
@@ -19,6 +23,7 @@ const Setting: FC = () => {
             try {
                 const res = await axios.get<dataStyle[]>('/api/assessment/getAssessment');
                 setData(res.data);
+                setLoading(false);
             } catch (err) {
                 console.log(err);
             }
@@ -113,7 +118,14 @@ const Setting: FC = () => {
                 <h1 className='text-[2rem] font-bold text-text-color'>Assessment Management</h1>
                 <div>
                     {
-                        data.map((el: dataStyle, index:number) => {
+                        loading && (
+                            <div className='flex justify-center my-5'>
+                                <Image src={Loading} alt='loading' className='w-[60px] h-[60px]' />
+                            </div>
+                        )
+                    }
+                    {
+                        !loading && data.map((el: dataStyle, index:number) => {
                             return (
                                 <div key={index} className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
                                     <div className='w-10/12'>

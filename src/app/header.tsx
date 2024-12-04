@@ -206,25 +206,35 @@ const Header: FC = () => {
                       <div className="py-1">
                         <MenuItem>
                           <div
-                            className="block px-4 py-4 text-md text-gray-700 font-bold"
+                            className="block px-4 py-4 text-md text-gray-700 font-bold text-[15px]"
                           >
-                            Hello, {user.member.name} !
+                            Hello, {user.member.name}!
                           </div>
                         </MenuItem>
                       </div>
                       <div className="py-1">
                         <MenuItem>
                           <Link
+                            href="/admin"
+                            className="block px-4 py-3 text-md text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none tracking-[1px]"
+                          >
+                            Admin Panel
+                          </Link>
+                        </MenuItem>
+
+                        <MenuItem>
+                          <Link
                             href="/Dashboard"
-                            className="block px-4 py-3 text-md text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                            className="block px-4 py-3 text-md text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none tracking-[1px]"
                           >
                             Dashboard
                           </Link>
                         </MenuItem>
+
                         <MenuItem>
                           <button
                             type="submit"
-                            className="block w-full px-4 py-3 text-left text-md text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                            className="block w-full px-4 py-3 text-left text-md text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none tracking-[1px]"
                             onClick={onSignout}
                           >
                             Sign out

@@ -4,10 +4,18 @@ import React, { FC, useState } from 'react';
 import LOGO from '@/public/assets/images/logo.png';
 import Loading from '@/public/assets/loading/blue.gif';
 import Image from 'next/image';
-import { jwtDecode } from 'jwt-decode';
 import { MdOutlineCancel } from "react-icons/md";
 import DefaultButton from '../../components/buttons/DefaultButton';
 import axios from 'axios';
+import localFont from "next/font/local";
+
+const lucidaFont = localFont({
+    src: "../../fonts/Lucida-Calligraphy.ttf",
+    variable: "--font-lucida-calligraphy",
+    weight: "100 900",
+});
+
+
 
 const Page: FC = () => {
 
@@ -54,7 +62,7 @@ const Page: FC = () => {
     }
 
     return (
-        <div className='mx-[15px] lg:mx-[auto] my-[1rem] sm:my-[2rem] p-[1.5rem] max-w-[60rem] border border-[rgba(0,200,50,.8)]' style={{boxShadow: '0px 0px 6px rgba(0,200,50,.8)'}}>
+        <div className={`${lucidaFont.variable} mx-[15px] lg:mx-[auto] my-[1rem] sm:my-[2rem] p-[1.5rem] max-w-[60rem] border border-[rgba(0,200,50,.8)]`} style={{boxShadow: '0px 0px 6px rgba(0,200,50,.8)'}}>
             <div className='mb-5 relative'>
                 <Image src={LOGO} width={250} alt='Logo' />
                 <MdOutlineCancel className='absolute top-[0] right-[0] w-[25px] h-[25px] text-text-color hover:cursor-pointer' title='Cancel' onClick={() => window.close()} />
@@ -81,7 +89,7 @@ const Page: FC = () => {
 
                 {
                     isJoined == true && (
-                        <p className='mt-3 text-text-color italic text-[1rem] sm:text-[1.5rem] text-center font-bold'>You have already joined this course.</p>
+                        <p className='mt-3 text-text-color text-[1rem] sm:text-[1.5rem] text-center font-bold' style={{ fontFamily: 'var(--font-lucida-calligraphy)' }}>You have already joined this course.</p>
                     )
                 }
             </div>
