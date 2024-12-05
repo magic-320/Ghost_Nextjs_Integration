@@ -43,27 +43,13 @@ const Calendar: FC = () => {
 
         ///////////////////////// Get Events //////////////////////////
 
-        const demoDate = new Date(date).toLocaleDateString('en-CA');
-        const year = demoDate.split('-')[0];
-        const month = demoDate.split('-')[1];
-
-        const lastDate = new Date(Number(year), Number(month), 0);
-        const lastDay = lastDate.toLocaleDateString('en-CA').split('-')[2];
-
-        const response = await axios.post<any>('/api/calendly/list-events', { 
-            startTime: `${year}-${month}-1T00:00:00Z`, 
-            endTime: `${year}-${month}-${lastDay}T00:00:00Z` 
-        });
-        
         let demoEvents:any[] = [];
-        response.data.events && response.data.events.map((el:any) => {
-            const demoInfo = {
-                date: el.start.dateTime.split('T')[0],
-                time: el.start.dateTime.split('T')[1],
-                summary: el.summary
-            }
-            demoEvents.push(demoInfo);
-        });
+        if (localStorage.getItem('grant_id')) {
+            const response = await axios.post<any>('/api/nylas/getEvents', { grantId: localStorage.getItem('grant_id') });
+            response.data.data.map((el:any) => {
+                if (el.description == "Meet with Edosa Odaro") demoEvents.push(el)
+            })
+        }
         
         ///////////////////////// Show Calendar //////////////////////////
 
@@ -82,12 +68,15 @@ const Calendar: FC = () => {
 
             let info: any[] = [];
             demoEvents.map((el:any, index:number) => {
-                const day = Number(el.date.split('-')[2]);
-                if (day == i && el.summary.split(': ')[1] == myEmail) {
+                const demoDate = new Date(el.when.startTime * 1000).toISOString();
+                const date = demoDate.split('.')[0].split('T')[0];
+                const time = demoDate.split('.')[0].split('T')[1];
+
+                const day = Number(date.split('-')[2]);
+                if (day == i) {
                     const demoInfo = {
-                        date: el.date,
-                        time: el.time,
-                        summary: el.summary
+                        date: date,
+                        time: time
                     }
                     info.push(demoInfo);
                 }
@@ -237,7 +226,7 @@ const Calendar: FC = () => {
                                     <Tooltip key={index} anchorSelect={`#tooltip${index}`} clickable>
                                         {
                                             el.info.map((j:any, j_index:number) => (
-                                                <div key={j_index}>- {j.time.replace('Z','')} &nbsp;<i>with</i> Edosa Odaro</div>
+                                                <div key={j_index}>- {j.time} (ISO 8601)</div>
                                             ))
                                         }
                                     </Tooltip>

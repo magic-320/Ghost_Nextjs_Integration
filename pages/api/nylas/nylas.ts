@@ -3,7 +3,7 @@ import Nylas from 'nylas';
 
 const nylasConfig = {
     cliendId: process.env.NEXT_PUBLIC_NYLAS_CLIENT_ID,
-    callbackUri: 'http://localhost:4000/Dashboard/meet',
+    callbackUri: process.env.NEXT_PUBLIC_DOMAIN! + '/learn',
     apiKey: process.env.NEXT_PUBLIC_NYLAS_API_KEY,
     apiUri: process.env.NEXT_PUBLIC_NYLAS_API_URI
 }

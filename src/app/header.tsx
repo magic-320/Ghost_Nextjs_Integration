@@ -13,6 +13,7 @@ import SEARCHICON from '@/public/assets/svg/search.svg';
 import DefaultButton from './components/buttons/DefaultButton';
 import setupGhostApi from './utils/api';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { useSearchParams } from "next/navigation";
 
 const API_URL = process.env.NEXT_PUBLIC_GHOST_API_URL;
 const ADMIN_API_KEY = process.env.NEXT_PUBLIC_GHOST_ADMIN_API_KEY;
@@ -58,7 +59,9 @@ interface userStyle {
 
 
 const Header: FC = () => {
+
   const currentUrl = usePathname();
+  const searchParams = useSearchParams();
   const headerPanelRef = useRef<HTMLDivElement>(null);
   const [user, setUser] = useState<userStyle | null>();
   const hasRun = useRef(false);
@@ -112,12 +115,25 @@ const Header: FC = () => {
             transition: Bounce,
             style: {width: '250px', marginLeft: '50px'}
           });
-      } catch (err) {
+
+        } catch (err) {
           console.log(err);
       }
     }
 
-    if (localStorage.getItem('edosaJwtToken') && localStorage.getItem('edosaMember')) {
+    const getAuthUrl = async() => {
+      const response = await axios.get<any>('/api/nylas/nylas');
+      window.location.href = response.data;
+    }
+
+    const getGrantId = async() => {
+      const response = await axios.post<any>('/api/nylas/getGrantInfo', {code: searchParams?.get('code')});
+      localStorage.setItem('grant_id', response.data.grantId);
+    }
+
+
+
+    if (localStorage.getItem('edosaMember')) {
         const jwtToken = localStorage.getItem('edosaJwtToken');
         const member = localStorage.getItem('edosaMember');
         setUser({
@@ -126,7 +142,14 @@ const Header: FC = () => {
         });
 
     } else {
-        getToken();
+        if (!localStorage.getItem('grant_id') && !searchParams?.get('code') && searchParams?.get('signin')) {
+          getAuthUrl();
+        }
+    
+        if (!localStorage.getItem('grant_id') && searchParams?.get('code')) {
+          getGrantId();
+          getToken();
+        }
     }
 
   }, [])

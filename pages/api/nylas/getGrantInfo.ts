@@ -16,19 +16,18 @@ const nylas = new Nylas({
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-    const grantId = req.body.grantId;
+    const code = req.body.code;
 
     try {
-        const calendarId = 'primary';
-
-        const events = await nylas.events.list({
-            identifier: grantId,
-            queryParams: {
-                calendarId: calendarId
-            }
-        })
-
-        res.json(events);
+        
+        const response = await nylas.auth.exchangeCodeForToken({
+            clientSecret: nylasConfig.apiKey,
+            clientId: nylasConfig.cliendId || '', // Note this is *different* from your API key
+            redirectUri: nylasConfig.callbackUri, // URI you registered with Nylas in the previous step
+            code,
+          });
+        
+        res.json(response);
 
     } catch (err) {
         console.log(err);

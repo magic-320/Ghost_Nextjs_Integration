@@ -109,79 +109,75 @@ const Meet: FC = () => {
 
     const onBook = async() => {
 
-        const response = await axios.get('/api/nylas/getEvents');
-        // const response = await axios.get('/api/nylas/nylas');
-        console.log(response.data)
+        if ( localStorage.getItem('edosaMember') && localStorage.getItem('selectDate') && timeToBook ) {
 
-        // if ( localStorage.getItem('edosaMember') && localStorage.getItem('selectDate') && timeToBook ) {
+            const date = localStorage.getItem('selectDate');    
+            const time = timeToBook;
+            localStorage.removeItem('selectDate');
 
-        //     const date = localStorage.getItem('selectDate');    
-        //     const time = timeToBook;
-        //     localStorage.removeItem('selectDate');
+            const getMember = localStorage.getItem('edosaMember');
+            const member = getMember && JSON.parse(getMember);
 
-        //     const getMember = localStorage.getItem('edosaMember');
-        //     const member = getMember && JSON.parse(getMember);
+            const reqData = {
+                grantId: localStorage.getItem('grant_id'),
+                date: `${date}T${time}.000Z`
+            };
 
-        //     const reqData = {
-        //         summary: `${member.name}: ${member.email}`,
-        //         date: `${date}T${time}-00:00`
-        //     };
+            const response = await axios.post<any>('/api/nylas/createEvent', reqData);
+            if (response.data) {
+                setTimeToBook('');
+                toast.success(`Success Booking!`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce
+                });
+            }
 
-        //     const response = await axios.post<any>('/api/calendly/create-event', reqData);
-        //     if (response.data) {
-        //         setTimeToBook('');
-        //         toast.success(`Success Booking!`, {
-        //             position: "top-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: true,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined,
-        //             theme: "colored",
-        //             transition: Bounce
-        //         });
-        //     }
+        } else if ( !localStorage.getItem('edosaMember') ) {
+            toast.error(`Please sign in to the site!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce
+            });
 
-        // } else if ( !localStorage.getItem('edosaMember') ) {
-        //     toast.error(`Please sign in to the site!`, {
-        //         position: "top-right",
-        //         autoClose: 5000,
-        //         hideProgressBar: true,
-        //         closeOnClick: true,
-        //         pauseOnHover: true,
-        //         draggable: true,
-        //         progress: undefined,
-        //         theme: "colored",
-        //         transition: Bounce
-        //     });
+        } else if ( !localStorage.getItem('selectDate') ) {
+            toast.error(`Please select the date to book!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce
+            });
 
-        // } else if ( !localStorage.getItem('selectDate') ) {
-        //     toast.error(`Please select the date to book!`, {
-        //         position: "top-right",
-        //         autoClose: 5000,
-        //         hideProgressBar: true,
-        //         closeOnClick: true,
-        //         pauseOnHover: true,
-        //         draggable: true,
-        //         progress: undefined,
-        //         theme: "colored",
-        //         transition: Bounce
-        //     });
-
-        // } else if (!timeToBook) {
-        //     toast.error(`Please select the time to book!`, {
-        //         position: "top-right",
-        //         autoClose: 5000,
-        //         hideProgressBar: true,
-        //         closeOnClick: true,
-        //         pauseOnHover: true,
-        //         draggable: true,
-        //         progress: undefined,
-        //         theme: "colored",
-        //         transition: Bounce
-        //     });
-        // }
+        } else if (!timeToBook) {
+            toast.error(`Please select the time to book!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce
+            });
+        }
     }
     
     return (
@@ -226,9 +222,9 @@ const Meet: FC = () => {
                         <div className='mt-12 flex gap-3 text-center justify-center w-full'>
                             <Link href="#" 
                                 className="w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]"
-                                // onClick={() => window.open('https://calendar.google.com/calendar/')}
+                                onClick={() => window.open('https://calendar.google.com/calendar/')}
                             >
-                                <button>Slots Remaining</button>
+                                <button>Go to Calendar</button>
                             </Link>
                             <Link href="#" onClick={onBook}>
                                 <DefaultButton className='w-[210px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
