@@ -129,6 +129,7 @@ const Header: FC = () => {
     const getGrantId = async() => {
       const response = await axios.post<any>('/api/nylas/getGrantInfo', {code: searchParams?.get('code')});
       localStorage.setItem('grant_id', response.data.grantId);
+      console.log(response.data)
     }
 
 

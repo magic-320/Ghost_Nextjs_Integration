@@ -28,7 +28,7 @@ const Courses: NextPage = () => {
           <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6`}>
             <div>
               <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F3F8FE] px-5 sm:px-5 py-1 text-center max-w-52">
-                Course 1
+                Courses
               </div>
               <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                 $Million AI Value Advisor - 12 Steps Kickstarting Your Journey
@@ -71,7 +71,7 @@ const Courses: NextPage = () => {
             </div>
             <div>
               <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F3F8FE] px-5 sm:px-5 py-1 text-center max-w-52">
-                Course 2
+                Courses
               </div>
               <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                 Demystifying & Accelerating AI Value

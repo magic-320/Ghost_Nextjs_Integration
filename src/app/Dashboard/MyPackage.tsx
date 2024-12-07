@@ -60,6 +60,23 @@ const MyPackage: FC = () => {
             }
 
             setPackageDemoCardList(demoPackageDemoCardList);
+        } else {
+            // when not sign in
+            let demoPackageDemoCardList:any = [];
+            setPackageName('Start Your Journey');
+            wholePackage.map((j:any) => {
+                if (j.badge == 'Growth') {
+                    const demoData = {
+                        type: j.type,
+                        title: j.title,
+                        learnURL: '#',
+                        buttonName: j.button2,
+                        action: () => handleAction(j.action2)
+                    }
+                    demoPackageDemoCardList.push(demoData);
+                }
+            })
+            setPackageDemoCardList(demoPackageDemoCardList);
         }
     }, [])
 

@@ -50,7 +50,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 participants: [
                     {
                         name: 'Edosa Odaro',
-                        email: 'edosaodaro@gmail.com',
+                        // email: 'edosaodaro@gmail.com',
+                        email: 'rc.magic320@gmail.com',
                         status: 'noreply'
                     }
                 ],

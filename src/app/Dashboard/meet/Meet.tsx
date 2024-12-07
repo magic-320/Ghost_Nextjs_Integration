@@ -109,6 +109,9 @@ const Meet: FC = () => {
 
     const onBook = async() => {
 
+        // const res = await axios.post('/api/nylas/checkAvailable');
+        // console.log(res)
+
         if ( localStorage.getItem('edosaMember') && localStorage.getItem('selectDate') && timeToBook ) {
 
             const date = localStorage.getItem('selectDate');    

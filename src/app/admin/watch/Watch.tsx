@@ -8,23 +8,23 @@ import Image from 'next/image';
 import Loading from '@/public/assets/loading/blue.gif';
 
 
-const Learn: FC = () => {
+const Watch: FC = () => {
 
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any>({});
 
     React.useEffect(() => {
-        const getCourse = async() => {
-            const response = await axios.get<any>('/api/learnAdmin/getCourse');
+        const getWatch = async() => {
+            const response = await axios.get<any>('/api/watchAdmin/getWatch');
             setData(response.data);
             setLoading(false);
         }
 
-        getCourse();
+        getWatch();
     }, []);
 
     const onSave = async() => {
-        const res = await axios.post<any>('/api/learnAdmin/setCourse', {data});
+        const res = await axios.post<any>('/api/watchAdmin/setWatch', {data});
         if ( res.data.success ) {
             toast.success(res.data.message, {
                 position: "top-right",
@@ -44,7 +44,7 @@ const Learn: FC = () => {
     return (
         <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
             <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-5 overflow-auto'>
-                <h1 className='text-[2rem] font-bold text-text-color'>Learn Management</h1>
+                <h1 className='text-[2rem] font-bold text-text-color'>Watch Management</h1>
                 <div>
                     {
                         loading && (
@@ -58,11 +58,11 @@ const Learn: FC = () => {
                             <div>
                                 <div className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
                                     <div className='w-11/12 text-[18px]'>
-                                        <i className='text-l-main-color'>Courses</i>&nbsp;&nbsp;&nbsp; $Million AI Value Advisor - 12 Steps Kickstarting Your Journey
+                                        <i className='text-w-main-color'>Podcasts</i>&nbsp;&nbsp;&nbsp; The AI Values Podcast
                                     </div>
                                     <div className='w-1/12 text-center'>
                                         <label className="inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.course1} onChange={() => setData({...data, course1: !data.course1})} />
+                                            <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.podcasts} onChange={() => setData({...data, podcasts: !data.podcasts})} />
                                             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
@@ -70,19 +70,7 @@ const Learn: FC = () => {
 
                                 <div className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
                                     <div className='w-11/12 text-[18px]'>
-                                        <i className='text-l-main-color'>Courses</i>&nbsp;&nbsp;&nbsp; Demystifying & Accelerating AI Value
-                                    </div>
-                                    <div className='w-1/12 text-center'>
-                                        <label className="inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.course2} onChange={() => setData({...data, course2: !data.course2})} />
-                                            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
-                                    <div className='w-11/12 text-[18px]'>
-                                        <i className='text-l-main-color'>eCoaching</i>&nbsp;&nbsp;&nbsp; AI Value eCoaching Series
+                                        <i className='text-w-main-color'>eCoaching</i>&nbsp;&nbsp;&nbsp; Demystifying & Accelerating AI Value
                                     </div>
                                     <div className='w-1/12 text-center'>
                                         <label className="inline-flex items-center cursor-pointer">
@@ -91,19 +79,19 @@ const Learn: FC = () => {
                                         </label>
                                     </div>
                                 </div>
-                                
+
                                 <div className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
                                     <div className='w-11/12 text-[18px]'>
-                                        <i className='text-l-main-color'>Personalised Coaching</i>&nbsp;&nbsp;&nbsp; Value Driven AI Transformation
+                                        <i className='text-w-main-color'>Insights</i>&nbsp;&nbsp;&nbsp; The AI Values Podcast
                                     </div>
                                     <div className='w-1/12 text-center'>
                                         <label className="inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.personalisedCoaching} onChange={() => setData({...data, personalisedCoaching: !data.personalisedCoaching})} />
+                                            <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.insights} onChange={() => setData({...data, insights: !data.insights})} />
                                             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
                                 </div>
-
+                                
                             </div>
                         )
                     }
@@ -123,4 +111,4 @@ const Learn: FC = () => {
     )
 }
 
-export default Learn;
+export default Watch;

@@ -1,8 +1,7 @@
 'use client';
-
+import { NextPage } from 'next';
 import React, { FC, useState } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
 import DefaultButton from '../../components/buttons/DefaultButton';
 
 interface dataStyle {
@@ -10,7 +9,7 @@ interface dataStyle {
     url: string
 }
 
-const Assessment: FC = () => {
+const Assessment: NextPage = () => {
 
     const [data, setData] = useState<dataStyle[]>([]);
 
