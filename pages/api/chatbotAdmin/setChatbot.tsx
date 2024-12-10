@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
 
-        const filePath = path.join(process.cwd(), '/pages/api/calendarAdmin/calendar.json');
+        const filePath = path.join(process.cwd(), '/pages/api/chatbotAdmin/chatbot.json');
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
 
         res.json({ success: true, message: 'Saved successfully' });

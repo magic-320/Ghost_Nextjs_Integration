@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 import Loading from '@/public/assets/loading/blue.gif';
 
+const days:string[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+
 const times:string[] = [
     '00:00',
     '00:30',
@@ -68,29 +70,257 @@ const Calendar: FC = () => {
             const response = await axios.get<any>('/api/calendarAdmin/getCalendar');
             setData(response.data);
             setLoading(false);
-            console.log(response.data)
         }
 
         getCalendar();
     }, []);
 
     const onSave = async() => {
-        const res = await axios.post<any>('/api/calendarAdmin/setCalendar', {data});
-        if ( res.data.success ) {
-            toast.success(res.data.message, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce,
-                style: {width: '300px', marginLeft: '0'}
-            });
+        let validCount:number = 0;
+
+        days.map((day:string, index:number) => {
+            data[`${day}`].length && data[`${day}`].map((el:any, i:number) => {
+                if (el.start >= el.end) {
+                        validCount++;
+                        const D = day.toUpperCase();
+                        toast.error(`Check the Start and End times in ${D}`, {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: true,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                            transition: Bounce,
+                            style: {width: '350px', marginLeft: '-50px'}
+                        });
+                }
+            })
+        })
+
+        if ( validCount === 0 ) {
+            const res = await axios.post<any>('/api/calendarAdmin/setCalendar', {data});
+            if ( res.data.success ) {
+                toast.success(res.data.message, {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce,
+                    style: {width: '300px', marginLeft: '0'}
+                });
+            }
         }
     }
+
+
+    // change time
+    const onChangeSunStart = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.sun[index].start = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeSunEnd = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.sun[index].end = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeMonStart = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.mon[index].start = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeMonEnd = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.mon[index].end = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeTueStart = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.tue[index].start = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeTueEnd = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.tue[index].end = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeWedStart = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.wed[index].start = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeWedEnd = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.wed[index].end = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeThuStart = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.thu[index].start = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeThuEnd = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.thu[index].end = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeFriStart = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.fri[index].start = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeFriEnd = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.fri[index].end = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeSatStart = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.sat[index].start = e.target.value;
+        setData(demoData);
+    }
+
+    const onChangeSatEnd = (e: any, index: number) => {
+        let demoData = {...data};
+        demoData.sat[index].end = e.target.value;
+        setData(demoData);
+    }
+
+
+    // remove time
+    const onRemoveSun = (index: number) => {
+        let demoData = {...data};
+        demoData.sun.splice(index, 1);
+        setData(demoData);
+    }
+
+    const onRemoveMon = (index: number) => {
+        let demoData = {...data};
+        demoData.mon.splice(index, 1);
+        setData(demoData);
+    }
+
+    const onRemoveTue = (index: number) => {
+        let demoData = {...data};
+        demoData.tue.splice(index, 1);
+        setData(demoData);
+    }
+
+    const onRemoveWed = (index: number) => {
+        let demoData = {...data};
+        demoData.wed.splice(index, 1);
+        setData(demoData);
+    }
+
+    const onRemoveThu = (index: number) => {
+        let demoData = {...data};
+        demoData.thu.splice(index, 1);
+        setData(demoData);
+    }
+
+    const onRemoveFri = (index: number) => {
+        let demoData = {...data};
+        demoData.fri.splice(index, 1);
+        setData(demoData);
+    }
+
+    const onRemoveSat = (index: number) => {
+        let demoData = {...data};
+        demoData.sat.splice(index, 1);
+        setData(demoData);
+    }
+
+
+    // add time
+    const addTimeSun = () => {
+        const tmpTime = {
+            start: '00:00',
+            end: '00:00'
+        };
+        let demoData = {...data};
+        demoData.sun.push(tmpTime);
+        setData(demoData);
+    }
+
+    const addTimeMon = () => {
+        const tmpTime = {
+            start: '00:00',
+            end: '00:00'
+        };
+        let demoData = {...data};
+        demoData.mon.push(tmpTime);
+        setData(demoData);
+    }
+
+    const addTimeTue = () => {
+        const tmpTime = {
+            start: '00:00',
+            end: '00:00'
+        };
+        let demoData = {...data};
+        demoData.tue.push(tmpTime);
+        setData(demoData);
+    }
+
+    const addTimeWed = () => {
+        const tmpTime = {
+            start: '00:00',
+            end: '00:00'
+        };
+        let demoData = {...data};
+        demoData.wed.push(tmpTime);
+        setData(demoData);
+    }
+
+    const addTimeThu = () => {
+        const tmpTime = {
+            start: '00:00',
+            end: '00:00'
+        };
+        let demoData = {...data};
+        demoData.thu.push(tmpTime);
+        setData(demoData);
+    }
+
+    const addTimeFri = () => {
+        const tmpTime = {
+            start: '00:00',
+            end: '00:00'
+        };
+        let demoData = {...data};
+        demoData.fri.push(tmpTime);
+        setData(demoData);
+    }
+
+    const addTimeSat = () => {
+        const tmpTime = {
+            start: '00:00',
+            end: '00:00'
+        };
+        let demoData = {...data};
+        demoData.sat.push(tmpTime);
+        setData(demoData);
+    }
+
+
 
     return (
         <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
@@ -107,24 +337,270 @@ const Calendar: FC = () => {
                     {
                         !loading && (
                             <div className='my-5 text-[20px]'>
+
                                 {/* Sunday */}
-                                <div className='flex p-5 my-3 text-text-color'>
-                                    <div className='w-11/12 flex text-[20px] leading-[40px]'>
-                                        <div className='mr-10 font-bold'>SUN</div>
+                                <div className='flex px-5 my-4 text-text-color'>
+                                    <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
+                                        <div className='w-[5rem] pt-1 font-bold'>SUN</div>
                                         <div>
                                             {
                                                 data.sun.length ? (
                                                     <div>
-                                                        aa
+                                                        {
+                                                            data.sun.map((element:any, index:number) => (
+                                                                <div key={index} className='mb-2'>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeSunStart(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span> &nbsp;-&nbsp; </span>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeSunEnd(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveSun(index)}>&times;</span>
+                                                                </div>
+                                                            ))
+                                                        }
                                                     </div>
                                                 ) : (
-                                                    <div>Unavailable</div>
+                                                    <div className='pt-1 text-[#aaa]'>Unavailable</div>
                                                 )
                                             }
                                         </div>
                                     </div>
                                     <div className='w-1/12 text-center'>
-                                        <span className='w-[50px] aspect-[1/1] text-[30px] rounded-[10px] p-3 hover:cursor-pointer hover:bg-[#eee]'>+</span>
+                                        <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee]' onClick={addTimeSun}>&#43;</span>
+                                    </div>
+                                </div>
+
+                                {/* Monday */}
+                                <div className='flex px-5 my-4 text-text-color'>
+                                    <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
+                                        <div className='w-[5rem] pt-1 font-bold'>MON</div>
+                                        <div>
+                                            {
+                                                data.mon.length ? (
+                                                    <div>
+                                                        {
+                                                            data.mon.map((element:any, index:number) => (
+                                                                <div key={index} className='mb-2'>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeMonStart(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span> &nbsp;-&nbsp; </span>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeMonEnd(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveMon(index)}>&times;</span>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                ) : (
+                                                    <div className='pt-1 text-[#aaa]'>Unavailable</div>
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='w-1/12 text-center'>
+                                        <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee]' onClick={addTimeMon}>&#43;</span>
+                                    </div>
+                                </div>
+
+                                {/* Tuesday */}
+                                <div className='flex px-5 my-4 text-text-color'>
+                                    <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
+                                        <div className='w-[5rem] pt-1 font-bold'>TUE</div>
+                                        <div>
+                                            {
+                                                data.tue.length ? (
+                                                    <div>
+                                                        {
+                                                            data.tue.map((element:any, index:number) => (
+                                                                <div key={index} className='mb-2'>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeTueStart(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span> &nbsp;-&nbsp; </span>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeTueEnd(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveTue(index)}>&times;</span>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                ) : (
+                                                    <div className='pt-1 text-[#aaa]'>Unavailable</div>
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='w-1/12 text-center'>
+                                        <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee]' onClick={addTimeTue}>&#43;</span>
+                                    </div>
+                                </div>
+
+                                {/* Wednesday */}
+                                <div className='flex px-5 my-4 text-text-color'>
+                                    <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
+                                        <div className='w-[5rem] pt-1 font-bold'>WED</div>
+                                        <div>
+                                            {
+                                                data.wed.length ? (
+                                                    <div>
+                                                        {
+                                                            data.wed.map((element:any, index:number) => (
+                                                                <div key={index} className='mb-2'>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeWedStart(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span> &nbsp;-&nbsp; </span>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeWedEnd(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveWed(index)}>&times;</span>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                ) : (
+                                                    <div className='pt-1 text-[#aaa]'>Unavailable</div>
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='w-1/12 text-center'>
+                                        <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee]' onClick={addTimeWed}>&#43;</span>
+                                    </div>
+                                </div>
+
+                                {/* Thursday */}
+                                <div className='flex px-5 my-4 text-text-color'>
+                                    <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
+                                        <div className='w-[5rem] pt-1 font-bold'>THU</div>
+                                        <div>
+                                            {
+                                                data.thu.length ? (
+                                                    <div>
+                                                        {
+                                                            data.thu.map((element:any, index:number) => (
+                                                                <div key={index} className='mb-2'>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeThuStart(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span> &nbsp;-&nbsp; </span>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeThuEnd(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveThu(index)}>&times;</span>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                ) : (
+                                                    <div className='pt-1 text-[#aaa]'>Unavailable</div>
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='w-1/12 text-center'>
+                                        <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee]' onClick={addTimeThu}>&#43;</span>
+                                    </div>
+                                </div>
+
+                                {/* Friday */}
+                                <div className='flex px-5 my-4 text-text-color'>
+                                    <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
+                                        <div className='w-[5rem] pt-1 font-bold'>FRI</div>
+                                        <div>
+                                            {
+                                                data.fri.length ? (
+                                                    <div>
+                                                        {
+                                                            data.fri.map((element:any, index:number) => (
+                                                                <div key={index} className='mb-2'>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeFriStart(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span> &nbsp;-&nbsp; </span>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeFriEnd(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveFri(index)}>&times;</span>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                ) : (
+                                                    <div className='pt-1 text-[#aaa]'>Unavailable</div>
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='w-1/12 text-center'>
+                                        <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee]' onClick={addTimeFri}>&#43;</span>
+                                    </div>
+                                </div>
+
+                                {/* Saturday */}
+                                <div className='flex px-5 my-4 text-text-color'>
+                                    <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
+                                        <div className='w-[5rem] pt-1 font-bold'>SAT</div>
+                                        <div>
+                                            {
+                                                data.sat.length ? (
+                                                    <div>
+                                                        {
+                                                            data.sat.map((element:any, index:number) => (
+                                                                <div key={index} className='mb-2'>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeSatStart(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span> &nbsp;-&nbsp; </span>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeSatEnd(e, index)}>
+                                                                        {
+                                                                            times.map((el:string, i:number) => (<option key={i}>{el}</option>))
+                                                                        }
+                                                                    </select>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveSat(index)}>&times;</span>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                ) : (
+                                                    <div className='pt-1 text-[#aaa]'>Unavailable</div>
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className='w-1/12 text-center'>
+                                        <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee]' onClick={addTimeSat}>&#43;</span>
                                     </div>
                                 </div>
 

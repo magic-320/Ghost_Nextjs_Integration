@@ -3,12 +3,14 @@ import React, { FC, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
+import axios from "axios";
 
 
 const Sidebar: FC = () => {
 
     const [active, setActive] = useState<string>('');
     const [serviceHidden, setServiceHiden] = useState<boolean>(false);
+    const [isChatbot, setIsChatbot] = useState<boolean>(true);
 
     const pathname = usePathname();
 
@@ -39,6 +41,15 @@ const Sidebar: FC = () => {
             default:
                 break;
         }
+
+
+        // get Chatbot available status
+        const getChatbotAvailable = async() => {
+            const response = await axios.get<any>('/api/chatbotAdmin/getChatbot');
+            setIsChatbot(response.data.enable);
+        }
+
+        getChatbotAvailable();
 
     }, [])
 
@@ -93,14 +104,18 @@ const Sidebar: FC = () => {
                             </div>
                         </Link>
                     </div>
-                <Link href="/Dashboard/chatbot">
-                    <div 
-                        className={`mt-4 hover:cursor-pointer ${active == 'chatbot' && 'font-bold'}`}
-                        onClick={() => setActive('chatbot')}
-                    >
-                        My Chatbot
-                    </div>
-                </Link>
+                {
+                    isChatbot && (
+                        <Link href="/Dashboard/chatbot">
+                            <div 
+                                className={`mt-4 hover:cursor-pointer ${active == 'chatbot' && 'font-bold'}`}
+                                onClick={() => setActive('chatbot')}
+                            >
+                                My Chatbot
+                            </div>
+                        </Link>
+                    )
+                }
                 <Link href="/Dashboard/newsletter">
                     <div 
                         className={`mt-4 hover:cursor-pointer ${active == 'newsletter' && 'font-bold'}`}

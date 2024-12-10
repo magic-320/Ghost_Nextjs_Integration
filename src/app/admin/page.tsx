@@ -5,6 +5,7 @@ import Learn from './learn/page';
 import Read from './read/page';
 import Watch from './watch/page';
 import Meet from './meet/page';
+import Chatbot from './chatbot/page';
 import Calendar from './calendar/page';
 import Assessment from './assessment/page';
 
@@ -46,6 +47,12 @@ const Admin: FC = () => {
                                 Meet
                             </div>
                             <div 
+                                className={`my-3 hover:cursor-pointer ${selected == 'chatbot' && 'font-bold'}`}
+                                onClick={() => setSelected('chatbot')}
+                            >
+                                Chatbot
+                            </div>
+                            <div 
                                 className={`my-3 hover:cursor-pointer ${selected == 'calendar' && 'font-bold'}`}
                                 onClick={() => setSelected('calendar')}
                             >
@@ -67,6 +74,7 @@ const Admin: FC = () => {
                     { selected == 'read' && (<Read />) }
                     { selected == 'watch' && (<Watch />) }
                     { selected == 'meet' && (<Meet />) }
+                    { selected == 'chatbot' && (<Chatbot />) }
                     { selected == 'calendar' && (<Calendar />) }
                     { selected == 'assessment' && (<Assessment />) }
                 </div>

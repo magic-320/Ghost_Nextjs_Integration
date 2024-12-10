@@ -1,5 +1,5 @@
 'use client'
-import React, { FC, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import Image from "next/image";
 import Chevron_left from '@/public/assets/svg/chevron-left.svg';
 import Chevron_right from '@/public/assets/svg/chevron-right.svg';
@@ -18,7 +18,7 @@ interface CalendarDay {
     info?: any;
 }
 
-const Calendar: FC = () => {
+function Calendar(_props: { onSelect: Dispatch<SetStateAction<string>>; }) {
 
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -31,28 +31,26 @@ const Calendar: FC = () => {
     }, [currentDate, selectedDate]);
 
 
-    const generateCalendarDays = async(date: Date) => {
+    const generateCalendarDays = async (date: Date) => {
 
         ///////////////////////// Get Gmail of account //////////////////////////
         let myEmail: string = '';
-        if ( localStorage.getItem('edosaMember') ) {
+        if (localStorage.getItem('edosaMember')) {
             const getMember = localStorage.getItem('edosaMember');
             const member = getMember && JSON.parse(getMember);
             myEmail = member.email;
         }
 
         ///////////////////////// Get Events //////////////////////////
-
-        let demoEvents:any[] = [];
+        let demoEvents: any[] = [];
         if (localStorage.getItem('grant_id')) {
             const response = await axios.post<any>('/api/nylas/getEvents', { grantId: localStorage.getItem('grant_id') });
-            response.data.data.map((el:any) => {
-                if (el.description == "Meet with Edosa Odaro") demoEvents.push(el)
-            })
+            response.data.data.map((el: any) => {
+                if (el.description == "Meet with Edosa Odaro") demoEvents.push(el);
+            });
         }
-        
-        ///////////////////////// Show Calendar //////////////////////////
 
+        ///////////////////////// Show Calendar //////////////////////////
         const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
         const startDayOfWeek = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
         const days: CalendarDay[] = [];
@@ -67,7 +65,7 @@ const Calendar: FC = () => {
             const isSelected = i === selectedDate.getDate() && date.getMonth() === selectedDate.getMonth() && date.getFullYear() === selectedDate.getFullYear();
 
             let info: any[] = [];
-            demoEvents.map((el:any, index:number) => {
+            demoEvents.map((el: any, index: number) => {
                 const demoDate = new Date(el.when.startTime * 1000).toISOString();
                 const date = demoDate.split('.')[0].split('T')[0];
                 const time = demoDate.split('.')[0].split('T')[1];
@@ -77,14 +75,14 @@ const Calendar: FC = () => {
                     const demoInfo = {
                         date: date,
                         time: time
-                    }
+                    };
                     info.push(demoInfo);
                 }
-            })
+            });
             const isDot = info.length ? true : false;
 
-            days.push({ 
-                day: i, 
+            days.push({
+                day: i,
                 isCurrentMonth: true,
                 isToday: isToday,
                 isSelected: isSelected,
@@ -104,10 +102,21 @@ const Calendar: FC = () => {
         setData(days);
     };
 
-    const handleDateSelect = (day: number) => {
-        const selected = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+    const handleDateSelect = (paramDay: number) => {
+        const selected = new Date(currentDate.getFullYear(), currentDate.getMonth(), paramDay);
         setSelectedDate(selected);
-        localStorage.setItem('selectDate', new Date(selected).toLocaleDateString('en-CA'));new Date(selected).toLocaleDateString('en-CA');
+
+        const date = new Date(selected);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const day = String(date.getDate()).padStart(2, '0');
+        localStorage.setItem('selectDate', `${year}-${month}-${day}`);
+
+        const daysOfWeek = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+        const dayOfWeek = daysOfWeek[date.getDay()];
+        localStorage.setItem('selectDay', dayOfWeek);
+
+        _props.onSelect && _props.onSelect(dayOfWeek);
     };
 
     const handlePreviousMonth = () => {
@@ -128,116 +137,102 @@ const Calendar: FC = () => {
 
     return (
         <div className="inline-flex items-start relative bg-white rounded-xl shadow-lg overflow-hidden">
-            {
-                loading && (
-                    <div className='flex justify-center'>
-                        <Image src={Loading} alt='loading' className='w-[60px] h-[60px]' />
-                    </div>
-                )
-            }
-            {
-                !loading && (
-                    <div className="flex flex-col w-full items-center relative">
-                        <div className="flex flex-col items-start gap-4 px-6 py-5 relative w-full">
-                            <div className="flex w-full items-center justify-between">
-                                <button 
-                                    onClick={handlePreviousMonth}
-                                    className="p-2 rounded-lg hover:bg-gray-100" 
-                                    aria-label="Previous month"
-                                >
-                                    <Image 
-                                        className="w-5 h-5"
-                                        alt="Chevron left"
-                                        src={Chevron_left}
-                                    />
-                                </button>
+            {loading && (
+                <div className='flex justify-center'>
+                    <Image src={Loading} alt='loading' className='w-[60px] h-[60px]' />
+                </div>
+            )}
+            {!loading && (
+                <div className="flex flex-col w-full items-center relative">
+                    <div className="flex flex-col items-start gap-4 px-6 py-5 relative w-full">
+                        <div className="flex w-full items-center justify-between">
+                            <button
+                                onClick={handlePreviousMonth}
+                                className="p-2 rounded-lg hover:bg-gray-100"
+                                aria-label="Previous month"
+                            >
+                                <Image
+                                    className="w-5 h-5"
+                                    alt="Chevron left"
+                                    src={Chevron_left} />
+                            </button>
 
-                                <div className="font-semibold text-gray-700">
-                                    {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                            <div className="font-semibold text-gray-700">
+                                {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                            </div>
+
+                            <button
+                                onClick={handleNextMonth}
+                                className="p-2 rounded-lg hover:bg-gray-100"
+                                aria-label="Next month"
+                            >
+                                <Image
+                                    className="w-5 h-5"
+                                    alt="Chevron right"
+                                    src={Chevron_right} />
+                            </button>
+                        </div>
+
+                        <div className="flex items-center gap-3 w-full">
+                            <div className="flex-1 bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-2">
+                                <div className="text-gray-900">
+                                    {selectedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                                 </div>
-
-                                <button
-                                    onClick={handleNextMonth}
-                                    className="p-2 rounded-lg hover:bg-gray-100" 
-                                    aria-label="Next month"
-                                >
-                                    <Image 
-                                        className="w-5 h-5"
-                                        alt="Chevron right"
-                                        src={Chevron_right}
-                                    />
-                                </button>
                             </div>
 
-                            <div className="flex items-center gap-3 w-full">
-                                <div className="flex-1 bg-white border border-gray-300 rounded-lg shadow-sm px-4 py-2">
-                                    <div className="text-gray-900">
-                                        {selectedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                                    </div>
+                            <button
+                                onClick={handleTodayClick}
+                                className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white"
+                            >
+                                <span className="font-semibold text-gray-700">Today</span>
+                            </button>
+                        </div>
+
+                        <div className="grid grid-cols-7 gap-1 w-full text-center mt-4">
+                            {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day) => (
+                                <div key={day} className="text-gray-700 font-medium">
+                                    {day}
                                 </div>
+                            ))}
+                        </div>
 
-                                <button 
-                                    onClick={handleTodayClick} 
-                                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-white"
-                                >
-                                    <span className="font-semibold text-gray-700">Today</span>
-                                </button>
-                            </div>
-
-                            <div className="grid grid-cols-7 gap-1 w-full text-center mt-4">
-                                {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day) => (
-                                    <div key={day} className="text-gray-700 font-medium">
-                                        {day}
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className={`grid grid-cols-7 gap-1 w-full mt-2 transition-opacity duration-300`}>
-                                {
-                                    calendarLoading && (
-                                        <div className='flex justify-center items-center w-full h-full absolute top-[0] left-[0] z-[1000] bg-[#FFF] opacity-[.7]'>
-                                            <Image src={Loading} alt='loading' className='w-[50px] h-[50px]' />
-                                        </div>
-                                    )
-                                }
-                                {
-                                    data.map((el, index) => (
-                                        <div 
-                                            key={index} 
-                                            onClick={() => el.isCurrentMonth && handleDateSelect(el.day)}
-                                            className={`relative w-10 h-10 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-[#eee] 
+                        <div className={`grid grid-cols-7 gap-1 w-full mt-2 transition-opacity duration-300`}>
+                            {calendarLoading && (
+                                <div className='flex justify-center items-center w-full h-full absolute top-[0] left-[0] z-[1000] bg-[#FFF] opacity-[.7]'>
+                                    <Image src={Loading} alt='loading' className='w-[50px] h-[50px]' />
+                                </div>
+                            )}
+                            {data.map((el, index) => (
+                                <div
+                                    key={index}
+                                    onClick={() => el.isCurrentMonth && handleDateSelect(el.day)}
+                                    className={`relative w-10 h-10 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-[#eee] 
                                                 ${el.isSelected ? "bg-green-400 text-white" : el.isCurrentMonth ? "text-gray-700" : "text-gray-400"} 
                                                 ${el.isToday ? "border border-green-500" : ""} `}
-                                            id={`tooltip${index}`}
-                                        >
-                                            
-                                            <span>{el.day}</span>
-                                            {el.hasDot && (
-                                                <div className="absolute w-1 h-1 bg-purple-500 rounded-full bottom-1" />
-                                            )}
-                                        </div>
-                                    ))
-                                }
-                            </div>
+                                    id={`tooltip${index}`}
+                                >
+
+                                    <span>{el.day}</span>
+                                    {el.hasDot && (
+                                        <div className="absolute w-1 h-1 bg-purple-500 rounded-full bottom-1" />
+                                    )}
+                                </div>
+                            ))}
                         </div>
-                        {
-                            data.map((el, index) => (
-                                el.hasDot && (
-                                    <Tooltip key={index} anchorSelect={`#tooltip${index}`} clickable>
-                                        {
-                                            el.info.map((j:any, j_index:number) => (
-                                                <div key={j_index}>- {j.time} (ISO 8601)</div>
-                                            ))
-                                        }
-                                    </Tooltip>
-                                )
-                            ))
-                        }
                     </div>
-                )
-            }
+                    {data.map((el, index) => (
+                        el.hasDot && (
+                            <Tooltip key={index} anchorSelect={`#tooltip${index}`} clickable>
+                                {el.info.map((j: any, j_index: number) => (
+                                    <div key={j_index}>- {j.time} (ISO 8601)</div>
+                                ))}
+                            </Tooltip>
+                        )
+                    ))}
+                </div>
+            )}
         </div>
     );
-};
+}
 
 export default Calendar;

@@ -15,6 +15,7 @@ const MyPackage: FC = () => {
     const [packageName, setPackageName] = useState<string>('');
     const [isMore, setIsMore] = useState<boolean>(false);
     const [packageDemoCardList, setPackageDemoCardList] = useState<any[]>([]);
+    const [select, setSelect] = useState<string>('');   // get day of week via props from Calendar component
 
     const handleAction = (action:any) => {
         if (typeof action === 'function') {
@@ -129,7 +130,7 @@ const MyPackage: FC = () => {
                                 <span className='text-[22px] font-bold font-inter'>Book a Call with Edosa</span>
                             </div>
                             <div className='text-center mt-2'>
-                                <Calendar />
+                                <Calendar onSelect={setSelect} />
                             </div>
 
                         </div>
