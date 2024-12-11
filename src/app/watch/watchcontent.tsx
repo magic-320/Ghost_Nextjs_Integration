@@ -119,7 +119,7 @@ const WatchContent: FC = () => {
                                     The AI Values Podcast
                                 </div>
                                 <p className='text-text-color mt-5 text-[15px] sm:text-[20px]'>
-                                    Get latest insights on value, values, issues and future of AI Advisory. These are aimed at both experienced AI Vakue Consultans but also for those who aspire to become one.
+                                    Get latest insights on value, values, issues and future of AI Advisory. These are aimed at both experienced AI Value Consultans but also for those who aspire to become one.
                                 </p>
                                 <div className="flex flex-row mt-8 ml-4 absolute bottom-10">
                                     <span>
