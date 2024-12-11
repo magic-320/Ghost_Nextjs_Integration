@@ -44,7 +44,7 @@ const LearnMainComponent: FC = () => {
                 <div className="inset-0 flex mt-4 sm:mt-[45px] ml-4 sm:ml-[50px] lg:ml-[94px]">
                     <h2 className="text-lg sm:text-2xl lg:text-3xl text-[#FFF] leading-8 sm:leading-[35px] lg:leading-[44px]">
                         Choose the plan that best fits your <br /> needs and
-                        <span className='text-[#FF6E3E] font-bold'> start transforming data <br /> into decisions. </span>
+                        <span className='text-[#5c76ff] font-bold'> start transforming data <br /> into decisions. </span>
                     </h2>
                 </div>
                 <div className='relative flex items-center ml-4 sm:ml-[50px] lg:ml-[90px] mt-4 sm:mt-[45px] pb-8 sm:pb-[108px]'>

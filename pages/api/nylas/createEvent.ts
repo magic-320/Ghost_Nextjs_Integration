@@ -26,12 +26,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         
         // start Time
         const date = new Date(demoDate);
-        // const startTime = new Date(date.getTime());
-        const startTime = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
+        const startTime = new Date(date.getTime());
 
         // end Time
         const endTime = new Date(startTime);
-        // endTime.setMinutes(startTime.getMinutes() + 30);
+        endTime.setMinutes(startTime.getMinutes() + 30);
 
         // create Event
         const newEvent = await nylas.events.create({
@@ -43,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 title: 'Edosa Odaro',
                 description: 'Meet with Edosa Odaro',
                 when: {
-                    startTime: Math.floor(startTime / 1000), // Time in Unix timestamp format (in seconds)
+                    startTime: Math.floor(startTime.getTime() / 1000), // Time in Unix timestamp format (in seconds)
                     endTime: Math.floor(endTime.getTime() / 1000)
                 },
                 conferencing: {

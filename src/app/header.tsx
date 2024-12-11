@@ -71,7 +71,9 @@ const Header: FC = () => {
       const activeLink = links.find(item => currentUrl === item.link);
       if (activeLink) {
         headerPanelRef.current.style.background = activeLink.bgColor;
-        headerPanelRef.current.style.border = "none"; // Hides the border
+        headerPanelRef.current.style.border = "1px";
+        headerPanelRef.current.style.borderStyle = "solid";
+        headerPanelRef.current.style.borderColor = activeLink.bgColor;
       } else {
         headerPanelRef.current.style.border = ""; // Resets border if no active link
       }
@@ -200,20 +202,20 @@ const Header: FC = () => {
           ref={headerPanelRef}
           className="panel border-2 border-text-color rounded-full bg-white py-1 md:py-1.5 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
         >
-          {links.map((item, index) => {
-            const newStyle = currentUrl === item.link
-              ? `text-[${item.textColor}] font-bold`
-              : "font-normal";
-            return (
-              <Link
-                href={item.link}
-                key={index}
-                className={`text-[14px] md:text-[20px] font-inter ${newStyle}`}
-              >
-                {item.text}
-              </Link>
-            );
-          })}
+            {links.map((item, index) => {
+                const newStyle = currentUrl === item.link
+                  ? `text-[${item.textColor}] font-bold`
+                  : "font-normal";
+                return (
+                  <Link
+                    href={item.link}
+                    key={index}
+                    className={`text-[14px] md:text-[20px] font-inter ${newStyle}`}
+                  >
+                    {item.text}
+                  </Link>
+                );
+            })}
         </div>
 
         <div className='flex items-center justify-center mr-2 md:mr-10 px-1 sm:px-3 gap-3'>
