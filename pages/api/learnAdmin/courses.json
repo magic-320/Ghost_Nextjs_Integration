@@ -2,5 +2,7 @@
   "course1": true,
   "course2": true,
   "eCoaching": true,
+  "resource1": true,
+  "resource2": true,
   "personalisedCoaching": true
 }
