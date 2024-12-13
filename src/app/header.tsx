@@ -191,7 +191,7 @@ const Header: FC = () => {
           <Image src={LOGO} width={250} className='block lg:hidden' alt='Logo' />
         </Link>
       </div>
-      <div className='flex items-center justify-between relative my-1 sm:my-2'>
+      <div className='block sm:flex items-center justify-between relative my-1 sm:my-2'>
         <div className='hidden lg:block'>
           <Link href="/">
             <Image src={LOGO} width={360} className='hidden lg:block ml-[20px] xl:ml-[85px]' alt='Logo' />
@@ -218,9 +218,9 @@ const Header: FC = () => {
             })}
         </div>
 
-        <div className='flex items-center justify-center mr-2 md:mr-10 px-1 sm:px-3 gap-3'>
+        <div className='flex items-center justify-center mr-2 md:mr-10 px-1 sm:px-3 gap-3 my-2 sm:my-0'>
           {/* <Image src={SEARCHICON} className='w-5 h-5 hover:cursor-pointer' alt='search' /> */}
-          <div className='w-10 h-5'></div>
+          <div className='w-0 sm:w-10 h-5'></div>
 
             {
               !user ? (
