@@ -200,7 +200,7 @@ const Header: FC = () => {
 
         <div
           ref={headerPanelRef}
-          className="panel border-2 border-text-color rounded-full bg-white py-1 md:py-1.5 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
+          className="panel border-2 border-text-color rounded-full bg-white py-1.5 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
         >
             {links.map((item, index) => {
                 const newStyle = currentUrl === item.link
@@ -210,7 +210,7 @@ const Header: FC = () => {
                   <Link
                     href={item.link}
                     key={index}
-                    className={`text-[14px] md:text-[20px] font-inter ${newStyle}`}
+                    className={`text-[16px] md:text-[20px] font-inter ${newStyle}`}
                   >
                     {item.text}
                   </Link>
@@ -238,7 +238,7 @@ const Header: FC = () => {
 
                     <MenuItems
                       transition
-                      className="absolute right-0 z-[100] mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                      className="absolute right-[-60px] sm:right-0 z-[100] mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                     >
                       <div className="py-1">
                         <MenuItem>
