@@ -42,11 +42,11 @@ const Courses: NextPage = () => {
                       <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
                         Dummy Text
                       </div>
-                      <div className="flex flex-row justify-center mt-8 ml-4 gap-4">
+                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
                           <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
                             Apply for Next Cohort
                           </div>
-                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer">
+                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
                             Find Out More
                           </div>
                       </div>
@@ -111,11 +111,11 @@ const Courses: NextPage = () => {
                           <li><strong>Industry Insights:</strong> Gain direct access to valuable industry insights and success strategies.</li>
                         </ul>
                     </div>
-                    <div className="flex flex-row justify-center mt-8 ml-4 gap-4">
+                    <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
                         <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
                           Apply for Next Cohort
                         </div>
-                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer">
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
                           Find Out More
                         </div>
                     </div>

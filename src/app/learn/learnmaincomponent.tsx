@@ -26,12 +26,12 @@ const LearnMainComponent: FC = () => {
 
             <div className={`absolute top-0 left-0 w-full h-full bg-[rgb(250,250,250,.9)] z-[10] flex justify-center items-center none ${showModal ? 'block' : 'hidden'}`}>
                 <video className='w-full h-full object-cover' controls id='backVideo'>
-                    <source src='/assets/video/Dashboard_video.mp4' type='video/mp4' />
+                    <source src='/assets/video/learn.mp4' type='video/mp4' />
                 </video>
             </div>
 
             <video className='absolute top-1/2 left-1/2 w-auto min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover' autoPlay muted loop>
-                <source src='/assets/video/Dashboard_video.mp4' type='video/mp4' />
+                <source src='/assets/video/learn.mp4' type='video/mp4' />
             </video>
 
             <div className={`pl-[20px] pr-[20px] relative bg-black/50`}>
