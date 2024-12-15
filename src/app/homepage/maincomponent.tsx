@@ -27,12 +27,12 @@ const MainComponent: FC = () => {
         <div className='bg-cover bg-center rounded-[20px] relative w-full h-[auto] overflow-hidden'>
 
             <div className={`absolute top-0 left-0 w-full h-full bg-[rgb(250,250,250,.9)] z-[10] flex justify-center items-center none ${showModal ? 'block' : 'hidden'}`}>
-                <video className='w-full h-full object-cover' controls id='backVideo'>
+                <video className='w-full h-full object-cover' controls playsInline id='backVideo'>
                     <source src='/assets/video/home.mp4' type='video/mp4' />
                 </video>
             </div>
 
-            <video className='absolute top-1/2 left-1/2 w-auto min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover' autoPlay muted loop>
+            <video className='absolute top-1/2 left-1/2 w-auto min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 object-cover' autoPlay playsInline muted loop>
                 <source src='/assets/video/home.mp4' type='video/mp4' />
             </video>
 
