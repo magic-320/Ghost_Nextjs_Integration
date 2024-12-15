@@ -88,78 +88,84 @@ const LearnCard: FC<LearnCardProps> = ({
         <div style={{ backgroundColor: backColor }}
             className={`h-[auto] shadow-md gap-1 sm:gap-3 rounded-xl py-5 ${border}`}
         >
-            <div className="text-lg sm:text-4xl leading-11 font-bold text-text-color font-inter text-center">
-                {title}
-            </div>
-            <div className="text-lg sm:text-lg leading-8 font-bold text-text-color font-inter text-center my-3">
-                {header}
-            </div>
-            <div className={`text-sm leading-8 text-text-color px-8 my-2 min-h-[100px]`}>
-                {text}
-            </div>
-            
-            <div className={`px-7 mt-2`}>
-                {items.map((item, index) => {
-                    if (!more) return;
-                    return (
-                        <div key={index} className="flex flex-row">
-                            <Image src={CHECK} width={24} height={24} alt="checked" />
-                            <span className="text-sm text-text-color ml-2 my-2">{item}</span>
+            <div className="flex flex-col h-full">
+                {/* Flex Div 1 */}
+                <div className="mb-[auto]">
+                    <div className="text-lg sm:text-4xl leading-11 font-bold text-text-color font-inter text-center">
+                        {title}
+                    </div>
+                    <div className="text-lg sm:text-lg leading-8 font-bold text-text-color font-inter text-center my-3">
+                        {header}
+                    </div>
+                    <div className={`text-sm leading-8 text-text-color px-8 my-2 min-h-[100px]`}>
+                        {text}
+                    </div>
+                
+                    <div className={`px-7 mt-2`}>
+                        {items.map((item, index) => {
+                            if (!more) return;
+                            return (
+                                <div key={index} className="flex flex-row">
+                                    <Image src={CHECK} width={24} height={24} alt="checked" />
+                                    <span className="text-sm text-text-color ml-2 my-2">{item}</span>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+                {/* Flex Div 2 */}
+                <div>
+                    <div className="underline text-[rgb(0,150,250)] hover:cursor-pointer my-3 text-center">
+                        {
+                            more ? (
+                                <span onClick={() => setMore(!more)}>Less</span>
+                            ) : (
+                                <span onClick={() => setMore(!more)}>More</span>
+                            )
+                        }
+                    </div>
+                    <div className="w-full flex justify-center py-2">
+                        <div className="w-5/6">
+                            {
+                                button == 'paid' ? (
+                                    <div>
+                                        {
+                                            member && member.paid ? (
+                                                <span onClick={onMemberAccess}>
+                                                    <DefaultButton>Member Access</DefaultButton>
+                                                </span>
+                                            ) : (
+                                                <div className="block sm:flex justify-between">
+                                                    <div className="w-full sm:w-[48%]" onClick={payFunc}>
+                                                        <DefaultButton>SOLD OUT</DefaultButton>
+                                                    </div>
+                                                    <div className="w-full sm:w-[48%] mt-2 sm:mt-0">
+                                                        <DefaultButton className="bg-[#FFF] border border-[#475467]">
+                                                            <span style={{color: '#475467'}}>Join Waiting List</span>
+                                                        </DefaultButton>
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                ) : (
+                                    <span onClick={onFreeAccess}>
+                                        <DefaultButton>Free Access</DefaultButton>
+                                    </span>
+                                )
+                            }
                         </div>
-                    )
-                })}
-            </div>
+                    </div>
 
-            <div className="underline text-[rgb(0,150,250)] hover:cursor-pointer my-3 text-center">
-                {
-                    more ? (
-                        <span onClick={() => setMore(!more)}>Less</span>
-                    ) : (
-                        <span onClick={() => setMore(!more)}>More</span>
-                    )
-                }
-            </div>
-            <div className="w-full flex justify-center py-2">
-                <div className="w-5/6">
                     {
-                        button == 'paid' ? (
-                            <div>
-                                {
-                                    member && member.paid ? (
-                                        <span onClick={onMemberAccess}>
-                                            <DefaultButton>Member Access</DefaultButton>
-                                        </span>
-                                    ) : (
-                                        <div className="block sm:flex justify-between">
-                                            <div className="w-full sm:w-[48%]" onClick={payFunc}>
-                                                <DefaultButton>SOLD OUT</DefaultButton>
-                                            </div>
-                                            <div className="w-full sm:w-[48%] mt-2 sm:mt-0">
-                                                <DefaultButton className="bg-[#FFF] border border-[#475467]">
-                                                    <span style={{color: '#475467'}}>Join Waiting List</span>
-                                                </DefaultButton>
-                                            </div>
-                                        </div>
-                                    )
-                                }
+                        !edosaJwtToken && (
+                            <div className="mt-2 text-center text-text-color">
+                                Already a member? <Link href="/signin" className="text-[rgb(0,150,250)]">Sign In Here</Link>
                             </div>
-                        ) : (
-                            <span onClick={onFreeAccess}>
-                                <DefaultButton>Free Access</DefaultButton>
-                            </span>
                         )
                     }
                 </div>
             </div>
-
-            {
-                !edosaJwtToken && (
-                    <div className="mt-2 text-center text-text-color">
-                        Already a member? <Link href="/signin" className="text-[rgb(0,150,250)]">Sign In Here</Link>
-                    </div>
-                )
-            }
-            
         </div>
     );
 }
