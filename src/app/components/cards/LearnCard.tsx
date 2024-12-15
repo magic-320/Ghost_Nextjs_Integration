@@ -129,15 +129,15 @@ const LearnCard: FC<LearnCardProps> = ({
                                         <DefaultButton>Member Access</DefaultButton>
                                     </span>
                                 ) : (
-                                    <div className="flex justify-between">
-                                        <span className="w-[48%]" onClick={payFunc}>
+                                    <div className="block sm:flex justify-between">
+                                        <div className="w-full sm:w-[48%]" onClick={payFunc}>
                                             <DefaultButton>SOLD OUT</DefaultButton>
-                                        </span>
-                                        <span className="w-[48%]">
+                                        </div>
+                                        <div className="w-full sm:w-[48%] mt-2 sm:mt-0">
                                             <DefaultButton className="bg-[#FFF] border border-[#475467]">
                                                 <span style={{color: '#475467'}}>Join Waiting List</span>
                                             </DefaultButton>
-                                        </span>
+                                        </div>
                                     </div>
                                 )
                             }

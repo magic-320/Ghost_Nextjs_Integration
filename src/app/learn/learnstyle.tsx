@@ -62,7 +62,7 @@ const LearnStyle: FC = () => {
       <div className="text-sm leading-8 font-bold rounded-full bg-[#667EFF] text-white px-3 sm:px-5 py- mt-8">
         Most Popular
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-10 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-10 mt-6">
         {
           learnItems.map((item: { tierId: string; title: string; header: string; text: string; items: string[]; buttonStyle: string; backColor: string; border: string; }, index: React.Key | null | undefined) => (
             <LearnCard
