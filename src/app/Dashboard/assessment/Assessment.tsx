@@ -26,9 +26,9 @@ const Assessment: FC = () => {
     }, [])
 
     return (
-        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] px-10 py-5 pb-3'>
-                <h1 className='text-[2rem] font-bold text-text-color mb-5'>Assessment</h1>
+        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-5 sm:py-10'>
+            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] px-4 sm:px-10 py-5 pb-3'>
+                <h1 className='text-[1.5rem] sm:text-[2rem] font-bold text-text-color mb-5'>Assessment</h1>
                 <div className='grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
                     {
                         data.map((el: dataStyle, index:number) => {

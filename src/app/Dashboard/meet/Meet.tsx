@@ -247,14 +247,14 @@ const Meet: FC = () => {
     }
     
     return (
-        <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
+        <div className='w-full h-full bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-5 sm:py-10'>
             <div className='w-full h-full bg-[#FFF] rounded-[22px] pb-3'>
-                <h1 className='text-[20px] md:text-[24px] font-bold font-inter font-[#344054] px-7 py-5 text-text-color'>
+                <h1 className='text-[18px] sm:text-[20px] md:text-[24px] font-bold font-inter font-[#344054] px-4 sm:px-7 py-5 text-text-color'>
                     Services &gt; Meet &gt; Personal Coaching
                 </h1>
 
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mx-5">
-                    <div className='w-full h-full bg-m-demo-color rounded-[22px] p-4'>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mx-1 sm:mx-5">
+                    <div className='w-full h-full bg-m-demo-color rounded-[22px] sm:px-4 py-4'>
                         <h1 className='text-[20px] md:text-[24px] font-bold text-center text-[#101828]'>
                             Personal Coaching
                         </h1>
@@ -269,11 +269,11 @@ const Meet: FC = () => {
                         </div> */}
                     </div>
                     <div className='px-3'>
-                        <div className="text-[23px] md:text-[36px] leading-11 font-bold text-text-color my-5">
+                        <div className="text-[20px] sm:text-[23px] md:text-[36px] leading-11 font-bold text-text-color my-5">
                             Book your slot with Edosa
                         </div>
 
-                        <div className='h-[23em] overflow-y-scroll'>
+                        <div className={`${availableTime.length ? 'h-[23em] overflow-y-scroll' : 'h-[auto] xl:h-[23em]'}`}>
                             {
                                 availableTime.length ? availableTime.map((el:any, index:number) => (
 
@@ -296,20 +296,20 @@ const Meet: FC = () => {
                                     )
                                     
                                 )) : (
-                                    <div className='text-text-color text-center text-[22px]'>There is not an available time to book.</div>
+                                    <div className='text-text-color text-center text-[18px] sm:text-[22px]'>There is not an available time to book.</div>
                                 )
                             }
                         </div>
 
                         <div className='mt-12 flex gap-3 text-center justify-center w-full'>
                             <Link href="#" 
-                                className="w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]"
+                                className="w-[120px] sm:w-[160px] md:w-[210px] h-[40px] font-bold text-[#344054] px-3 py-3 text-xs text-center bg-white rounded-[20px] border border-solid border-[#475467]"
                                 onClick={() => window.open('https://calendar.google.com/calendar/')}
                             >
                                 <button>Go to Calendar</button>
                             </Link>
                             <Link href="#" onClick={onBook}>
-                                <DefaultButton className='w-[210px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
+                                <DefaultButton className='w-[120px] sm:w-[160px] md:w-[210px] h-[40px] font-bold px-3 py-[10px] text-xs text-center'>
                                     Book Now
                                 </DefaultButton>
                             </Link>

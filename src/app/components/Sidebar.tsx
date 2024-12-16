@@ -79,10 +79,13 @@ function Sidebar( { onCollapse }: SidebarProps ) {
             {
                 onCollapse && (
                     <div 
-                        className="text-center lg:text-left mx-[auto] font-bold text-[20px] text-text-color hover:cursor-pointer"
+                        className="text-center lg:text-left mx-[auto] font-bold text-[20px] text-text-color hover:cursor-pointer relative"
                         onClick={() => setExpand(!expand)}
                     >
                         {items[active as keyof typeof items]}
+                        <span className="absolute top-1 right-5">
+                            { !expand ? <IoIosArrowDown /> : <IoIosArrowUp /> }
+                        </span>
                     </div>
                 )
             }

@@ -82,10 +82,10 @@ const MyPackage: FC = () => {
     }, [])
 
     return (
-        <div className="w-full h-auto bg-[#F9F9F9] rounded-[22px] px-7 py-10 block xl:flex">
-            <div className={`w-full ${isMore ? 'xl:w-full' : 'xl:w-8/12'} rounded-[22px] p-7 bg-[#FFF] mr-3`}>
+        <div className="w-full h-auto bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-5 sm:py-10 block xl:flex">
+            <div className={`w-full ${isMore ? 'xl:w-full' : 'xl:w-8/12'} rounded-[22px] p-4 sm:p-7 bg-[#FFF] mr-3`}>
                 <div className="block md:flex justify-between">
-                    <h1 className='text-[20px] md:text-[24px] font-bold font-inter'>
+                    <h1 className='text-[18px] sm:text-[20px] md:text-[24px] font-bold font-inter'>
                         My Package: {packageName}
                     </h1>
                     <span className='text-[15px] underline font-bold font-inter my-3'>
@@ -124,10 +124,10 @@ const MyPackage: FC = () => {
                             </div>
                         </div>
 
-                        <div className='rounded-[22px] bg-[#FFF] rounded-[22px] p-7 mt-3'>
+                        <div className='rounded-[22px] bg-[#FFF] rounded-[22px] p-4 sm:p-7 mt-3'>
                             <div className='flex justify-center'>
                                 <div className="w-[30px] h-[30px] flex justify-center items-center mr-2 rounded-[18px] bg-[#95da79] text-[14px] text-[#FFF] font-bold">M</div>
-                                <span className='text-[22px] font-bold font-inter'>Book a Call with Edosa</span>
+                                <span className='text-[20px] sm:text-[20px] md:text-[22px] font-bold font-inter'>Book a Call with Edosa</span>
                             </div>
                             <div className='text-center mt-2'>
                                 <Calendar onSelect={setSelect} />

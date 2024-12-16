@@ -20,7 +20,7 @@ const WatchContent: FC = () => {
 
     return (
         <div className='flex rounded-[20px] h-[auto] mt-16'>
-            <div className='mx-[14px]'>
+            <div>
                 <div className='text-center'>
                     <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F5F5F5] px-3 sm:px-5 py-1">Watch</span>
                 </div>
