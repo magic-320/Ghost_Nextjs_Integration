@@ -27,19 +27,21 @@ const Courses: NextPage = () => {
         data.course1 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Courses
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         $Million AI Advisor - 12 Steps for Kickstarting Your Journey
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         Dummy Text
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -82,19 +84,21 @@ const Courses: NextPage = () => {
         data.course2 && (
           <div className="block lg:flex w-full mt-6 sm:mt-24">
               {/* mobile */}
-              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE1.src})` }}>
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden" >
+
+                  <div className="flex justify-center">
+                    <Image src={IMAGE1} alt="learn" />
+                  </div>
 
                   {/* Content */}
-                  <div className="relative">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                  <div className="mt-10">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       Courses
                     </div>
                     <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                       Demystifying & Accelerating AI Value
                     </div>
-                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         <h2>What You’ll Learn:</h2>
                         <ul className="list-disc ml-10 mt-4">
                           <li><strong>Fundamental AI Concepts:</strong> Dive into the core of AI in 3 weeks.</li>
@@ -165,19 +169,21 @@ const Courses: NextPage = () => {
         data.eCoaching && (
           <div className="block lg:flex w-full mt-6 sm:mt-24">
               {/* mobile */}
-              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE2.src})` }}>
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+
+                  <div className="flex justify-center">
+                    <Image src={IMAGE2} alt="learn" />
+                  </div>
 
                   {/* Content */}
-                  <div className="relative">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                  <div className="mt-10">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       eCoaching
                     </div>
                     <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                       AI Value eCoaching Series
                     </div>
-                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         Free Coaching Snippets To Help You Reach Your Full Value Driven Potential
                     </div>
                     <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -232,19 +238,21 @@ const Courses: NextPage = () => {
         data.resource1 && (
           <div className="block lg:flex w-full mt-6 sm:mt-24">
               {/* mobile */}
-              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                  
+                  <div className="flex justify-center">
+                    <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                  </div>
 
                   {/* Content */}
-                  <div className="relative">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                  <div className="mt-10">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       eResources
                     </div>
                     <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                       $Million AI Advisor Toolkit
                     </div>
-                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                       Free tools and resources to accelerate your AI Advisory transformation!
                     </div>
                     <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -287,19 +295,21 @@ const Courses: NextPage = () => {
         data.resource2 && (
           <div className="block lg:flex w-full mt-6 sm:mt-24">
               {/* mobile */}
-              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE2.src})` }}>
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                  
+                  <div className="flex justify-center">
+                    <Image src={IMAGE2} alt="learn" />
+                  </div>
 
                   {/* Content */}
-                  <div className="relative">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                  <div className="mt-10">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       eResources
                     </div>
                     <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                       Free Value Driven CheatSheets
                     </div>
-                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         <h2>What You’ll Learn:</h2>
                         <ul className="list-disc ml-10 mt-4">
                           <li><strong>Fundamental AI Concepts:</strong> Dive into the core of AI in 3 weeks.</li>
@@ -382,19 +392,21 @@ const Courses: NextPage = () => {
         data.personalisedCoaching && (
           <div className="block lg:flex w-full mt-6 sm:mt-24">
               {/* mobile */}
-              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE2.src})` }}>
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+              <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                  
+                  <div className="flex justify-center">
+                    <Image src={IMAGE2} alt="learn" />
+                  </div>
 
                   {/* Content */}
-                  <div className="relative">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-main-color px-5 sm:px-5 py-1 text-center max-w-[14em]">
+                  <div className="mt-10">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-l-demo-color px-5 sm:px-5 py-1 text-center max-w-[14em]">
                       Personalised Coaching
                     </div>
                     <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                        Value Driven AI Transformation
                     </div>
-                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         Moving yourself from just knowledge to full and tangible self transformation
                     </div>
                     <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">

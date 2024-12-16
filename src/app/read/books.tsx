@@ -24,26 +24,28 @@ const Books: FC = () => {
   }, [])
 
   return (
-    <div className='sm:ml-14 pb-5 mt-10 sm:mt-24'>
+    <div className='sm:mx-14 pb-5 mt-10 sm:mt-24'>
 
         {/* Blogs */}
         {
           data.blogs && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Blogs
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         The AI Values Podcast
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         Navigating the value, values, issues and future of AI. We can’t wait to welcome you to the show to share the latest advancements in the AI world and the big questions that you are currently wanting to answer.
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -86,19 +88,21 @@ const Books: FC = () => {
           data.eBook1 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         eBooks
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         Coming Soon
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         Next book title dropping soon! 
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -142,19 +146,21 @@ const Books: FC = () => {
           data.eBook2 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         eBooks
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         Coming Soon
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         Next book title dropping soon! 
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -198,19 +204,21 @@ const Books: FC = () => {
           data.book1 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Published
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         Coming Soon
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         Next book title dropping soon!  
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -254,19 +262,21 @@ const Books: FC = () => {
           data.book2 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${BOOK2.src})` }}>
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className='flex justify-center'>
+                      <Image src={BOOK2} alt='book' />
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Published
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         Value Driven Data - The Workbook (Anniversary Special)
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                           Enhance your 'Value Driven Data' experience with this dedicated workbook
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -322,19 +332,21 @@ const Books: FC = () => {
           data.book3 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${BOOK1.src})` }}>
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className='flex justify-center'>
+                      <Image src={BOOK1} alt='book' />
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Published
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         Value Driven Data
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                           Translate data into tangible business value with this strategic guide
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -390,19 +402,21 @@ const Books: FC = () => {
           data.book4 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${BOOK4.src})` }}>
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className='flex justify-center'>
+                      <Image src={BOOK4} alt='book' />
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Published
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         Making Data Work
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                           Translate data into tangible business value with this strategic guide
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -458,19 +472,21 @@ const Books: FC = () => {
           data.book5 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${BOOK3.src})` }}>
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className='flex justify-center'>
+                      <Image src={BOOK3} alt='book' />
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Published
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         Value Driven Data - The Executive Handbook
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                           An executive guide to data for strategic business value creation
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -526,19 +542,21 @@ const Books: FC = () => {
           data.book6 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Published
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         BULK ORDER
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         bulk order 
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -594,19 +612,21 @@ const Books: FC = () => {
           data.book7 && (
             <div className="block lg:flex w-full mt-6 sm:mt-24">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
                     {/* Content */}
-                    <div className="relative">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                         Published
                       </div>
                       <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                         PERSONALISED ORDER
                       </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                         personalised order 
                       </div>
                       <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">

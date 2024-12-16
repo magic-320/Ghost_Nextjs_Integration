@@ -20,7 +20,7 @@ const WatchContent: FC = () => {
 
     return (
         <div className='flex rounded-[20px] h-[auto] mt-16'>
-            <div className='ml-[20px] mr-[20px]'>
+            <div className='mx-[14px]'>
                 <div className='text-center'>
                     <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F5F5F5] px-3 sm:px-5 py-1">Watch</span>
                 </div>
@@ -49,19 +49,21 @@ const WatchContent: FC = () => {
                     data.podcasts && (
                         <div className="block lg:flex w-full mt-6 sm:mt-24">
                             {/* mobile */}
-                            <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                            <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                                
+                                <div className="flex justify-center">
+                                    <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                                </div>
 
                                 {/* Content */}
-                                <div className="relative">
-                                <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-w-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                                <div className="mt-10">
+                                <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-w-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                                     Podcasts
                                 </div>
                                 <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                                     The AI Values Podcast
                                 </div>
-                                <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                                <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                                     Navigating the value, values, issues and future of AI. We can’t wait to welcome you to the show to share the latest advancements in the AI world and the big questions that you are currently wanting to answer. 
                                 </div>
                                 <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -106,19 +108,21 @@ const WatchContent: FC = () => {
                     data.eCoaching && (
                         <div className="block lg:flex w-full mt-6 sm:mt-24">
                             {/* mobile */}
-                            <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE2.src})` }}>
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                            <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                                
+                                <div className='flex justify-center'>
+                                    <Image src={IMAGE2} alt='watch' />
+                                </div>
 
                                 {/* Content */}
-                                <div className="relative">
-                                <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-w-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                                <div className="mt-10">
+                                <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-w-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                                     eCoaching
                                 </div>
                                 <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                                     AI Value eCoaching Series
                                 </div>
-                                <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]">
+                                <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                                     Free Coaching Snippets To Help You Reach Your Full Value Driven Potential
                                 </div>
                                 <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
@@ -174,19 +178,21 @@ const WatchContent: FC = () => {
                     data.insights && (
                         <div className="block lg:flex w-full mt-6 sm:mt-24">
                             {/* mobile */}
-                            <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl relative block lg:hidden bg-[#eee]">
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-white bg-opacity-60 rounded-2xl"></div>
+                            <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                                
+                                <div className="flex justify-center">
+                                    <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                                </div>
 
                                 {/* Content */}
-                                <div className="relative">
-                                <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-w-main-color px-5 sm:px-5 py-1 text-center max-w-52">
+                                <div className="mt-10">
+                                <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-w-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                                     Insights
                                 </div>
                                 <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
                                     The AI Values Podcast
                                 </div>
-                                <div className="text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]">
+                                <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
                                     Get latest insights on value, values, issues and future of AI Advisory. These are aimed at both experienced AI Value Consultans but also for those who aspire to become one. 
                                 </div>
                                 <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
