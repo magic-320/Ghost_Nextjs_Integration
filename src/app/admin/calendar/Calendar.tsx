@@ -323,9 +323,9 @@ const Calendar: FC = () => {
 
 
     return (
-        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-5 overflow-auto'>
-                <h1 className='text-[2rem] font-bold text-text-color'>Calendar Management (Availability)</h1>
+        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-8 sm:py-10'>
+            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-3 sm:p-5 overflow-auto'>
+                <h1 className='text-[1.5rem] sm:text-[2rem] font-bold text-text-color'>Calendar Management (Availability)</h1>
                 <div>
                     {
                         loading && (
@@ -339,7 +339,7 @@ const Calendar: FC = () => {
                             <div className='my-5 text-[20px]'>
 
                                 {/* Sunday */}
-                                <div className='flex px-5 my-4 text-text-color'>
+                                <div className='flex sm:px-5 my-4 text-text-color'>
                                     <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
                                         <div className='w-[5rem] pt-1 font-bold'>SUN</div>
                                         <div>
@@ -349,18 +349,18 @@ const Calendar: FC = () => {
                                                         {
                                                             data.sun.map((element:any, index:number) => (
                                                                 <div key={index} className='mb-2'>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeSunStart(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.start} onChange={(e) => onChangeSunStart(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
                                                                     <span> &nbsp;-&nbsp; </span>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeSunEnd(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.end} onChange={(e) => onChangeSunEnd(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
-                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveSun(index)}>&times;</span>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-1 sm:ml-3' onClick={() => onRemoveSun(index)}>&times;</span>
                                                                 </div>
                                                             ))
                                                         }
@@ -377,7 +377,7 @@ const Calendar: FC = () => {
                                 </div>
 
                                 {/* Monday */}
-                                <div className='flex px-5 my-4 text-text-color'>
+                                <div className='flex sm:px-5 my-4 text-text-color'>
                                     <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
                                         <div className='w-[5rem] pt-1 font-bold'>MON</div>
                                         <div>
@@ -387,18 +387,18 @@ const Calendar: FC = () => {
                                                         {
                                                             data.mon.map((element:any, index:number) => (
                                                                 <div key={index} className='mb-2'>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeMonStart(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.start} onChange={(e) => onChangeMonStart(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
                                                                     <span> &nbsp;-&nbsp; </span>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeMonEnd(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.end} onChange={(e) => onChangeMonEnd(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
-                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveMon(index)}>&times;</span>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-1 sm:ml-3' onClick={() => onRemoveMon(index)}>&times;</span>
                                                                 </div>
                                                             ))
                                                         }
@@ -415,7 +415,7 @@ const Calendar: FC = () => {
                                 </div>
 
                                 {/* Tuesday */}
-                                <div className='flex px-5 my-4 text-text-color'>
+                                <div className='flex sm:px-5 my-4 text-text-color'>
                                     <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
                                         <div className='w-[5rem] pt-1 font-bold'>TUE</div>
                                         <div>
@@ -425,18 +425,18 @@ const Calendar: FC = () => {
                                                         {
                                                             data.tue.map((element:any, index:number) => (
                                                                 <div key={index} className='mb-2'>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeTueStart(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.start} onChange={(e) => onChangeTueStart(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
                                                                     <span> &nbsp;-&nbsp; </span>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeTueEnd(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.end} onChange={(e) => onChangeTueEnd(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
-                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveTue(index)}>&times;</span>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-1 sm:ml-3' onClick={() => onRemoveTue(index)}>&times;</span>
                                                                 </div>
                                                             ))
                                                         }
@@ -453,7 +453,7 @@ const Calendar: FC = () => {
                                 </div>
 
                                 {/* Wednesday */}
-                                <div className='flex px-5 my-4 text-text-color'>
+                                <div className='flex sm:px-5 my-4 text-text-color'>
                                     <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
                                         <div className='w-[5rem] pt-1 font-bold'>WED</div>
                                         <div>
@@ -463,18 +463,18 @@ const Calendar: FC = () => {
                                                         {
                                                             data.wed.map((element:any, index:number) => (
                                                                 <div key={index} className='mb-2'>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeWedStart(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.start} onChange={(e) => onChangeWedStart(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
                                                                     <span> &nbsp;-&nbsp; </span>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeWedEnd(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.end} onChange={(e) => onChangeWedEnd(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
-                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveWed(index)}>&times;</span>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-1 sm:ml-3' onClick={() => onRemoveWed(index)}>&times;</span>
                                                                 </div>
                                                             ))
                                                         }
@@ -491,7 +491,7 @@ const Calendar: FC = () => {
                                 </div>
 
                                 {/* Thursday */}
-                                <div className='flex px-5 my-4 text-text-color'>
+                                <div className='flex sm:px-5 my-4 text-text-color'>
                                     <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
                                         <div className='w-[5rem] pt-1 font-bold'>THU</div>
                                         <div>
@@ -501,18 +501,18 @@ const Calendar: FC = () => {
                                                         {
                                                             data.thu.map((element:any, index:number) => (
                                                                 <div key={index} className='mb-2'>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeThuStart(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.start} onChange={(e) => onChangeThuStart(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
                                                                     <span> &nbsp;-&nbsp; </span>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeThuEnd(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.end} onChange={(e) => onChangeThuEnd(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
-                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveThu(index)}>&times;</span>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-1 sm:ml-3' onClick={() => onRemoveThu(index)}>&times;</span>
                                                                 </div>
                                                             ))
                                                         }
@@ -529,7 +529,7 @@ const Calendar: FC = () => {
                                 </div>
 
                                 {/* Friday */}
-                                <div className='flex px-5 my-4 text-text-color'>
+                                <div className='flex sm:px-5 my-4 text-text-color'>
                                     <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
                                         <div className='w-[5rem] pt-1 font-bold'>FRI</div>
                                         <div>
@@ -539,18 +539,18 @@ const Calendar: FC = () => {
                                                         {
                                                             data.fri.map((element:any, index:number) => (
                                                                 <div key={index} className='mb-2'>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeFriStart(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.start} onChange={(e) => onChangeFriStart(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
                                                                     <span> &nbsp;-&nbsp; </span>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeFriEnd(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.end} onChange={(e) => onChangeFriEnd(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
-                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveFri(index)}>&times;</span>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-1 sm:ml-3' onClick={() => onRemoveFri(index)}>&times;</span>
                                                                 </div>
                                                             ))
                                                         }
@@ -567,7 +567,7 @@ const Calendar: FC = () => {
                                 </div>
 
                                 {/* Saturday */}
-                                <div className='flex px-5 my-4 text-text-color'>
+                                <div className='flex sm:px-5 my-4 text-text-color'>
                                     <div className='w-11/12 block sm:flex text-[20px] leading-[40px]'>
                                         <div className='w-[5rem] pt-1 font-bold'>SAT</div>
                                         <div>
@@ -577,18 +577,18 @@ const Calendar: FC = () => {
                                                         {
                                                             data.sat.map((element:any, index:number) => (
                                                                 <div key={index} className='mb-2'>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.start} onChange={(e) => onChangeSatStart(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.start} onChange={(e) => onChangeSatStart(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
                                                                     <span> &nbsp;-&nbsp; </span>
-                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-4 py-3 text-[18px]' value={element.end} onChange={(e) => onChangeSatEnd(e, index)}>
+                                                                    <select className='border border-[#aaa] border-solid rounded-[10px] px-2 sm:px-4 py-2 sm:py-3 text-[16px] sm:text-[18px]' value={element.end} onChange={(e) => onChangeSatEnd(e, index)}>
                                                                         {
                                                                             times.map((el:string, i:number) => (<option key={i}>{el}</option>))
                                                                         }
                                                                     </select>
-                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-3' onClick={() => onRemoveSat(index)}>&times;</span>
+                                                                    <span className='px-3 py-2 text-[30px] rounded-[10px] hover:cursor-pointer hover:bg-[#eee] ml-1 sm:ml-3' onClick={() => onRemoveSat(index)}>&times;</span>
                                                                 </div>
                                                             ))
                                                         }

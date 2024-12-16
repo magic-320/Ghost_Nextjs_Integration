@@ -42,9 +42,9 @@ const Watch: FC = () => {
     }
 
     return (
-        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-5 overflow-auto'>
-                <h1 className='text-[2rem] font-bold text-text-color'>Watch Management</h1>
+        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-5 sm:py-10'>
+            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-3 sm:p-5 overflow-auto'>
+                <h1 className='text-[1.5rem] sm:text-[2rem] font-bold text-text-color'>Watch Management</h1>
                 <div>
                     {
                         loading && (
@@ -57,10 +57,11 @@ const Watch: FC = () => {
                         !loading && (
                             <div>
                                 <div className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
-                                    <div className='w-11/12 text-[18px]'>
-                                        <i className='text-w-main-color'>Podcasts</i>&nbsp;&nbsp;&nbsp; The AI Values Podcast
+                                    <div className='w-10/12 sm:w-11/12 text-[16px] sm:text-[18px]'>
+                                        <i className='text-w-main-color'>Podcasts</i> 
+                                        <div>The AI Values Podcast</div>
                                     </div>
-                                    <div className='w-1/12 text-center'>
+                                    <div className='w-2/12 sm:w-1/12 flex justify-center items-center'>
                                         <label className="inline-flex items-center cursor-pointer">
                                             <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.podcasts} onChange={() => setData({...data, podcasts: !data.podcasts})} />
                                             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -69,10 +70,11 @@ const Watch: FC = () => {
                                 </div>
 
                                 <div className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
-                                    <div className='w-11/12 text-[18px]'>
-                                        <i className='text-w-main-color'>eCoaching</i>&nbsp;&nbsp;&nbsp; Demystifying & Accelerating AI Value
+                                    <div className='w-10/12 sm:w-11/12 text-[16px] sm:text-[18px]'>
+                                        <i className='text-w-main-color'>eCoaching</i> 
+                                        <div>Demystifying & Accelerating AI Value</div>
                                     </div>
-                                    <div className='w-1/12 text-center'>
+                                    <div className='w-2/12 sm:w-1/12 flex justify-center items-center'>
                                         <label className="inline-flex items-center cursor-pointer">
                                             <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.eCoaching} onChange={() => setData({...data, eCoaching: !data.eCoaching})} />
                                             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
@@ -81,10 +83,11 @@ const Watch: FC = () => {
                                 </div>
 
                                 <div className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
-                                    <div className='w-11/12 text-[18px]'>
-                                        <i className='text-w-main-color'>Insights</i>&nbsp;&nbsp;&nbsp; The AI Values Podcast
+                                    <div className='w-10/12 sm:w-11/12 text-[16px] sm:text-[18px]'>
+                                        <i className='text-w-main-color'>Insights</i> 
+                                        <div>The AI Values Podcast</div>
                                     </div>
-                                    <div className='w-1/12 text-center'>
+                                    <div className='w-2/12 sm:w-1/12 flex justify-center items-center'>
                                         <label className="inline-flex items-center cursor-pointer">
                                             <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.insights} onChange={() => setData({...data, insights: !data.insights})} />
                                             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>

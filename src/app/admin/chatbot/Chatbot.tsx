@@ -42,9 +42,9 @@ const Chatbot: FC = () => {
     }
 
     return (
-        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-5 overflow-auto'>
-                <h1 className='text-[2rem] font-bold text-text-color'>Chatbot Available Management</h1>
+        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-5 sm:py-10'>
+            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-3 sm:p-5 overflow-auto'>
+                <h1 className='text-[1.5rem] sm:text-[2rem] font-bold text-text-color'>Chatbot Available Management</h1>
                 <div>
                     {
                         loading && (
@@ -56,13 +56,13 @@ const Chatbot: FC = () => {
                     {
                         !loading && (
                             <div>
-                                <div className='text-center my-10'>
+                                <div className='text-center my-5 sm:my-10'>
                                     <label className="inline-flex items-center cursor-pointer">
                                         <input type="checkbox" value="" className="sr-only peer" defaultChecked={data.enable} onChange={() => setData({...data, enable: !data.enable})} />
                                         <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                     </label>
                                 </div>
-                                <div className='text-text-color italic text-[22px] text-center'>The Chatbot is {data.enable ? 'enabled' : 'disabled'}.</div>
+                                <div className='text-text-color italic text-[22px] text-center mb-5'>The Chatbot is {data.enable ? 'enabled' : 'disabled'}.</div>
                             </div>
                         )
                     }

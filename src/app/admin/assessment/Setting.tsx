@@ -113,9 +113,9 @@ const Setting: FC = () => {
 
 
     return (
-        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-7 py-10'>
-            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-5 overflow-auto'>
-                <h1 className='text-[2rem] font-bold text-text-color'>Assessment Management</h1>
+        <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-7 sm:py-10'>
+            <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-3 sm:p-5 overflow-auto'>
+                <h1 className='text-[1.5rem] sm:text-[2rem] font-bold text-text-color'>Assessment Management</h1>
                 <div>
                     {
                         loading && (
@@ -127,8 +127,8 @@ const Setting: FC = () => {
                     {
                         !loading && data.map((el: dataStyle, index:number) => {
                             return (
-                                <div key={index} className='flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
-                                    <div className='w-10/12'>
+                                <div key={index} className='block sm:flex p-5 my-3 rounded-[10px] bg-[#eee] text-text-color'>
+                                    <div className='w-full sm:w-10/12'>
                                         <div>
                                             {
                                                 el.isEdit ? (
@@ -148,7 +148,7 @@ const Setting: FC = () => {
                                             }
                                         </div>
                                     </div>
-                                    <div className='w-1/12 flex justify-center items-center'>
+                                    <div className='w-full sm:w-1/12 py-1 flex justify-center items-center'>
                                         {
                                             el.isEdit ? (
                                                 <span className='hover:cursor-pointer hover:font-bold' onClick={() => removeEdit(index)}>
@@ -161,7 +161,7 @@ const Setting: FC = () => {
                                             )
                                         }
                                     </div>
-                                    <div className='w-1/12 flex justify-center items-center'>
+                                    <div className='w-full sm:w-1/12 py-1 flex justify-center items-center'>
                                         <span className='text-[rgb(170,0,0)] hover:cursor-pointer hover:font-bold' onClick={() => delItem(index)}>
                                             Delete
                                         </span>
@@ -178,7 +178,7 @@ const Setting: FC = () => {
                             ADD ASSESSMENT
                         </button>
                         <button 
-                            className="rounded-md bg-green-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+                            className="rounded-md bg-green-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2 mt-1 sm:mt-0"
                             onClick={save}
                         >
                             SAVE ASSESSMENT
