@@ -97,8 +97,8 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col sm:flex-row sm:row-span-2'>
-      <div className="sm:w-2/5 mt-12 mr-8 p-6 rounded-lg bg-[#F9F9F9]">
+    <div className='flex flex-col md:flex-row md:row-span-2'>
+      <div className="w-full md:w-2/5 mt-4 md:mt-12 mr-8 p-6 rounded-lg bg-[#F9F9F9]">
         <h1 className="text-2xl font-bold text-orange-600 text-center mt-8">EDOSA ODARO</h1>
         <h2 className="text-3xl font-bold text-center mt-4">Log in to your account</h2>
         <p className="text-center mt-4">Welcome back! Please enter your details.</p>
@@ -189,7 +189,7 @@ const LoginForm: React.FC = () => {
         </form>
         {/* {error && <p>error</p>} */}
       </div>
-      <div className='bg-[#F2FAEC] mt-4 sm:w-3/4 rounded-2xl h-[700px] sm:ml-10'>
+      <div className='bg-[#F2FAEC] mt-4 md:w-3/4 rounded-2xl h-[700px] md:ml-10 hidden md:block'>
         
       </div>
       <ToastContainer />
