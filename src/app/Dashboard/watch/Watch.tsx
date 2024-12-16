@@ -179,8 +179,8 @@ const Watch: FC = () => {
 
                 {
                     detail.title && (
-                        <div className='mx-5'>
-                            <div className='text-[#344054] font-bold text-[25px] px-3'>
+                        <div className='sm:mx-5'>
+                            <div className='text-[#344054] font-bold text-[18px] sm:text-[25px] px-3'>
                                 {detail.title}
                             </div>
                             <div className='mt-5 leading-[30px] text-[#344054] font-inter text-[18px] px-3'>

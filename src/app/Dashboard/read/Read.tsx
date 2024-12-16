@@ -123,7 +123,7 @@ const Read: FC = () => {
                                 <img src={individual.feature_image} alt="learn image"/>
                             </div>
                             <div className='pt-5 flex flex-col'>
-                                <div className="mb-[auto] text-[25px] md:text-[36px] leading-11 font-bold text-text-color text-center">
+                                <div className="mb-[auto] text-[18px] sm:text-[25px] md:text-[36px] leading-11 font-bold text-text-color text-center">
                                     {individual.title}
                                 </div>
                                 <div className='w-full flex justify-center gap-3 text-center mt-5'>

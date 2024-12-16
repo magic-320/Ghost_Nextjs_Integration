@@ -75,15 +75,15 @@ function Sidebar( { onCollapse }: SidebarProps ) {
     }, []);
 
     return (
-        <div className="w-full h-full py-3 lg:py-10 text-[17px] xl:text-[22px] bg-[#F9F9F9] rounded-[22px] lg:block">
+        <>
             {
                 onCollapse && (
                     <div 
-                        className="text-center lg:text-left mx-[auto] font-bold text-[20px] text-text-color hover:cursor-pointer relative"
+                        className="mx-[auto] font-bold text-[20px] text-text-color hover:cursor-pointer relative w-full h-[40px] bg-[#EEE] flex justify-center items-center rounded-[15px] mb-1"
                         onClick={() => setExpand(!expand)}
                     >
                         {items[active as keyof typeof items]}
-                        <span className="absolute top-1 right-5">
+                        <span className="absolute top-2.5 right-5">
                             { !expand ? <IoIosArrowDown /> : <IoIosArrowUp /> }
                         </span>
                     </div>
@@ -91,110 +91,112 @@ function Sidebar( { onCollapse }: SidebarProps ) {
             }
             {
                 expand && (
-                    <div className="text-center lg:text-left mx-[auto] max-w-[125px] xl:max-w-[155px] mt-5 lg:mt-0">
-                        <Link href="/Dashboard">
+                    <div className="w-full h-full py-3 lg:py-10 text-[17px] xl:text-[22px] bg-[#F9F9F9] rounded-[22px] lg:block">
+                        <div className="text-center lg:text-left mx-[auto] max-w-[125px] xl:max-w-[155px] lg:mt-0">
+                            <Link href="/Dashboard">
+                                <div
+                                    className={`hover:cursor-pointer ${active == 'dashboard' && 'font-bold'}`}
+                                    onClick={() => {
+                                        setActive('dashboard');
+                                        onCollapse && setExpand(false);
+                                    }}
+                                >
+                                    My Dashboard
+                                </div>
+                            </Link>
                             <div
-                                className={`hover:cursor-pointer ${active == 'dashboard' && 'font-bold'}`}
-                                onClick={() => {
-                                    setActive('dashboard');
-                                    onCollapse && setExpand(false);
-                                }}
+                                className="mt-2 lg:mt-4 hover:cursor-pointer flex"
+                                onClick={() => setServiceHiden(!serviceHidden)}
                             >
-                                My Dashboard
+                                My Services <span className="ml-2 md:ml-3 mt-1 md:mt-2">{serviceHidden ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
                             </div>
-                        </Link>
-                        <div
-                            className="mt-2 lg:mt-4 hover:cursor-pointer flex"
-                            onClick={() => setServiceHiden(!serviceHidden)}
-                        >
-                            My Services <span className="ml-2 md:ml-3 mt-1 md:mt-2">{serviceHidden ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
-                        </div>
-                        <div className={`px-10 ${serviceHidden && 'hidden'}`}>
-                            <Link href="/Dashboard/learn">
-                                <div
-                                    className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'learn' && 'font-bold'}`}
-                                    onClick={() => {
-                                        setActive('learn');
-                                        onCollapse && setExpand(false);
-                                    }}
-                                >
-                                    Learn
-                                </div>
-                            </Link>
-                            <Link href="/Dashboard/read">
-                                <div
-                                    className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'read' && 'font-bold'}`}
-                                    onClick={() => {
-                                        setActive('read');
-                                        onCollapse && setExpand(false);
-                                    }}
-                                >
-                                    Read
-                                </div>
-                            </Link>
-                            <Link href="/Dashboard/watch">
-                                <div
-                                    className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'watch' && 'font-bold'}`}
-                                    onClick={() => {
-                                        setActive('watch');
-                                        onCollapse && setExpand(false);
-                                    }}
-                                >
-                                    Watch
-                                </div>
-                            </Link>
-                            <Link href="/Dashboard/meet">
-                                <div
-                                    className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'meet' && 'font-bold'}`}
-                                    onClick={() => {
-                                        setActive('meet');
-                                        onCollapse && setExpand(false);
-                                    }}
-                                >
-                                    Meet
-                                </div>
-                            </Link>
-                        </div>
-                        {isChatbot && (
-                            <Link href="/Dashboard/chatbot">
-                                <div
-                                    className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'chatbot' && 'font-bold'}`}
-                                    onClick={() => {
-                                        setActive('chatbot');
-                                        onCollapse && setExpand(false);
-                                    }}
-                                >
-                                    My Chatbot
-                                </div>
-                            </Link>
-                        )}
-                        <Link href="/Dashboard/newsletter">
-                            <div
-                                className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'newsletter' && 'font-bold'}`}
-                                onClick={() => {
-                                    setActive('newsletter');
-                                    onCollapse && setExpand(false);
-                                }}
-                            >
-                                My Newsletter
+                            <div className={`px-10 ${serviceHidden && 'hidden'}`}>
+                                <Link href="/Dashboard/learn">
+                                    <div
+                                        className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'learn' && 'font-bold'}`}
+                                        onClick={() => {
+                                            setActive('learn');
+                                            onCollapse && setExpand(false);
+                                        }}
+                                    >
+                                        Learn
+                                    </div>
+                                </Link>
+                                <Link href="/Dashboard/read">
+                                    <div
+                                        className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'read' && 'font-bold'}`}
+                                        onClick={() => {
+                                            setActive('read');
+                                            onCollapse && setExpand(false);
+                                        }}
+                                    >
+                                        Read
+                                    </div>
+                                </Link>
+                                <Link href="/Dashboard/watch">
+                                    <div
+                                        className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'watch' && 'font-bold'}`}
+                                        onClick={() => {
+                                            setActive('watch');
+                                            onCollapse && setExpand(false);
+                                        }}
+                                    >
+                                        Watch
+                                    </div>
+                                </Link>
+                                <Link href="/Dashboard/meet">
+                                    <div
+                                        className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'meet' && 'font-bold'}`}
+                                        onClick={() => {
+                                            setActive('meet');
+                                            onCollapse && setExpand(false);
+                                        }}
+                                    >
+                                        Meet
+                                    </div>
+                                </Link>
                             </div>
-                        </Link>
-                        <Link href="/Dashboard/assessment">
-                            <div
-                                className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'assessment' && 'font-bold'}`}
-                                onClick={() => {
-                                    setActive('assessment');
-                                    onCollapse && setExpand(false);
-                                }}
-                            >
-                                Assessment
-                            </div>
-                        </Link>
+                            {isChatbot && (
+                                <Link href="/Dashboard/chatbot">
+                                    <div
+                                        className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'chatbot' && 'font-bold'}`}
+                                        onClick={() => {
+                                            setActive('chatbot');
+                                            onCollapse && setExpand(false);
+                                        }}
+                                    >
+                                        My Chatbot
+                                    </div>
+                                </Link>
+                            )}
+                            <Link href="/Dashboard/newsletter">
+                                <div
+                                    className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'newsletter' && 'font-bold'}`}
+                                    onClick={() => {
+                                        setActive('newsletter');
+                                        onCollapse && setExpand(false);
+                                    }}
+                                >
+                                    My Newsletter
+                                </div>
+                            </Link>
+                            <Link href="/Dashboard/assessment">
+                                <div
+                                    className={`mt-2 lg:mt-4 hover:cursor-pointer ${active == 'assessment' && 'font-bold'}`}
+                                    onClick={() => {
+                                        setActive('assessment');
+                                        onCollapse && setExpand(false);
+                                    }}
+                                >
+                                    Assessment
+                                </div>
+                            </Link>
 
+                        </div>
                     </div>
                 )
             }
-        </div>
+        </>
     );
 }
 
