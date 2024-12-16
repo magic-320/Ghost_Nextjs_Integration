@@ -44,7 +44,7 @@ const Meet: FC = () => {
     return (
         <div className='relative w-full h-full bg-[#F9F9F9] rounded-[22px] px-4 sm:px-7 py-5 sm:py-10'>
             <div className='w-full h-[auto] bg-[#FFF] rounded-[22px] p-3 sm:p-5 overflow-auto'>
-                <h1 className='text-[2rem] font-bold text-text-color'>Meet Management</h1>
+                <h1 className='text-[1.5rem] sm:text-[2rem] font-bold text-text-color'>Meet Management</h1>
                 <div>
                     {
                         loading && (
