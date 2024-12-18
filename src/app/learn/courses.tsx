@@ -169,7 +169,7 @@ const Courses: NextPage = () => {
       {/* eCoaching */}
       {
         data.eCoaching && (
-          <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/free-coaching-snippets/')}>
+          <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('/Dashboard/learn?slug=free-coaching-snippets')}>
               {/* mobile */}
               <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
 
@@ -191,13 +191,13 @@ const Courses: NextPage = () => {
                     <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
                         <div 
                           className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800"
-                          onClick={() => window.open('https://www.edosaodaro.com/free-coaching-snippets/')}
+                          onClick={() => window.open('/Dashboard/learn?slug=free-coaching-snippets')}
                         >
                           Start Here
                         </div>
                         <div 
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0"
-                          onClick={() => window.open('https://www.edosaodaro.com/free-coaching-snippets/')}
+                          onClick={() => window.open('/Dashboard/learn?slug=free-coaching-snippets')}
                         >
                           Find Out More
                         </div>
@@ -218,13 +218,13 @@ const Courses: NextPage = () => {
                   <div className="flex flex-row mt-8 ml-4 gap-4">
                       <div 
                         className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800"
-                        onClick={() => window.open('https://www.edosaodaro.com/free-coaching-snippets/')}
+                        onClick={() => window.open('/Dashboard/learn?slug=free-coaching-snippets')}
                       >
                         Start Here
                       </div>
                       <div 
                         className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
-                        onClick={() => window.open('https://www.edosaodaro.com/free-coaching-snippets/')}
+                        onClick={() => window.open('/Dashboard/learn?slug=free-coaching-snippets')}
                       >
                         Find Out More
                       </div>
@@ -297,7 +297,7 @@ const Courses: NextPage = () => {
       {/* eResources */}
       {
         data.resource2 && (
-          <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}>
+          <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('/Dashboard/read?slug=cheatsheets-resources')}>
               {/* mobile */}
               <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                   
@@ -333,13 +333,13 @@ const Courses: NextPage = () => {
                     <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
                         <div 
                           className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800"
-                          onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                          onClick={() => window.open('/Dashboard/read?slug=cheatsheets-resources')}
                         >
                           Get it Here
                         </div>
                         <div 
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0"
-                          onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                          onClick={() => window.open('/Dashboard/read?slug=cheatsheets-resources')}
                         >
                           Find Out More
                         </div>
@@ -374,13 +374,13 @@ const Courses: NextPage = () => {
                   <div className="flex flex-row mt-8 ml-4 gap-4">
                       <div 
                         className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800"
-                        onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                        onClick={() => window.open('/Dashboard/read?slug=cheatsheets-resources')}
                       >
                         Get it Here
                       </div>
                       <div 
                         className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
-                        onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                        onClick={() => window.open('/Dashboard/read?slug=cheatsheets-resources')}
                       >
                         Find Out More
                       </div>
@@ -396,7 +396,7 @@ const Courses: NextPage = () => {
       {/* personalised Coaching */}
       {
         data.personalisedCoaching && (
-          <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}>
+          <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://personal-value-driven.scoreapp.com/?ref=edosaodaro.com')}>
               {/* mobile */}
               <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                   
@@ -418,13 +418,13 @@ const Courses: NextPage = () => {
                     <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
                         <div 
                           className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800"
-                          onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                          onClick={() => window.open('https://personal-value-driven.scoreapp.com/?ref=edosaodaro.com')}
                         >
                           Start Here
                         </div>
                         <div 
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0"
-                          onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                          onClick={() => window.open('https://personal-value-driven.scoreapp.com/?ref=edosaodaro.com')}
                         >
                           Find Out More
                         </div>
@@ -448,13 +448,13 @@ const Courses: NextPage = () => {
                   <div className="flex flex-row mt-8 ml-4 gap-4">
                       <div 
                         className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800"
-                        onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                        onClick={() => window.open('https://personal-value-driven.scoreapp.com/?ref=edosaodaro.com')}
                       >
                         Start Here
                       </div>
                       <div 
                         className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
-                        onClick={() => window.open('https://www.edosaodaro.com/value-driven-transformation/')}
+                        onClick={() => window.open('https://personal-value-driven.scoreapp.com/?ref=edosaodaro.com')}
                       >
                         Find Out More
                       </div>

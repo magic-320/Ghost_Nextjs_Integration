@@ -9,10 +9,13 @@ import BOOK2 from "@/public/assets/images/books/book2.png";
 import DefaultButton from '../../components/buttons/DefaultButton';
 import '../card.css';
 import Loading from '@/public/assets/loading/blue.gif';
+import { useSearchParams } from "next/navigation";
 
 const filterTags: string[] = ['hash-books'];
 
 const Read: FC = () => {
+
+    const searchParams = useSearchParams();
 
     const hasRun = useRef(false);
     const [data, setData] = useState<any>([]);
@@ -33,7 +36,6 @@ const Read: FC = () => {
                     post.tags.map((el:any) => {
                         if (filterTags.includes(el.slug)) {
                             post.badge = 'Published';
-                            console.log(post)
                             demoData.push(post);
                         }
                     })
@@ -47,20 +49,28 @@ const Read: FC = () => {
                         demoData.push(page);
                     }
                 }
-                
+
                 setData(demoData);
-                console.log(demoData)
+
+                // if the URL has the slug
+                const slug = searchParams?.get('slug');
+                if (slug) {
+                    let index:any;
+                    demoData.map((el:any, i:number) => {
+                        if (el.slug === slug) index = i;
+                    })
+                    setIndividual(demoData[index]);
+                }
+
                 setLoading(false);
 
-                // const res = await axios.post<PostsResponse>('/api/content/posts', {
-                //     payload: "&limit=all&filter=tag:hash-books"
-                // });
             } catch (err) {
               console.log(err);
             }
         }
   
         getPosts();
+
     }, []);
 
     // init Individual for individual book

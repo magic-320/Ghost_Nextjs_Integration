@@ -260,7 +260,7 @@ const Books: FC = () => {
         {/* Book2 */}
         {
           data.book2 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/workbook-anniversary-edition/')}>
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('/Dashboard/read?slug=workbook-anniversary-edition')}>
                 {/* mobile */}
                 <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
@@ -288,7 +288,7 @@ const Books: FC = () => {
                           </div>
                           <div 
                             className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0"
-                            onClick={() => window.open('https://www.edosaodaro.com/workbook-anniversary-edition/')}
+                            onClick={() => window.open('/Dashboard/read?slug=workbook-anniversary-edition')}
                           >
                             Find Out More
                           </div>
@@ -315,7 +315,7 @@ const Books: FC = () => {
                         </div>
                         <div 
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
-                          onClick={() => window.open('https://www.edosaodaro.com/workbook-anniversary-edition/')}
+                          onClick={() => window.open('/Dashboard/read?slug=workbook-anniversary-edition')}
                         >
                           Find Out More
                         </div>
@@ -332,7 +332,7 @@ const Books: FC = () => {
         {/* Book3 */}
         {
           data.book3 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/value-driven-data/')}>
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('/Dashboard/read?slug=value-driven-data')}>
                 {/* mobile */}
                 <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
@@ -360,7 +360,7 @@ const Books: FC = () => {
                           </div>
                           <div 
                             className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0"
-                            onClick={() => window.open('https://www.edosaodaro.com/value-driven-data/')}
+                            onClick={() => window.open('/Dashboard/read?slug=value-driven-data')}
                           >
                             Find Out More
                           </div>
@@ -390,7 +390,7 @@ const Books: FC = () => {
                         </div>
                         <div 
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
-                          onClick={() => window.open('https://www.edosaodaro.com/value-driven-data/')}
+                          onClick={() => window.open('/Dashboard/read?slug=value-driven-data')}
                         >
                           Find Out More
                         </div>
@@ -404,7 +404,7 @@ const Books: FC = () => {
         {/* Book4 */}
         {
           data.book4 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/making-data-work/')}>
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('/Dashboard/read?slug=making-data-work')}>
                 {/* mobile */}
                 <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
@@ -432,7 +432,7 @@ const Books: FC = () => {
                           </div>
                           <div 
                             className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0"
-                            onClick={() => window.open('https://www.edosaodaro.com/making-data-work/')}
+                            onClick={() => window.open('/Dashboard/read?slug=making-data-work')}
                           >
                             Find Out More
                           </div>
@@ -459,7 +459,7 @@ const Books: FC = () => {
                         </div>
                         <div 
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
-                          onClick={() => window.open('https://www.edosaodaro.com/making-data-work/')}
+                          onClick={() => window.open('/Dashboard/read?slug=making-data-work')}
                         >
                           Find Out More
                         </div>
@@ -476,7 +476,7 @@ const Books: FC = () => {
         {/* Book5 */}
         {
           data.book5 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/value-driven-data-the-executive-handbook/')}>
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('/Dashboard/read?slug=value-driven-data-the-executive-handbook')}>
                 {/* mobile */}
                 <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
@@ -504,7 +504,7 @@ const Books: FC = () => {
                           </div>
                           <div 
                             className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0"
-                            onClick={() => window.open('https://www.edosaodaro.com/value-driven-data-the-executive-handbook/')}
+                            onClick={() => window.open('/Dashboard/read?slug=value-driven-data-the-executive-handbook')}
                           >
                             Find Out More
                           </div>
@@ -534,7 +534,7 @@ const Books: FC = () => {
                         </div>
                         <div 
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
-                          onClick={() => window.open('https://www.edosaodaro.com/value-driven-data-the-executive-handbook/')}
+                          onClick={() => window.open('/Dashboard/read?slug=value-driven-data-the-executive-handbook')}
                         >
                           Find Out More
                         </div>

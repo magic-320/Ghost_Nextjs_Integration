@@ -9,6 +9,7 @@ import axios from 'axios';
 import parse from 'html-react-parser';
 import '../card.css';
 import Loading from '@/public/assets/loading/blue.gif';
+import { useSearchParams } from "next/navigation";
 
 const fixedCourse: any = [
     {
@@ -24,6 +25,8 @@ const fixedCourse: any = [
 ];
 
 const Learn: FC = () => {
+
+    const searchParams = useSearchParams();
 
     const [data, setData] = useState<any>([]);
     const [viewAll, setViewAll] = useState<boolean>(false);
@@ -45,6 +48,17 @@ const Learn: FC = () => {
                 const readyData = fixedCourse.concat(demoData);
 
                 setData(readyData);
+
+                // if the URL has the slug
+                const slug = searchParams?.get('slug');
+                if (slug) {
+                    let index:any;
+                    readyData.map((el:any, i:number) => {
+                        if (el.slug === slug) index = i;
+                    })
+                    setDetail(readyData[index]);
+                }
+
                 setLoading(false);
 
             } catch (err) {
