@@ -29,26 +29,26 @@ const links: Array<{ text: string, link: string, textColor: string, bgColor: str
   {
     text: "Learn",
     link: "/learn",
-    textColor: "#FFF",
-    bgColor: "#5c76ff"
+    textColor: "#5c76ff",
+    bgColor: "#F3F8FE"
   },
   {
     text: "Read",
     link: "/read",
-    textColor: "#FFF",
-    bgColor: "#f15f31"
+    textColor: "#FF6E3E",
+    bgColor: "#FFF7F4"
   },
   {
     text: "Watch",
     link: "/watch",
-    textColor: "#FFF",
-    bgColor: "#7f56d9"
+    textColor: "#9E77ED",
+    bgColor: "#F7F6FF"
   },
   {
     text: "Meet",
     link: "/meet",
-    textColor: "#FFF",
-    bgColor: "#95da79"
+    textColor: "#95DA79",
+    bgColor: "#F2FAEC"
   },
 ];
 
@@ -56,8 +56,6 @@ interface userStyle {
     jwtToken: any,
     member: any
 }
-
-const linksArr:any = ['/learn', '/read', '/watch', '/meet'];
 
 
 const Header: FC = () => {
@@ -207,15 +205,12 @@ const Header: FC = () => {
             {links.map((item, index) => {
                 const newStyle = currentUrl === item.link
                   ? `text-[${item.textColor}] font-bold`
-                  : 'font-normal';
-                const newStyle1 = linksArr.includes(currentUrl)
-                  ? `text-[#eee]`
-                  : 'font-normal';
+                  : "font-normal";
                 return (
                   <Link
                     href={item.link}
                     key={index}
-                    className={`text-[16px] md:text-[20px] font-inter ${newStyle} ${newStyle1}`}
+                    className={`text-[16px] md:text-[20px] font-inter ${newStyle}`}
                   >
                     {item.text}
                   </Link>

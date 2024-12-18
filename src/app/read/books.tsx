@@ -26,6 +26,179 @@ const Books: FC = () => {
   return (
     <div className='sm:mx-14 pb-5 mt-10 sm:mt-24'>
 
+        {/* Blogs */}
+        {
+          data.blogs && (
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
+                {/* mobile */}
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                        Blogs
+                      </div>
+                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        The AI Values Podcast
+                      </div>
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
+                        Navigating the value, values, issues and future of AI. We can’t wait to welcome you to the show to share the latest advancements in the AI world and the big questions that you are currently wanting to answer.
+                      </div>
+                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
+                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
+                            Get it Here
+                          </div>
+                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
+                            Find Out More
+                          </div>
+                      </div>
+                    </div>  
+                </div>
+                {/* PC */}
+                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                      Blogs
+                    </div>
+                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                      The AI Values Podcast
+                    </div>
+                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
+                      Navigating the value, values, issues and future of AI. We can’t wait to welcome you to the show to share the latest advancements in the AI world and the big questions that you are currently wanting to answer.
+                    </div>
+                    <div className="flex flex-row mt-8 ml-4 gap-4">
+                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
+                          Get it Here
+                        </div>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
+                          Find Out More
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
+            </div>
+          )
+        }
+
+        {/* eBooks 1 */}
+        {
+          data.eBook1 && (
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
+                {/* mobile */}
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                        eBooks
+                      </div>
+                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        Coming Soon
+                      </div>
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
+                        Next book title dropping soon! 
+                      </div>
+                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
+                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
+                            Register Your Interest
+                          </div>
+                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
+                            Find Out More
+                          </div>
+                      </div>
+                    </div>  
+                </div>
+                {/* PC */}
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                      eBooks
+                    </div>
+                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                      Coming Soon
+                    </div>
+                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
+                      Next book title dropping soon! 
+                    </div>
+                    <div className="flex flex-row mt-8 ml-4 gap-4">
+                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
+                          Register Your Interest
+                        </div>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
+                          Find Out More
+                        </div>
+                    </div>
+                </div>
+            </div>
+          )
+        }
+
+
+        {/* eBooks 2 */}
+        {
+          data.eBook2 && (
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
+                {/* mobile */}
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                        eBooks
+                      </div>
+                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        Coming Soon
+                      </div>
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
+                        Next book title dropping soon! 
+                      </div>
+                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
+                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
+                            Register Your Interest
+                          </div>
+                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
+                            Find Out More
+                          </div>
+                      </div>
+                    </div>  
+                </div>
+                {/* PC */}
+                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                      eBooks
+                    </div>
+                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                      Coming Soon
+                    </div>
+                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
+                      Next book title dropping soon! 
+                    </div>
+                    <div className="flex flex-row mt-8 ml-4 gap-4">
+                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
+                          Register Your Interest
+                        </div>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
+                          Find Out More
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
+            </div>
+          )
+        }
+
+
         {/* Book2 */}
         {
           data.book2 && (
@@ -65,6 +238,9 @@ const Books: FC = () => {
                     </div>  
                 </div>
                 {/* PC */}
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK2.src})` }} ></div>
+                </div>
                 <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
                     <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       Published
@@ -89,9 +265,6 @@ const Books: FC = () => {
                           Find Out More
                         </div>
                     </div>
-                </div>
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
-                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK2.src})` }} ></div>
                 </div>
             </div>
           )
@@ -137,9 +310,6 @@ const Books: FC = () => {
                     </div>  
                 </div>
                 {/* PC */}
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
-                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK1.src})` }} ></div>
-                </div>
                 <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
                     <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       Published
@@ -165,9 +335,13 @@ const Books: FC = () => {
                         </div>
                     </div>
                 </div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK1.src})` }} ></div>
+                </div>
             </div>
           )
         }
+
 
         {/* Book5 */}
         {
@@ -208,6 +382,9 @@ const Books: FC = () => {
                     </div>  
                 </div>
                 {/* PC */}
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK3.src})` }} ></div>
+                </div>
                 <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
                     <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       Published
@@ -232,9 +409,6 @@ const Books: FC = () => {
                           Find Out More
                         </div>
                     </div>
-                </div>
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
-                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK3.src})` }} ></div>
                 </div>
             </div>
           )
@@ -280,9 +454,6 @@ const Books: FC = () => {
                     </div>  
                 </div>
                 {/* PC */}
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
-                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK4.src})` }} ></div>
-                </div>
                 <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
                     <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       Published
@@ -304,6 +475,67 @@ const Books: FC = () => {
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
                           onClick={() => window.open('/Dashboard/read?slug=making-data-work')}
                         >
+                          Find Out More
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK4.src})` }} ></div>
+                </div>
+            </div>
+          )
+        }
+
+
+        {/* Book1 */}
+        {
+          data.book1 && (
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
+                {/* mobile */}
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="mt-10">
+                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                        Published
+                      </div>
+                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        Coming Soon
+                      </div>
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
+                        Next book title dropping soon!  
+                      </div>
+                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
+                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
+                            Register Your Interest
+                          </div>
+                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
+                            Find Out More
+                          </div>
+                      </div>
+                    </div>  
+                </div>
+                {/* PC */}
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
+                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
+                      Published
+                    </div>
+                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                      Coming Soon
+                    </div>
+                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
+                      Next book title dropping soon!  
+                    </div>
+                    <div className="flex flex-row mt-8 ml-4 gap-4">
+                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
+                          Register Your Interest
+                        </div>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
                           Find Out More
                         </div>
                     </div>
@@ -444,237 +676,6 @@ const Books: FC = () => {
                           className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer"
                           onClick={() => window.open('https://www.edosaodaro.com/bespoke-contact/')}
                         >
-                          Find Out More
-                        </div>
-                    </div>
-                </div>
-            </div>
-          )
-        }
-
-
-        {/* Book1 */}
-        {
-          data.book1 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
-                {/* mobile */}
-                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
-                    
-                    <div className="flex justify-center">
-                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="mt-10">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                        Published
-                      </div>
-                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                        Coming Soon
-                      </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
-                        Next book title dropping soon!  
-                      </div>
-                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
-                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
-                            Register Your Interest
-                          </div>
-                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
-                            Find Out More
-                          </div>
-                      </div>
-                    </div>  
-                </div>
-                {/* PC */}
-                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                      Published
-                    </div>
-                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                      Coming Soon
-                    </div>
-                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
-                      Next book title dropping soon!  
-                    </div>
-                    <div className="flex flex-row mt-8 ml-4 gap-4">
-                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
-                          Register Your Interest
-                        </div>
-                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
-                          Find Out More
-                        </div>
-                    </div>
-                </div>
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
-            </div>
-          )
-        }
-
-
-        {/* Blogs */}
-        {
-          data.blogs && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
-                {/* mobile */}
-                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
-                    
-                    <div className="flex justify-center">
-                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="mt-10">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                        Blogs
-                      </div>
-                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                        The AI Values Podcast
-                      </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
-                        Navigating the value, values, issues and future of AI. We can’t wait to welcome you to the show to share the latest advancements in the AI world and the big questions that you are currently wanting to answer.
-                      </div>
-                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
-                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
-                            Get it Here
-                          </div>
-                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
-                            Find Out More
-                          </div>
-                      </div>
-                    </div>  
-                </div>
-                {/* PC */}
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
-                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                      Blogs
-                    </div>
-                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                      The AI Values Podcast
-                    </div>
-                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
-                      Navigating the value, values, issues and future of AI. We can’t wait to welcome you to the show to share the latest advancements in the AI world and the big questions that you are currently wanting to answer.
-                    </div>
-                    <div className="flex flex-row mt-8 ml-4 gap-4">
-                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
-                          Get it Here
-                        </div>
-                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
-                          Find Out More
-                        </div>
-                    </div>
-                </div>
-            </div>
-          )
-        }
-
-        {/* eBooks 1 */}
-        {
-          data.eBook1 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
-                {/* mobile */}
-                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
-                    
-                    <div className="flex justify-center">
-                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="mt-10">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                        eBooks
-                      </div>
-                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                        Coming Soon
-                      </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
-                        Next book title dropping soon! 
-                      </div>
-                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
-                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
-                            Register Your Interest
-                          </div>
-                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
-                            Find Out More
-                          </div>
-                      </div>
-                    </div>  
-                </div>
-                {/* PC */}
-                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                      eBooks
-                    </div>
-                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                      Coming Soon
-                    </div>
-                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
-                      Next book title dropping soon! 
-                    </div>
-                    <div className="flex flex-row mt-8 ml-4 gap-4">
-                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
-                          Register Your Interest
-                        </div>
-                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
-                          Find Out More
-                        </div>
-                    </div>
-                </div>
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
-            </div>
-          )
-        }
-
-
-        {/* eBooks 2 */}
-        {
-          data.eBook2 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
-                {/* mobile */}
-                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
-                    
-                    <div className="flex justify-center">
-                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="mt-10">
-                      <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                        eBooks
-                      </div>
-                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                        Coming Soon
-                      </div>
-                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
-                        Next book title dropping soon! 
-                      </div>
-                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
-                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
-                            Register Your Interest
-                          </div>
-                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
-                            Find Out More
-                          </div>
-                      </div>
-                    </div>  
-                </div>
-                {/* PC */}
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
-                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
-                    <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
-                      eBooks
-                    </div>
-                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-                      Coming Soon
-                    </div>
-                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
-                      Next book title dropping soon! 
-                    </div>
-                    <div className="flex flex-row mt-8 ml-4 gap-4">
-                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
-                          Register Your Interest
-                        </div>
-                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
                           Find Out More
                         </div>
                     </div>
