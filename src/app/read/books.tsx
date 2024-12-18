@@ -29,9 +29,9 @@ const Books: FC = () => {
         {/* Blogs */}
         {
           data.blogs && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
                     <div className="flex justify-center">
                       <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
@@ -86,9 +86,9 @@ const Books: FC = () => {
         {/* eBooks 1 */}
         {
           data.eBook1 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
                     <div className="flex justify-center">
                       <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
@@ -144,9 +144,9 @@ const Books: FC = () => {
         {/* eBooks 2 */}
         {
           data.eBook2 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
                     <div className="flex justify-center">
                       <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
@@ -202,9 +202,9 @@ const Books: FC = () => {
         {/* Book1 */}
         {
           data.book1 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
                     <div className="flex justify-center">
                       <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
@@ -260,13 +260,13 @@ const Books: FC = () => {
         {/* Book2 */}
         {
           data.book2 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/workbook-anniversary-edition/')}>
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
-                    <div className='flex justify-center'>
-                      <Image src={BOOK2} alt='book' />
-                    </div>
+                  <div className="flex justify-center overflow-hidden">
+                    <Image src={BOOK2} alt="learn" className="transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" />
+                  </div>
 
                     {/* Content */}
                     <div className="mt-10">
@@ -321,7 +321,9 @@ const Books: FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${BOOK2.src})` }}></div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK2.src})` }} ></div>
+                </div>
             </div>
           )
         }
@@ -330,13 +332,13 @@ const Books: FC = () => {
         {/* Book3 */}
         {
           data.book3 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/value-driven-data/')}>
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
-                    <div className='flex justify-center'>
-                      <Image src={BOOK1} alt='book' />
-                    </div>
+                  <div className="flex justify-center overflow-hidden">
+                    <Image src={BOOK1} alt="learn" className="transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" />
+                  </div>
 
                     {/* Content */}
                     <div className="mt-10">
@@ -366,7 +368,9 @@ const Books: FC = () => {
                     </div>  
                 </div>
                 {/* PC */}
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${BOOK1.src})` }}></div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK1.src})` }} ></div>
+                </div>
                 <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
                     <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       Published
@@ -400,13 +404,13 @@ const Books: FC = () => {
         {/* Book4 */}
         {
           data.book4 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/making-data-work/')}>
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
-                    <div className='flex justify-center'>
-                      <Image src={BOOK4} alt='book' />
-                    </div>
+                  <div className="flex justify-center overflow-hidden">
+                    <Image src={BOOK4} alt="learn" className="transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" />
+                  </div>
 
                     {/* Content */}
                     <div className="mt-10">
@@ -461,7 +465,9 @@ const Books: FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${BOOK4.src})` }}></div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK4.src})` }} ></div>
+                </div>
             </div>
           )
         }
@@ -470,13 +476,13 @@ const Books: FC = () => {
         {/* Book5 */}
         {
           data.book5 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/value-driven-data-the-executive-handbook/')}>
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
-                    <div className='flex justify-center'>
-                      <Image src={BOOK3} alt='book' />
-                    </div>
+                  <div className="flex justify-center overflow-hidden">
+                    <Image src={BOOK3} alt="learn" className="transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" />
+                  </div>
 
                     {/* Content */}
                     <div className="mt-10">
@@ -506,7 +512,9 @@ const Books: FC = () => {
                     </div>  
                 </div>
                 {/* PC */}
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${BOOK3.src})` }}></div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${BOOK3.src})` }} ></div>
+                </div>
                 <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
                     <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-r-demo-color px-5 sm:px-5 py-1 text-center max-w-52">
                       Published
@@ -540,9 +548,9 @@ const Books: FC = () => {
         {/* Book6 */}
         {
           data.book6 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/bulk-contact/')}>
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
                     <div className="flex justify-center">
                       <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
@@ -610,9 +618,9 @@ const Books: FC = () => {
         {/* Book7 */}
         {
           data.book7 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer" onClick={() => window.open('https://www.edosaodaro.com/bespoke-contact/')}>
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
                     <div className="flex justify-center">
                       <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>

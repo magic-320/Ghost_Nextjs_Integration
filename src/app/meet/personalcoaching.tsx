@@ -26,9 +26,9 @@ const PersonalCoaching: NextPage = () => {
         {/* The AI Value Advisory Network */}
         {
           data.meet1 && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
                     <div className="flex justify-center">
                       <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
@@ -83,12 +83,12 @@ const PersonalCoaching: NextPage = () => {
         {/* Personal Coaching */}
         {
           data.personalCoaching && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
-                    <div className="flex justify-center">
-                      <Image src={IMAGE1} alt="meet" />
+                    <div className="flex justify-center overflow-hidden">
+                      <Image src={IMAGE1} alt="learn" className="transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" />
                     </div>
 
                     {/* Content */}
@@ -113,7 +113,9 @@ const PersonalCoaching: NextPage = () => {
                     </div>  
                 </div>
                 {/* PC */}
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE1.src})` }}></div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${IMAGE1.src})` }} ></div>
+                </div>
                 <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
                     <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-m-demo-color px-7 py-1 text-center w-[auto]">
                         Personal Coaching
@@ -140,12 +142,12 @@ const PersonalCoaching: NextPage = () => {
         {/* Corporate Advisory */}
         {
           data.corporateAdvisory && (
-            <div className="block lg:flex w-full mt-6 sm:mt-24">
+            <div className="block lg:flex w-full mt-6 sm:mt-24 hover:cursor-pointer">
                 {/* mobile */}
-                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                <div className="w-full lg:w-6/12 px-0 sm:px-5 py-5 rounded-2xl block lg:hidden">
                     
-                    <div className="flex justify-center">
-                      <Image src={IMAGE2} alt="meet" />
+                    <div className="flex justify-center overflow-hidden">
+                      <Image src={IMAGE2} alt="learn" className="transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" />
                     </div>
 
                     {/* Content */}
@@ -193,7 +195,9 @@ const PersonalCoaching: NextPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE2.src})` }}></div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl overflow-hidden">
+                  <div className="h-full rounded-2xl bg-cover bg-center transition-all duration-400 ease-linear hover:grayscale hover:scale-105 hover:cursor-pointer transform" style={{ backgroundImage: `url(${IMAGE2.src})` }} ></div>
+                </div>
             </div>
           )
         }
