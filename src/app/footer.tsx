@@ -1,4 +1,6 @@
+'use client';
 import React, { FC } from "react";
+import Link from "next/link";
 
 const Footer: FC = () => {
   return (
@@ -33,16 +35,20 @@ const Footer: FC = () => {
           </div>
           <div className="flex flex-col gap-5">
             <div className="leading-6 text-[#667085]">Social</div>
-            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px]">LinkedIn</div>
-            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px]">Instagram</div>
-            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px]">Twitter</div>
+            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px] hover:cursor-pointer" onClick={() => window.open('https://www.linkedin.com/in/edosa/')}>LinkedIn</div>
+            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px] hover:cursor-pointer" onClick={() => window.open('https://www.instagram.com/edosaodarodata/')}>Instagram</div>
+            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px] hover:cursor-pointer" onClick={() => window.open('https://twitter.com/EdosaOdaro')}>Twitter</div>
           </div>
           <div className="flex flex-col gap-5">
             <div className="leading-6 text-[#667085]">Legal</div>
-            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px]">Terms</div>
-            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px]">Privacy</div>
-            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px]">Cookies</div>
-            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px]">Licenses</div>
+            <Link href="/">
+              <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px] hover:cursor-pointer">Terms</div>
+            </Link>
+            <Link href="/privacy">
+              <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px] hover:cursor-pointer">Privacy</div>
+            </Link>
+            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px] hover:cursor-pointer">Cookies</div>
+            <div className="pl-4 sm:pl-0 font-bold text-[#475467] leading-3 sm:leading-6 text-[14px] sm:text-[16px] hover:cursor-pointer">Licenses</div>
           </div>
       </div>
       <hr className="mt-3 sm:mt-5"/>
