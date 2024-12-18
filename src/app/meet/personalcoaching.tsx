@@ -1,104 +1,203 @@
+'use client';
 import type { NextPage } from "next";
+import React, { useState } from 'react';
+import Link from "next/link";
+import axios from "axios";
 import Image from "next/image";
 import IMAGE1 from "@/public/assets/images/watch/image1.png";
 import IMAGE2 from "@/public/assets/images/watch/image2.png";
 import DefaultButton from "../components/buttons/DefaultButton";
+
 const PersonalCoaching: NextPage = () => {
+
+  const [data, setData] = useState<any>({});
+
+   React.useEffect(() => {
+      const getMeet = async() => {
+        const response = await axios.get<any>('/api/meetAdmin/getMeet');
+        setData(response.data);
+      }
+
+      getMeet();
+   }, [])
+
   return (
-    <div className='sm:ml-14 pb-5 mt-10 sm:mt-24'>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-        <div>
-          <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F3F8FE] px-5 sm:px-5 py-1 text-center max-w-52">
-            About Edosa
-          </div>
-          <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-            Discover the Visionary <br />Behind the Insights
-          </div>
-          <div className="text-sm sm:text-lg leading-8 mt-4 sm:mt-8 text-text-color mr-10 sm:w-3/4">
-            Get to know Edosa Odaro, the driving force behind the educational offerings, and learn about his approach to transforming data and AI learning.
-            Get to know Edosa Odaro, the driving force behind the educational offerings, and learn about his approach to transforming data and AI learning.
-          </div>
-          <div className="flex flex-row mt-8 ml-4 ">
-            <DefaultButton buttonColor="white" className="!text-text-color !py-2 !sm-py-2 border-2 border-gray-800">Get in Touch</DefaultButton>
-            <DefaultButton className="ml-8 !py-2 !sm-py-2">Book your Slot</DefaultButton>
-          </div>
-        </div>
-        <div className="bg-[#F2FAEC] w-full h-[600px] rounded-2xl ">
+    <div className='sm:mx-14 pb-5 mt-10 sm:mt-24'>
+        {/* The AI Value Advisory Network */}
+        {
+          data.meet1 && (
+            <div className="block lg:flex w-full mt-6 sm:mt-24">
+                {/* mobile */}
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <div className="bg-[#eee] max-w-[570px] w-full min-h-[200px] rounded-2xl"></div>
+                    </div>
 
-        </div>
-      </div>
-      <div className="bg-[#F2FAEC] h-[228px] rounded-2xl mt-8 text-2xl font-bold">
-        Partnerships
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-8">
-        <div>
-          <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F2FAEC] px-5 sm:px-5 py-1 text-center max-w-72">
-            Personal Coaching
-          </div>
-          <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-            Meet Edosa and Get <br />Coached Today!
-          </div>
-          <div className="text-sm sm:text-lg leading-8 mt-4 sm:mt-8 text-text-color mr-10 sm:w-3/4">
-            <h2>What You’ll Learn:</h2>
-            <ul className="list-disc ml-10 mt-4">
-              <li><strong>Fundamental AI Concepts:</strong> Dive into the core of AI in 3 weeks.</li>
-              <li><strong>Practical AI Applications:</strong> Discover how to boost your career.</li>
-              <li><strong>Smart Data & AI Investments:</strong> Ensure strategic success.</li>
-              <li><strong>Pitfall Prevention:</strong> Learn to avoid common errors in AI projects.</li>
-            </ul>
+                    {/* Content */}
+                    <div className="mt-10">
+                    <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-m-demo-color px-7 py-1 text-center w-[auto]">
+                        The AI Value Advisory Network
+                    </span>
+                    <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        The AI Value Advisory Network
+                    </div>
+                    <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
+                        Meeting place for both organisations looking to move from AI hype to tangible value and professionals looking to provide the critical advice to guide corporate executives along the way. 
+                    </div>
+                    <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
+                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
+                            Register Your Interest
+                        </div>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
+                            Find Out More
+                        </div>
+                    </div>
+                    </div>  
+                </div>
+                {/* PC */}
+                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
+                    <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-m-demo-color px-7 py-1 text-center w-[auto]">
+                        The AI Value Advisory Network
+                    </span>
+                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        The AI Value Advisory Network
+                    </div>
+                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[5em] sm:min-h-[10em]'>
+                        Meeting place for both organisations looking to move from AI hype to tangible value and professionals looking to provide the critical advice to guide corporate executives along the way. 
+                    </div>
+                    <div className="flex flex-row mt-8 ml-4 gap-4">
+                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
+                            Register Your Interest
+                        </div>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
+                            Find Out More
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-[#eee]"></div>
+            </div>
+          )
+        }
 
-            <h2 className="my-4">Course Benefits:</h2>
-            <ul className="list-disc ml-10">
-              <li><strong>Exclusive Cohort:</strong> Join business leaders and professionals.</li>
-              <li><strong>Interactive Sessions:</strong> Enhance your AI understanding.</li>
-              <li><strong>Networking:</strong> Connect with peers of mutual career growth.</li>
-              <li><strong>Industry Insights:</strong> Gain direct access to valuable industry insights and success strategies.</li>
-            </ul>
-          </div>
-          <div className="flex flex-row mt-8 ml-4 ">
-            <DefaultButton buttonColor="white" className="!text-text-color !py-2 !sm-py-2 border-2 border-gray-800">Get in Touch</DefaultButton>
-            <DefaultButton className="ml-8 !py-2 !sm-py-2">Book your Slot</DefaultButton>
-          </div>
-        </div>
-        <div>
-          <Image src={IMAGE2} alt="learn image" className="sm:pt-0 pt-4" />
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-24">
-        <div>
-          <Image src={IMAGE1} alt="learn image" className="sm:pt-0 pt-4" />
-        </div>
-        <div className="sm:ml-10">
-          <div className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-[#F2FAEC] px-5 sm:px-5 py-1 text-center max-w-72">
-            Corporate Advisory
-          </div>
-          <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
-            On-demand Corporate <br />
-          </div>
-          <div className="text-sm sm:text-lg leading-8 mt-4 sm:mt-8 text-text-color mr-10 ">
-            <h2>What You’ll Learn:</h2>
-            <ul className="list-disc ml-10 mt-4">
-              <li><strong>Fundamental AI Concepts:</strong> Dive into the core of AI in 3 weeks.</li>
-              <li><strong>Practical AI Applications:</strong> Discover how to boost your career.</li>
-              <li><strong>Smart Data & AI Investments:</strong> Ensure strategic success.</li>
-              <li><strong>Pitfall Prevention:</strong> Learn to avoid common errors in AI projects.</li>
-            </ul>
+        {/* Personal Coaching */}
+        {
+          data.personalCoaching && (
+            <div className="block lg:flex w-full mt-6 sm:mt-24">
+                {/* mobile */}
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <Image src={IMAGE1} alt="meet" />
+                    </div>
 
-            <h2 className="my-4">Course Benefits:</h2>
-            <ul className="list-disc ml-10">
-              <li><strong>Exclusive Cohort:</strong> Join business leaders and professionals.</li>
-              <li><strong>Interactive Sessions:</strong> Enhance your AI understanding.</li>
-              <li><strong>Networking:</strong> Connect with peers of mutual career growth.</li>
-              <li><strong>Industry Insights:</strong> Gain direct access to valuable industry insights and success strategies.</li>
-            </ul>
-          </div>
-          <div className="flex flex-row mt-8 ml-4 ">
-            <DefaultButton buttonColor="white" className="!text-text-color !py-2 !sm-py-2 border-2 border-gray-800">Get more Info</DefaultButton>
-            <DefaultButton className="ml-8 !py-2 !sm-py-2">Book your Time</DefaultButton>
-          </div>
-        </div>
+                    {/* Content */}
+                    <div className="mt-10">
+                      <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-m-demo-color px-7 py-1 text-center w-[auto]">
+                          Personal Coaching
+                      </span>
+                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        AI Value - Consultant Coaching
+                      </div>
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
+                          Moving yourself from basic knowledge to full and tangible self transformation.
+                      </div>
+                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
+                          <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
+                            Register Your Interest
+                          </div>
+                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
+                            Find Out More
+                          </div>
+                      </div>
+                    </div>  
+                </div>
+                {/* PC */}
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE1.src})` }}></div>
+                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
+                    <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-m-demo-color px-7 py-1 text-center w-[auto]">
+                        Personal Coaching
+                    </span>
+                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                      AI Value - Consultant Coaching
+                    </div>
+                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]'>
+                        Moving yourself from basic knowledge to full and tangible self transformation.
+                    </div>
+                    <div className="flex flex-row mt-8 ml-4 gap-4">
+                        <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
+                          Register Your Interest
+                        </div>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
+                          Find Out More
+                        </div>
+                    </div>
+                </div>
+            </div>
+          )
+        }
 
-      </div>
+        {/* Corporate Advisory */}
+        {
+          data.corporateAdvisory && (
+            <div className="block lg:flex w-full mt-6 sm:mt-24">
+                {/* mobile */}
+                <div className="w-full lg:w-6/12 px-5 py-5 rounded-2xl block lg:hidden">
+                    
+                    <div className="flex justify-center">
+                      <Image src={IMAGE2} alt="meet" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="mt-10">
+                      <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-m-demo-color px-7 py-1 text-center w-[auto]">
+                          Corporate Advisory
+                      </span>
+                      <div className="text-lg sm:text-3xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                        The AI Values Advisory
+                      </div>
+                      <div className="text-text-color mt-5 text-[15px] sm:text-[20px]">
+                          For corportate and technology executives looking to access cutting edge advice to guide them from AI hype to measurable value.
+                      </div>
+                      <div className="block sm:flex flex-row justify-center mt-8 ml-4 gap-4">
+                          <Link href="/Dashboard/meet">
+                              <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer border-2 border-gray-800">
+                                Book a Call
+                              </div>
+                          </Link>
+                          <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 sm:py-3 px-4 sm:px-6 hover:cursor-pointer mt-2 sm:mt-0">
+                            Find Out More
+                          </div>
+                      </div>
+                    </div>  
+                </div>
+                {/* PC */}
+                <div className="w-full lg:w-6/12 px-5 py-5 hidden lg:block">
+                    <span className="text-base sm:text-2xl leading-8 font-bold rounded-full bg-m-demo-color px-7 py-1 text-center w-[auto]">
+                        Corporate Advisory
+                    </span>
+                    <div className="text-lg sm:text-4xl leading-11 font-bold mt-6 sm:mt-10 text-text-color">
+                      The AI Values Advisory
+                    </div>
+                    <div className='text-text-color mt-5 text-[15px] sm:text-[20px] min-h-[10em] sm:min-h-[18em]'>
+                        For corportate and technology executives looking to access cutting edge advice to guide them from AI hype to measurable value.
+                    </div>
+                    <div className="flex flex-row mt-8 ml-4 gap-4">
+                        <Link href="/Dashboard/meet">
+                            <div className="bg-[#FFF] text-text-color rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer border-2 border-gray-800">
+                              Book a Call
+                            </div>
+                        </Link>
+                        <div className="bg-text-color text-[#FFF] rounded-full bold text-center text-[14px] sm:text-[16px] py-1.5 md:py-3 px-4 md:px-6 hover:cursor-pointer">
+                          Find Out More
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full lg:w-6/12 mx-10 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url(${IMAGE2.src})` }}></div>
+            </div>
+          )
+        }
+      
     </div >
   );
 };

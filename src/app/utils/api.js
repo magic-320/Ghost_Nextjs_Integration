@@ -1,7 +1,7 @@
 import {HumanReadableError} from './errors';
 import {transformApiSiteData, transformApiTiersData, getUrlHistory} from './helpers';
 
-function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
+function setupGhostApi({siteUrl = typeof window !== 'undefined' ? window.location.origin : 'fallback-url', apiUrl, apiKey}) {
     const apiPath = 'members/api';
 
     function endpointFor({type, resource}) {
@@ -288,7 +288,7 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
             });
 
             if (res.ok) {
-                return 'Success';
+                return res;
             } else {
                 // Try to read body error message that is human readable and should be shown to the user
                 const humanError = await HumanReadableError.fromApiResponse(res);
@@ -586,8 +586,9 @@ function setupGhostApi({siteUrl = window.location.origin, apiUrl, apiKey}) {
                 newsletters,
                 tiers: transformApiTiersData({tiers})
             };
-        } catch (e) {
+        } catch (err) {
             // Ignore
+            console.log(err);
         }
         site = transformApiSiteData({site});
         return {site, member};

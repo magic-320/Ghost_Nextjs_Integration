@@ -1,35 +1,82 @@
-import React, { FC } from "react";
+'use client';
+import React, { FC, useState } from "react";
+import axios from "axios";
 import UpdatedCard from "../components/cards/UpdatedCard";
 
-const drivenItems = [
-    {
-        typeName: "Learn",
-        typeColor: "#5D5FEF",
-        header: "New Course Alert",
-        content: 'Discover the \"Demystifying & Accelerating AI Value\" course, a 3-week intensive program on Maven.com, guiding you through the fundamentals of AI and its real-world applications.',
-        cardColor: "#F3F8FE",
-        imgUrl: "/assets/images/stayUpdated/card1.svg",
-    },
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-    {
-        typeName: "Watch",
-        typeColor: "#9E77ED",
-        header: "Latest Video",
-        content: 'Watch the latest video, where Edosa discusses the role of AI in modern organizations and how to integrate it effectively for long-term impact.',
-        cardColor: "#F7F6FF",
-        imgUrl: "/assets/images/stayUpdated/card3.png",
-    },
 
-];
+type PostsResponse = {
+    posts: any;
+};
+
+interface drivenItemsStyle {
+    wholeData: any;
+    linkUrl: string | undefined;
+    typeName: string,
+    typeColor: string,
+    header: string,
+    content: string,
+    cardColor: string,
+    imgUrl: string,
+}
 
 const StayUpdated: FC = () => {
+
+    const [drivenItems, setDrivenItems] = useState<drivenItemsStyle[]>([]);
+
+    React.useEffect(() => {
+        const getPosts = async() => {
+            try {
+                const course = await axios.post<PostsResponse>('/api/content/posts', {
+                    payload: "&limit=all&filter=featured:true"
+                });
+
+                console.log(course.data)
+
+                const learnObj = {
+                    typeName: "",
+                    typeColor: "#5D5FEF",
+                    header: course.data.posts[0]?.title,
+                    content: course.data.posts[0]?.excerpt,
+                    cardColor: "#F3F8FE",
+                    imgUrl: course.data.posts[0]?.feature_image,
+                    linkUrl: '',
+                    wholeData: course.data.posts[0]
+                }
+
+                const readObj = {
+                    typeName: "",
+                    typeColor: "#FF4405",
+                    header: course.data.posts[1]?.title,
+                    content: course.data.posts[1]?.excerpt,
+                    cardColor: "#FFF7F4",
+                    imgUrl: course.data.posts[1]?.feature_image,
+                    linkUrl: '',
+                    wholeData: course.data.posts[1]
+                }
+
+                const watchObj = {
+                    typeName: "",
+                    typeColor: "#9E77ED",
+                    header: course.data.posts[2]?.title,
+                    content: course.data.posts[2]?.excerpt,
+                    cardColor: "#F7F6FF",
+                    imgUrl: course.data.posts[2]?.feature_image,
+                    linkUrl: '',
+                    wholeData: course.data.posts[2]
+                }
+
+                let arr = [];
+                arr.push(learnObj, readObj, watchObj);
+                setDrivenItems(arr);
+
+            } catch (err) {
+              console.log(err);
+            }
+        }
+  
+        getPosts();
+    }, [])
+
     return (
         <div className="mt-4 sm:mt-14 px-4 sm:px-10">
             <div>
@@ -52,6 +99,8 @@ const StayUpdated: FC = () => {
                             typeName={item.typeName}
                             typeColor={item.typeColor}
                             imgUrl={item.imgUrl}
+                            linkUrl={item.linkUrl}
+                            wholeData={item.wholeData}
                         />
                     ))
                 }

@@ -1,0 +1,33 @@
+/* @import url('https://www.edosaodaro.com//assets/built/screen.css?v=e84a12bca2'); */
+@import url('https://www.edosaodaro.com//public/cards.min.css');
+
+:root {--ghost-accent-color: #004000;}
+
+.publisher-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.publisher-item a {
+    border: 1px solid #475467;
+    border-radius: 50px;
+    color: #475467;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 1.4;
+    padding: 8px 20px;
+    margin: 16px 0;
+}
+
+
+blockquote:not([class]){
+    border-left:4px solid var(--ghost-accent-color);
+    padding-left:1.5rem;
+}
+.gh-content>blockquote,.gh-content>hr{
+    position:relative
+}
+.gh-content>blockquote,.gh-content>blockquote+*,.gh-content>hr,.gh-content>hr+*{
+    margin-top:calc(2.4em*var(--content-spacing-multiplier, 1))
+}

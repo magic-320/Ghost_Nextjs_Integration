@@ -9,7 +9,8 @@ const drivenItems = [
 		content: "Access structured courses, coaching, and<br/> bundles tailored to different levels, helping<br/> professionals advance their data and AI skills.",
 		cardColor: "#F3F8FE",
 		imgUrl: "url(/assets/images/drivenSvgs/card1.svg)",
-		linkUrl: "/assets/images/drivenSvgs/arrow1.svg",
+		iconUrl: "/assets/images/drivenSvgs/arrow1.svg",
+		linkUrl: '/Dashboard/learn'
 	},
 	{
 		buttonName: "Read",
@@ -18,7 +19,8 @@ const drivenItems = [
 		content: "Discover a library of articles and books that<br/> provide strategic insights into how data and AI<br/> can create real-world value.",
 		cardColor: "#FFF7F4",
 		imgUrl: "url(/assets/images/drivenSvgs/card2.svg)",
-		linkUrl: "/assets/images/drivenSvgs/arrow2.svg",
+		iconUrl: "/assets/images/drivenSvgs/arrow2.svg",
+		linkUrl: '/Dashboard/read'
 	},
 	{
 		buttonName: "Watch",
@@ -27,7 +29,8 @@ const drivenItems = [
 		content: "Watch videos and podcasts featuring Edosa<br/> and industry experts, offering valuable<br/> perspectives on data and AI's power.",
 		cardColor: "#F7F6FF",
 		imgUrl: "url(/assets/images/drivenSvgs/card3.svg)",
-		linkUrl: "/assets/images/drivenSvgs/arrow3.svg",
+		iconUrl: "/assets/images/drivenSvgs/arrow3.svg",
+		linkUrl: '/Dashboard/watch'
 	},
 	{
 		buttonName: "Meet",
@@ -36,7 +39,8 @@ const drivenItems = [
 		content: "Sign up for one-on-one coaching sessions with<br/> Edosa or get corporate advisory services that<br/> help organizations integrate data strategies<br/> effectively.",
 		cardColor: "#F2FAEC",
 		imgUrl: "url(/assets/images/drivenSvgs/card4.svg)",
-		linkUrl: "/assets/images/drivenSvgs/arrow4.svg",
+		iconUrl: "/assets/images/drivenSvgs/arrow4.svg",
+		linkUrl: '/Dashboard/meet'
 	},
 ];
 
@@ -63,6 +67,7 @@ const ValueDriven: FC = () => {
 							buttonName={item.buttonName}
 							buttonColor={item.buttonColor}
 							imgUrl={item.imgUrl}
+							iconUrl={item.iconUrl}
 							linkUrl={item.linkUrl}
 						/>
 					))

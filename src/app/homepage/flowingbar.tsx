@@ -8,6 +8,7 @@ import ITEM3 from '@/public/assets/svg/item3.svg';
 import ITEM4 from '@/public/assets/svg/item4.svg';
 import ITEM5 from '@/public/assets/svg/item5.svg';
 import Image from 'next/image';
+
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
@@ -31,7 +32,7 @@ const responsive = {
 const FlowingBar: FC = () => {
     const items = [ITEM1, ITEM2, ITEM3, ITEM4, ITEM5];
     return (
-        <Carousel responsive={responsive} autoPlay arrows={false} className='mt-4 sm:mt-7' itemClass="px-2 sm:px-5">
+        <Carousel responsive={responsive} autoPlay={true} infinite={true} arrows={false} className='mt-4 sm:mt-7' itemClass="px-2 sm:px-5">
             {items.map((item, index) => (
                 <div key={index} className={`card rounded-md shadow-md gap-3 bg-def-color flex h-[100px] sm:h-[205px] items-center justify-center`}>
                     <Image src={item} className='h-[50px] sm:h-[120px] w-auto' draggable="false" alt='item' />

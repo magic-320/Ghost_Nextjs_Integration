@@ -4,14 +4,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
-import error from 'next/error';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
-import jwt from 'jsonwebtoken';
 import setupGhostApi from '../utils/api';
 import Link from 'next/link';
 import { toast, ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 interface MyJwtPayload extends JwtPayload {
   email: string;
@@ -20,6 +17,7 @@ interface MyJwtPayload extends JwtPayload {
 const API_URL = process.env.NEXT_PUBLIC_GHOST_API_URL;
 const ADMIN_API_KEY = process.env.NEXT_PUBLIC_GHOST_ADMIN_API_KEY;
 const CONTENT_API_KEY = process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY;
+const CLIENT_ID_GOOGLE_AUTH = process.env.NEXT_PUBLIC_CLIENT_ID_GOOGLE_AUTH;
 
 const ghostAPI = setupGhostApi({
   apiUrl: API_URL,
@@ -29,9 +27,20 @@ const ghostAPI = setupGhostApi({
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // Runs only on the client-side
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    // Prevents SSR window-related issues
+    return null;
+  }
 
   // Sign in
-  const onLogin = async () => {
+  const onLogin = async (email: string) => {
     try {
 
       const token = await ghostAPI.member.getIntegrityToken();
@@ -55,19 +64,41 @@ const LoginForm: React.FC = () => {
 
       setEmail('');
 
+      toast.success(`Please, check your Email's Inbox.`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce
+      });
+
     } catch (error) {
         console.error("Error: ", error);
+        toast.error(`${error}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce
+        });
     }
-};
+  };
   
   const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
   };
 
-
   return (
-    <div className='flex flex-col sm:flex-row sm:row-span-2'>
-      <div className="sm:w-2/5 mt-12 mr-8 p-6 rounded-lg bg-[#F9F9F9]">
+    <div className='flex flex-col md:flex-row md:row-span-2'>
+      <div className="w-full md:w-2/5 mt-4 md:mt-12 mr-8 p-6 rounded-lg bg-[#F9F9F9]">
         <h1 className="text-2xl font-bold text-orange-600 text-center mt-8">EDOSA ODARO</h1>
         <h2 className="text-3xl font-bold text-center mt-4">Log in to your account</h2>
         <p className="text-center mt-4">Welcome back! Please enter your details.</p>
@@ -101,7 +132,7 @@ const LoginForm: React.FC = () => {
 
           </div>
 
-          <button type="submit" className="w-full bg-[#475467] text-white font-bold py-2 rounded-md hover:bg-[#77859b]" onClick={onLogin}>Sign in</button>
+          <button type="submit" className="w-full bg-[#475467] text-white font-bold py-2 rounded-md hover:bg-[#77859b]" onClick={() => onLogin(email)}>Sign in</button>
 
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
@@ -109,16 +140,17 @@ const LoginForm: React.FC = () => {
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
           
-          <GoogleOAuthProvider clientId="1024473496953-0qd867cnd2o7cj3e4njaes6k575n0r11.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId="712439827619-h3e651gphr5dbju3l393810s4kdfpd6g.apps.googleusercontent.com">
             <div className='mt-4 w-full'>
               <GoogleLogin
-                onSuccess={credentialResponse => {
+                onSuccess={async (credentialResponse) => {
                   const token = credentialResponse.credential;
                   // Check if the token is defined
                   if (token) {
                     const decoded = jwtDecode<MyJwtPayload>(token);
                     setEmail(decoded.email);
-                    onLogin();
+                    onLogin(decoded.email);
+
                   } else {
                     toast.error(`Token is undefined`, {
                         position: "top-right",
@@ -149,16 +181,17 @@ const LoginForm: React.FC = () => {
               />
             </div>
           </GoogleOAuthProvider>
+
+
           <p className="text-center mt-5">
             Don't have an account? <Link href="/signup" className="text-blue-600">Sign up</Link>
           </p>
         </form>
         {/* {error && <p>error</p>} */}
       </div>
-      <div className='bg-[#F2FAEC] mt-4 sm:w-3/4 rounded-2xl h-[700px] sm:ml-10'>
-
+      <div className='bg-[#F2FAEC] mt-4 md:w-3/4 rounded-2xl h-[700px] md:ml-10 hidden md:block'>
+        
       </div>
-
       <ToastContainer />
     </div>
   );
