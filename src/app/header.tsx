@@ -52,6 +52,10 @@ const links: Array<{ text: string, link: string, textColor: string, bgColor: str
   },
 ];
 
+
+const linksArr:any = ['/learn', '/read', '/watch', '/meet'];
+
+
 interface userStyle {
     jwtToken: any,
     member: any
@@ -65,6 +69,7 @@ const Header: FC = () => {
   const headerPanelRef = useRef<HTMLDivElement>(null);
   const [user, setUser] = useState<userStyle | null>();
   const hasRun = useRef(false);
+
 
   useEffect(() => {
     if (headerPanelRef.current) {
@@ -146,7 +151,6 @@ const Header: FC = () => {
     }
 
 
-
     if (localStorage.getItem('edosaMember')) {
         const jwtToken = localStorage.getItem('edosaJwtToken');
         const member = localStorage.getItem('edosaMember');
@@ -198,25 +202,67 @@ const Header: FC = () => {
           </Link>
         </div>
 
-        <div
-          ref={headerPanelRef}
-          className="panel border-2 border-text-color rounded-full bg-white py-1.5 px-4 sm:px-8 flex items-center justify-center gap-5 sm:gap-10"
-        >
-            {links.map((item, index) => {
-                const newStyle = currentUrl === item.link
-                  ? `text-[${item.textColor}] font-bold`
-                  : "font-normal";
-                return (
-                  <Link
-                    href={item.link}
-                    key={index}
-                    className={`text-[16px] md:text-[20px] font-inter ${newStyle}`}
-                  >
-                    {item.text}
-                  </Link>
-                );
-            })}
-        </div>
+        {
+            linksArr.includes(currentUrl) ? (
+                <div
+                  ref={headerPanelRef}
+                  className="panel rounded-full flex justify-center px-3"
+                >
+                    {links.map((item, index) => {
+                        const newStyle = currentUrl === item.link
+                          ? `text-[${item.textColor}] font-bold`
+                          : "font-normal";
+                        return (
+                          <Link
+                            href={item.link}
+                            key={index}
+                          >
+                            <div className={`text-[16px] md:text-[20px] font-inter px-5 py-1.5 ${newStyle}`}>
+                              {item.text}
+                            </div>
+                          </Link>
+                        );
+                    })}
+                </div>
+            ) : (
+                <div
+                  ref={headerPanelRef}
+                  className="panel rounded-full flex justify-center overflow-hidden"
+                >
+                    <Link
+                      href="/learn"
+                    >
+                      <div className={`text-[16px] md:text-[20px] font-inter px-5 py-1.5 bg-l-main-color text-[#fff] pl-8 rounded-tl-full rounded-bl-full`}>
+                        Learn
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/read"
+                    >
+                      <div className={`text-[16px] md:text-[20px] font-inter px-5 py-1.5 bg-r-main-color text-[#fff]`}>
+                        Read
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/watch"
+                    >
+                      <div className={`text-[16px] md:text-[20px] font-inter px-5 py-1.5 bg-w-main-color text-[#fff]`}>
+                        Watch
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/meet"
+                    >
+                      <div className={`text-[16px] md:text-[20px] font-inter px-5 py-1.5 bg-m-main-color text-[#fff] pr-8 rounded-tr-full rounded-br-full`}>
+                        Meet
+                      </div>
+                    </Link>
+                </div>
+            )
+        }
 
         <div className='flex items-center justify-center mr-2 md:mr-10 px-1 sm:px-3 gap-3 my-2 sm:my-0'>
           {/* <Image src={SEARCHICON} className='w-5 h-5 hover:cursor-pointer' alt='search' /> */}
