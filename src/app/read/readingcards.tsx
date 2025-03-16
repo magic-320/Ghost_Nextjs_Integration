@@ -1,58 +1,44 @@
-import React, { FC } from "react";
+"use client"; // Add this line at the top
+
+import React, { FC, useState, useEffect } from "react";
+import axios from "axios";
 import UpdatedCard from "../components/cards/UpdatedCard";
 
-const drivenItems = [
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-    {
-        typeName: "Read",
-        typeColor: "#FF4405",
-        header: "Latest Article",
-        content: 'Dive into our newest article, \"Data-Driven Decision Making,\" which offers strategic guidance on harnessing data insights to drive business success',
-        cardColor: "#FFF7F4",
-        imgUrl: "/assets/images/stayUpdated/card2.svg",
-    },
-];
+type PostsResponse = {
+    posts: any;
+};
 
 const ReadingCards: FC = () => {
+    const [drivenItems, setDrivenItems] = useState<any[]>([]);
+
+    useEffect(() => {
+        const getPosts = async () => {
+            try {
+                const course = await axios.post<PostsResponse>('/api/content/posts', {
+                    payload: "&limit=all&filter=featured:true"
+                });
+
+                const items = course.data.posts.map((post: any) => ({
+                    typeName: "",
+                    typeColor: "#FF4405",
+                    header: post.title,
+                    content: post.excerpt,
+                    cardColor: "#FFF7F4",
+                    imgUrl: post.feature_image,
+                    linkUrl: '',
+                    wholeData: post
+                }));
+
+                setDrivenItems(items);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        getPosts();
+    }, []);
+
+
     return (
         <div className="mt-4 sm:mt-14 px-4 sm:px-10">
             <div>
@@ -62,8 +48,9 @@ const ReadingCards: FC = () => {
                 Latest Readings from Edosa
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-10 mt-6">
-                {
-                    drivenItems.map((item, index) => (
+                {drivenItems.map((item, index) => {
+                    if (index >= 6) return;
+                    return (
                         <UpdatedCard
                             key={index}
                             header={item.header}
@@ -72,14 +59,13 @@ const ReadingCards: FC = () => {
                             typeName={item.typeName}
                             typeColor={item.typeColor}
                             imgUrl={item.imgUrl}
+                            wholeData={item.wholeData}
                         />
-                    ))
-                }
+                    )
+                })}
             </div>
-
         </div>
     );
-
-}
+};
 
 export default ReadingCards;

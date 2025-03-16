@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Link from "next/link";
 import DefaultButton from "../buttons/DefaultButton";
 interface DrivenCardProps {
     header: string;
@@ -7,7 +8,8 @@ interface DrivenCardProps {
     buttonColor: string;
     cardColor: string;
     imgUrl?: string;
-    linkUrl?: string;
+    iconUrl?: string,
+    linkUrl: string;
 }
 
 const DrivenCard: FC<DrivenCardProps> = ({
@@ -17,6 +19,7 @@ const DrivenCard: FC<DrivenCardProps> = ({
     buttonColor,
     cardColor,
     imgUrl,
+    iconUrl,
     linkUrl,
 }: DrivenCardProps) => {
     return (
@@ -27,7 +30,9 @@ const DrivenCard: FC<DrivenCardProps> = ({
             </div>
             <div className="leading-6 text-sm sm:text-lg mt-4 ml-4 sm:ml-11 text-text-color pb-4" dangerouslySetInnerHTML={{ __html: content }}></div>
             <div className="absolute right-1 sm:right-4 bottom-1 sm:bottom-4">
-                <img src={linkUrl?.toString()} className="w-6 sm:w-8 h-6 sm:h-8" />
+                <Link href={linkUrl}>
+                    <img src={iconUrl?.toString()} className="w-6 sm:w-8 h-6 sm:h-8" />
+                </Link>
             </div>
         </div>
     );

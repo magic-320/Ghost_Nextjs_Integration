@@ -12,8 +12,9 @@ export class HumanReadableError extends Error {
                 if (json.errors && Array.isArray(json.errors) && json.errors.length > 0 && json.errors[0].message) {
                     return new HumanReadableError(json.errors[0].message);
                 }
-            } catch (e) {
+            } catch (err) {
                 // Failed to decode: ignore
+                console.log(err);
                 return false;
             }
         }

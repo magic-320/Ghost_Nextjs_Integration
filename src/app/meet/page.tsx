@@ -10,7 +10,6 @@ const Watch: NextPage = () => {
             <div className="max-w-[1440px] mx-auto">
                 <Header />
                 <LearnMainComponent />
-
                 <PersonalCoaching />
                 <ReadHintPage />
                 <Footer />

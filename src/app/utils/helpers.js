@@ -744,7 +744,8 @@ export const getDefaultNewsletterSender = ({site}) => {
 export const getSiteDomain = ({site}) => {
     try {
         return ((new URL(site.url)).origin).replace(/^http(s?):\/\//, '').replace(/\/$/, '');
-    } catch (e) {
+    } catch (err) {
+        console.log(err);
         return site.url.replace(/^http(s?):\/\//, '').replace(/\/$/, '');
     }
 };

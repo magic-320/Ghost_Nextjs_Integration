@@ -1,7 +1,7 @@
 import GhostContentAPI from "@tryghost/content-api";
 
 const api = new GhostContentAPI({
-  url: "http://localhost:2368",
+  url: "https://www.edosaodaro.com/",
   key: "b33c063de2ed7799ce7a4202c1",
   version: "v5.0",
 });
